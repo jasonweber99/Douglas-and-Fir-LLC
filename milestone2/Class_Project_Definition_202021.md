@@ -67,12 +67,19 @@ Go through all the information gathered during the previous round of elicitation
     As needed
 
 ## List of Needs and Features
-    1. Blog
-    2. Login system
-    3. Administration dashboard
-    4. Expedition viewing/filtering
-    5. Expedition submission
-    6. Dynamic homepage
+    1. Want site to be a trustworthy hub of information.
+        * Verified users
+        * Blog
+    2. Need user profiles and the ability to enter and edit climb data easily.
+        * Login system
+        * Expedition submission
+    3. Need a user-friendly way to obtain climb data from the site.
+        * Search function
+        * Filtering by attributes of a climb
+        * Dynamic homepage
+    4. Need a way for employees to administer the site
+        * Administration dashboard
+        * Editing/deleting blog posts or climb data
 
 ## Initial Modeling
     Diagrams

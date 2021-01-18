@@ -85,7 +85,7 @@ Go through all the information gathered during the previous round of elicitation
     Diagrams
 
 ### Use Case Diagrams
-    Diagrams
+    ![Himalayan Database Use Cases](use_case_diagram.jpg)
 
 ### Sequence Diagrams
 
@@ -94,8 +94,7 @@ Go through all the information gathered during the previous round of elicitation
 
 ## Identify Non-Functional Requirements
 1. English is the default language, but we must support visitors and data in other character sets
-2.
-3.
+2. Adaptive webapp for easy display on mobile devices
 
 ## Identify Functional Requirements (In User Story Format)
 

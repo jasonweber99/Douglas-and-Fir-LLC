@@ -30,4 +30,4 @@
     * Ranking and displaying 'top 10' lists of zip codes based on a variety of available data
 
 ### Rate the topic with a difficulty rating of 1-10. One being supremely easy to implement (not necessarily short though). Ten would require the best CS students using lots of what they learned in their CS degree, plus additional independent learning, to complete successfully.
-        The difficulty of this project would be a 6 or a 7. While it may not draw on some of our upper division CS classes, keeping track of multiple APIs and data sets as well as learning a new JS library would still prove to be difficult.
+        While it may not draw on some of our upper division CS classes, keeping track of multiple APIs and data sets as well as learning a new JS library would still prove to be more difficult than it is easy. It is for this reason that we rate this topic a 6 or 7 out of 10 on difficulty.

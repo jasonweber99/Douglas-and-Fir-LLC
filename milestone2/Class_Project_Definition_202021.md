@@ -82,15 +82,9 @@ Go through all the information gathered during the previous round of elicitation
         * Editing/deleting blog posts or climb data
 
 ## Initial Modeling
-    Diagrams
 
-### Use Case Diagrams
-    ![Himalayan Database Use Cases](use_case_diagram.jpg)
-
-### Sequence Diagrams
-
-### Other Modeling
-    Diagrams, UI wireframes, page flows, ...
+### Use Case Diagram
+    [Himalayan Database Use Cases](use_case_diagram.jpg)
 
 ## Identify Non-Functional Requirements
 1. English is the default language, but we must support visitors and data in other character sets
@@ -130,10 +124,10 @@ T: Task
 8. [U] As a climber, I would like to edit my previous expeditions so I can correct information.
 
 ## Initial Architecture Envisioning
-    Diagrams and drawings, lists of components
+    [Himalayan Database System Architecture](System_Architecture.jpg)
 
 ## Agile Data Modeling
-    Diagrams, SQL modeling (dbdiagram.io), UML diagrams
+    [Himalayan Database System ERD](himalayan-db-erd.png)
 
 ## Timeline and Release Plan
     Schedule: meaningful dates, milestones, sprint cadence, how releases are made (CI/CD, or fixed releases, or ?)

@@ -3,11 +3,12 @@
     * Short Explanation (John)
         This webapp would provide an analysis and overview of data from zip codes across the United States. By utilizing US Census records among other private and government data this project would display collated and relevant information about a particular zip code including crime rates, school ratings, property values, local tax information, and available public services. The user base would include potential home buyers, people looking to relocate, or individuals just wanting to see some quantitative information on a zip code.
 
-    * What is new/original about this idea? What are related websites/apps? (Be able to answer the question: isn’t somebody already doing this?) (Kelby
-    )
+    * What is new/original about this idea? What are related websites/apps? (Be able to answer the question: isn’t somebody already doing this?) 
+        This web app would go into much greater detail about each zip code than existing sites. Each zipcode could be compared with others in many different categories or be given a grade based on statistics that are important to the user. One related website is unitedstateszipcodes.org, which ranks zip codes by several categories, but there is no way to compare two zipcodes and there isnt an easy way to get zipcode statistics from a map view. Another similar website is niche.com, which also ranks cities/zipcodes in a limited number of categories and gives each neighborhood a grade ranking.
 
 
-    * Why is this idea worth doing? Why is it useful and not boring? (Kelby)
+    * Why is this idea worth doing? Why is it useful and not boring? 
+        This project would bring a ton of data together to allow the user to find out information about zip codes to determine a place to live, which school to attend, or to discover informaiton about the user's current location. The user could personalize the search and ranking based on the statistics that are important to them. 
 
 
     * What are a few major features? (John)

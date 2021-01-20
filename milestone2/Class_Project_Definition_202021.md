@@ -116,7 +116,7 @@ T: Task
 3. [U] As a user of the site, I would like to be able to edit my profile so I can display relevent information about myself and my expeditions. 
 4. [U] As a visitor to the site, I would like to be able to easily view information about specific expeditions.
 5. [U] As a visitor to the site, I would like to be able to filter expeditions by time, peak, etc.
-6. [E] As a visitor to the site, I woudl like to view blog posts about expedition news or recent climbs.
+6. [E] As a visitor to the site, I would like to view blog posts about expedition news or recent climbs.
     1. [U] As a registered user, I would like to be able to make posts to the blog.
         a. [T]
         b. [T]

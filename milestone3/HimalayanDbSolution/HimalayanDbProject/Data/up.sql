@@ -52,7 +52,7 @@ CREATE TABLE [ExpeditionMember] (
   [ExpeditionID] int,
   [MemberID] int,
   [RoleID] int,
-  [HighPointMeters] double,
+  [HighPointMeters] decimal,
   [OxygenUsed] bit
 )
 GO
@@ -75,26 +75,42 @@ CREATE TABLE [User] (
 )
 GO
 
-ALTER TABLE [Expedition] ADD FOREIGN KEY ([PeakID]) REFERENCES [Peak] ([ID])
+ALTER TABLE [Expedition]
+ADD CONSTRAINT FK_PeakExpedition
+FOREIGN KEY ([PeakID]) REFERENCES [Peak] ([ID])
 GO
 
-ALTER TABLE [Expedition] ADD FOREIGN KEY ([TrekkingAgencyID]) REFERENCES [TrekkingAgency] ([ID])
+ALTER TABLE [Expedition]
+ADD CONSTRAINT FK_TrekkingAgencyExpedition
+FOREIGN KEY ([TrekkingAgencyID]) REFERENCES [TrekkingAgency] ([ID])
 GO
 
-ALTER TABLE [Expedition] ADD FOREIGN KEY ([CreatorID]) REFERENCES [User] ([ID])
+ALTER TABLE [Expedition]
+ADD CONSTRAINT FK_UserExpedition
+FOREIGN KEY ([CreatorID]) REFERENCES [User] ([ID])
 GO
 
-ALTER TABLE [Member] ADD FOREIGN KEY ([NationalityID]) REFERENCES [Nationality] ([ID])
+ALTER TABLE [Member]
+ADD CONSTRAINT FK_NationalityMember
+FOREIGN KEY ([NationalityID]) REFERENCES [Nationality] ([ID])
 GO
 
-ALTER TABLE [ExpeditionMember] ADD FOREIGN KEY ([ExpeditionID]) REFERENCES [Expedition] ([ID])
+ALTER TABLE [ExpeditionMember]
+ADD CONSTRAINT FK_ExpeditionExpeditionMember
+FOREIGN KEY ([ExpeditionID]) REFERENCES [Expedition] ([ID])
 GO
 
-ALTER TABLE [ExpeditionMember] ADD FOREIGN KEY ([MemberID]) REFERENCES [Member] ([ID])
+ALTER TABLE [ExpeditionMember]
+ADD CONSTRAINT FK_MemberExpeditionMember
+FOREIGN KEY ([MemberID]) REFERENCES [Member] ([ID])
 GO
 
-ALTER TABLE [ExpeditionMember] ADD FOREIGN KEY ([RoleID]) REFERENCES [Role] ([ID])
+ALTER TABLE [ExpeditionMember]
+ADD CONSTRAINT FK_RoleExpeditionMember
+FOREIGN KEY ([RoleID]) REFERENCES [Role] ([ID])
 GO
 
-ALTER TABLE [BlogPost] ADD FOREIGN KEY ([AuthorID]) REFERENCES [User] ([ID])
+ALTER TABLE [BlogPost]
+ADD CONSTRAINT FK_UserBlogPost
+FOREIGN KEY ([AuthorID]) REFERENCES [User] ([ID])
 GO

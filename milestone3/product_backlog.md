@@ -19,7 +19,7 @@ We will be using <a href="https://pivotaltracker.com">Pivotal Tracker</a> to mak
             <td>As a visitor to the site I would like to see a fantastic and modern homepage that introduces me to
 the site and the features currently available</td>
             <td>This is the initial setup story and will create a homepage for the coming project.  There aren't any features yet so this will create a welcome page and will remove all boilerplate that isn't needed.</td>
-            <td></td>
+            <td><a href="http://himalayandatabase.azurewebsites.net/">Website</a></td>
         </tr>
         <tr>
             <td>2</td> <td>Complete</td> <td>U</td> <td>-</td> <td>Quincey</td>

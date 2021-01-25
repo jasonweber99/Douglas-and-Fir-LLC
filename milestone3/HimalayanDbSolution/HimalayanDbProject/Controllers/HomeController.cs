@@ -24,7 +24,22 @@ namespace HimalayanDbProject.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var expeditionDbContext = _dbContext.Peaks.Include(p => p.Expeditions).OrderByDescending(p => p.Height).Take(15).ToList();
+            var vmList = new List<HomeIndexVM>();
+
+            for (int i = 0; i < 15; i++)
+            {
+                vmList.Add(new HomeIndexVM
+                {
+                    Rank = i + 1,
+                    Name = expeditionDbContext[i].Name,
+                    Height = expeditionDbContext[i].Height,
+                    FirstClimbed = expeditionDbContext[i].FirstAscentYear,
+                    NumExpeditions = expeditionDbContext[i].Expeditions.Count()
+                });
+            }
+
+            return View(vmList);
         }
 
         public IActionResult Submit()

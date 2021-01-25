@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj": {}
+    "C:\\Users\\Jason Weber\\source\\repos\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj": {}
   },
   "projects": {
-    "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj": {
+    "C:\\Users\\Jason Weber\\source\\repos\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
+        "projectUniqueName": "C:\\Users\\Jason Weber\\source\\repos\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
         "projectName": "HimalayanDbProject",
-        "projectPath": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
-        "packagesPath": "C:\\Users\\rokon\\.nuget\\packages\\",
-        "outputPath": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\obj\\",
+        "projectPath": "C:\\Users\\Jason Weber\\source\\repos\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
+        "packagesPath": "C:\\Users\\Jason Weber\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jason Weber\\source\\repos\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\rokon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jason Weber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,7 +29,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,7 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Bricelam.EntityFrameworkCore.Pluralizer": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -101,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

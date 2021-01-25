@@ -9155,23 +9155,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kelby\\.nuget\\packages\\": {},
+    "C:\\Users\\rokon\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kelby\\OneDrive\\Documents\\CS461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
+      "projectUniqueName": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
       "projectName": "HimalayanDbProject",
-      "projectPath": "C:\\Users\\kelby\\OneDrive\\Documents\\CS461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
-      "packagesPath": "C:\\Users\\kelby\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kelby\\OneDrive\\Documents\\CS461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\obj\\",
+      "projectPath": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\HimalayanDbProject.csproj",
+      "packagesPath": "C:\\Users\\rokon\\.nuget\\packages\\",
+      "outputPath": "Z:\\School\\CS 461\\Douglas-and-Fir-LLC\\milestone3\\HimalayanDbSolution\\HimalayanDbProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\kelby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rokon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -9255,7 +9255,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

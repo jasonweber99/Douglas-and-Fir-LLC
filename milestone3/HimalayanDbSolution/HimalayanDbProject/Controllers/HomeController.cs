@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HimalayanDbProject.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HimalayanDbProject.Controllers
 {
@@ -26,8 +27,10 @@ namespace HimalayanDbProject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Submit()
         {
+            ViewData["PeakId"] = new SelectList(_dbContext.Peaks, "Id", "Name");
+            ViewData["TrekkingAgencyName"] = new SelectList(_dbContext.TrekkingAgencies, "Id", "Name");
             return View();
         }
 

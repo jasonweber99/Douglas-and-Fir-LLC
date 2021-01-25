@@ -28,7 +28,7 @@ the site and the features currently available</td>
             <td></td>
         </tr>
         <tr>
-            <td>3</td> <td>Started</td> <td>U</td> <td>-</td> <td>John</td>
+            <td>3</td> <td>Complete</td> <td>U</td> <td>-</td> <td>John</td>
             <td>As a climber, I would like to submit information about my expedition so it could be viewed by other users.</td> 
             <td>This would allow for the submission of expedition data to the database. The user would enter the peak, start date, oxygen used, trekking agency, termination reason.</td>
             <td></td>

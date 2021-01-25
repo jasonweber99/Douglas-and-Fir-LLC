@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using HimalayanDbProject.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace HimalayanDbProject.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ExpeditionsDbContext _dbContext;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, ExpeditionsDbContext context)
+        {
+            _dbContext = context;
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Peaks()
+        {
+            var peaks = _dbContext.Peaks.OrderByDescending(y => y.FirstAscentYear);
+            return View(peaks);
+        }
+        [HttpGet]
+        public IActionResult Peak(int? id)
+        {
+            var content = _dbContext.Peaks.Include(e => e.Expeditions).ThenInclude(t => t.TrekkingAgency).Where(peak => peak.Id == id);
+            return View(content);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}

@@ -447,4 +447,6 @@ C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\Himalayan
 C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\Razor\Views\BlogPosts\Delete.cshtml.g.cs
 C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\Razor\Views\BlogPosts\Details.cshtml.g.cs
 C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\Razor\Views\BlogPosts\Index.cshtml.g.cs
-C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\scopedcss\bundle\HimalayanDbProject.styles.css
+C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Peak.cshtml.g.cs
+C:\Users\kelby\OneDrive\Documents\CS461\Douglas-and-Fir-LLC\milestone3\HimalayanDbSolution\HimalayanDbProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Peaks.cshtml.g.cs

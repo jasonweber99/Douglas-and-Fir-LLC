@@ -1,0 +1,29 @@
+@model IQueryable<Peak>
+@{
+    ViewData["Title"] = "Peaks";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Expeditions for @Model.First().Name</h1>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Season</th>
+            <th scope="col">Year</th>
+            <th scope="col">Termination Reason</th>
+            <th scope="col">Trekking Agency</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Expedition e in Model.First().Expeditions)
+{
+    <tr>
+        <td> @e.Season </td>
+        <td> @e.Year </td>
+        <td> @e.TerminationReason </td>
+        <td> @e.TrekkingAgency.Name </td>
+    </tr>
+}

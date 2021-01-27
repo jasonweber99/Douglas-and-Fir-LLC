@@ -1,0 +1,56 @@
+@model HimalayanDbProject.Models.Expedition
+
+@{
+    ViewData["Title"] = "Submit";
+}
+
+<h4>Submit an Expedition</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label">Date Started</label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TerminationReason" class="control-label">Why was the expedition terminated?</label>
+                <input asp-for="TerminationReason" class="form-control" />
+                <span asp-validation-for="TerminationReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OxygenUsed" class="control-label">Was O<sub>2</sub> used?</label><br />
+                <div class="form-check-inline">
+                    <input asp-for="OxygenUsed" class="form-check" type="radio" name="oxygen" value="Yes" id="Yes" checked />
+                    <label class="form-check-label" for="Yes"> Yes</label>
+                </div>            
+                <div class="form-check-inline">
+                    <input asp-for="OxygenUsed" class="form-check" type="radio" name="oxygen" value="No" id="No"/>
+                    <label class="form-check-label" for="No"> No</label>
+                </div>
+                <span asp-validation-for="OxygenUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PeakId" class="control-label">Which peak was climbed or attempted?</label>
+                <select asp-for="PeakId" class ="form-control" asp-items="ViewBag.PeakId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrekkingAgencyId" class="control-label">Trekking agency used</label>
+                <select asp-for="TrekkingAgencyId" class ="form-control" asp-items="ViewBag.TrekkingAgencyName"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

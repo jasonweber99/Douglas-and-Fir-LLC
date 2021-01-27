@@ -1,0 +1,30 @@
+@model IOrderedQueryable<Peak>
+@{
+    ViewData["Title"] = "Peaks";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Peaks</h1>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Height</th>
+            <th scope="col">First Ascent Year</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Peak p in Model)
+{
+    <tr>
+    @if (p.FirstAscentYear != null)
+    {
+        <td><a href="/Home/Peak/@p.Id"> @p.Name </a></td>
+        <td> @p.Height </td>
+        <td> @p.FirstAscentYear </td>
+    }
+    </tr>
+}

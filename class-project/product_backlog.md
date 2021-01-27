@@ -40,33 +40,33 @@ the site and the features currently available</td>
             <td></td>
         </tr>
         <tr>
-            <td>5</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
-            <td>As someone who wishes to submit new information on an expedition I would like to be able to register an account so I will be able to use your services</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>6</td> <td>-</td> <td>U</td> <td>-</td> <td></td>
-            <td>As a registered user, I would like to be able to make posts to the blog</td>
-            <td></td>
+            <td>5</td> <td>Started</td> <td>U</td> <td>2</td> <td>Kelby</td>
+            <td>As a user I would like to log into the site</td>
+            <td>Using a username and password on a login page, users can log into the site with confirmaiton that they are logged in.</td>
             <td></td>
         </tr>
         <tr>
-            <td>7</td> <td>-</td> <td>U</td> <td>-</td> <td></td>
-            <td>As a visitor to the site, I would like to be able to filter expeditions by year, season, etc</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>8</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
-            <td>As a logged-in administrator, I would like to have the ability to edit or delete posts on the blog</td>
-            <td></td>
+            <td>6</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>
+            <td>As a user, I would like to be able to register an account so I can use features on the site</td>
+            <td>On a registration page, I would like to be able to create a username and password to use on the site and get confirmation that my account was created.</td>
             <td></td>
         </tr>
         <tr>
-            <td>9</td> <td>-</td> <td>U</td> <td>-</td> <td></td>
+            <td>7</td> <td>Started</td> <td>U</td> <td>2</td> <td>Quincey</td>
+            <td>As a visitor to the site, I would like to be able to filter expeditions for each peak by year, season, etc</td>
+            <td>On the peak page, there would be options for filtering expeditions by year, season, termination reason, and trekking agency</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td> <td>Started</td> <td>U</td> <td>1</td> <td>John</td>
             <td>As a user, I would like to search for blog posts by keyword, date, etc.</td>
+            <td>On the blog page, there would be options to search for blog posts by keyword in the title and body, date range, and user. Results would show on a new page</td>
             <td></td>
+        </tr>
+        <tr>
+            <td>9</td> <td>-</td> <td>U</td> <td>2</td> <td></td>
+            <td>As a registered user, I would like to be able to make posts to the blog</td>
+            <td>A user should be able to make a blog post that is automatically linked to their account. Once the post is made, the post will show up on the blog page.</td>
             <td></td>
         </tr>
         <tr>
@@ -95,6 +95,12 @@ the site and the features currently available</td>
         </tr>
         <tr>
             <td>14</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
+            <td>As a logged-in administrator, I would like to have the ability to edit or delete posts on the blog</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>15</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
             <td>As a user, I would like to be able to identify which posts/comments are made by verified famous climbers</td>
             <td></td>
             <td></td>

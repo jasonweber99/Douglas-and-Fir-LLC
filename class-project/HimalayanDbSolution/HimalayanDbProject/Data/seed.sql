@@ -1,6 +1,6 @@
-INSERT INTO [User](FirstName, LastName) VALUES ('Kelby', 'Evans');
-INSERT INTO [User](FirstName, LastName) VALUES ('John', 'Kirk III');
-INSERT INTO [User](FirstName, LastName) VALUES ('Sir Edmund', 'Hilary');
+INSERT INTO [User](FirstName, LastName, Verified) VALUES ('Kelby', 'Evans', 1);
+INSERT INTO [User](FirstName, LastName, Verified) VALUES ('John', 'Kirk III', 1);
+INSERT INTO [User](FirstName, LastName, Verified) VALUES ('Sir Edmund', 'Hilary', 0);
 INSERT INTO [BlogPost](Title, AuthorID, DatePosted, Content) VALUES ('There is not much oxygen up here', '3', '1/5/2021','Also it is very cold.');
 INSERT INTO [BlogPost](Title, AuthorID, DatePosted, Content) VALUES ('New mountain discovered', '2', '12/17/2020','I think I will call it Everest Redux');
 INSERT INTO [Peak](Name,Height,ClimbingStatus,FirstAscentYear) VALUES ('Ama Dablam',6814,1,1961);

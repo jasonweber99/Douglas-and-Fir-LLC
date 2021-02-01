@@ -71,7 +71,8 @@ CREATE TABLE [User] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
   [FirstName] nvarchar(30) NOT NULL,
   [LastName] nvarchar(30) NOT NULL,
-  [BirthDate] date
+  [BirthDate] date,
+  [Verified] bit NOT NULL
 )
 GO
 

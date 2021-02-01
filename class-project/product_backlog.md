@@ -41,8 +41,8 @@ the site and the features currently available</td>
         </tr>
         <tr>
             <td>5</td> <td>Started</td> <td>U</td> <td>2</td> <td>Kelby</td>
-            <td>As a user I would like to log into the site</td>
-            <td>Using a username and password on a login page, users can log into the site with confirmaiton that they are logged in.</td>
+            <td>As a user I would like to see an attractive home page with dynamic information including pictures of popular peaks and recent expeditions</td>
+            <td>The 5 most recent expeditions and a slidehow of popular peaks will be displayed on the home page, with colors and styling added.</td>
             <td></td>
         </tr>
         <tr>

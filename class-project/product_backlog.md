@@ -4,6 +4,8 @@ We're not estimating points for stories yet, and it's a bit too cumbersome to pu
 
 We will be using <a href="https://pivotaltracker.com">Pivotal Tracker</a> to make this much easier starting with your team project.  But there's nothing magical about using software for this -- co-located teams could use sticky notes on a whiteboard for this.
 
+<a href="http://himalayandatabase.azurewebsites.net/">Link to Azure Website</a>
+
 <table>
     <thead>
         <tr>
@@ -19,7 +21,7 @@ We will be using <a href="https://pivotaltracker.com">Pivotal Tracker</a> to mak
             <td>As a visitor to the site I would like to see a fantastic and modern homepage that introduces me to
 the site and the features currently available</td>
             <td>This is the initial setup story and will create a homepage for the coming project.  There aren't any features yet so this will create a welcome page and will remove all boilerplate that isn't needed.</td>
-            <td><a href="http://himalayandatabase.azurewebsites.net/">Website</a></td>
+            <td></td>
         </tr>
         <tr>
             <td>2</td> <td>Complete</td> <td>U</td> <td>-</td> <td>Quincey</td>
@@ -46,12 +48,6 @@ the site and the features currently available</td>
             <td><a href="user-stories/user_story_5.md">Description</a></td>
         </tr>
         <tr>
-            <td>6</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>
-            <td>As a user, I would like to be able to register an account so I can use features on the site</td>
-            <td>On a registration page, I would like to be able to create a username and password to use on the site and get confirmation that my account was created.</td>
-            <td></td>
-        </tr>
-        <tr>
             <td>7</td> <td>Complete</td> <td>U</td> <td>2</td> <td>Quincey</td>
             <td>As a visitor to the site, I would like to be able to filter expeditions for each peak by year, season, etc</td>
             <td>On the peak page, there would be options for filtering expeditions by year, season, termination reason, and trekking agency</td>
@@ -61,7 +57,19 @@ the site and the features currently available</td>
             <td>8</td> <td>Complete</td> <td>U</td> <td>1</td> <td>John</td>
             <td>As a user, I would like to search for blog posts by keyword, date, etc.</td>
             <td>On the blog page, there would be options to search for blog posts by keyword in the title and body, date range, and user. Results would show on a new page</td>
-            <td>[User Story Description](/user-stories/user_story_8.md)</td>
+            <td><a href="user-stories/user_story_8">User Story Description</a></td>
+        </tr>
+        <tr>
+            <td>15</td> <td>Complete</td> <td>U</td> <td>1</td> <td>Jason</td>
+            <td>As a user, I would like to be able to see which authors are verified famous climbers so that I can tell which blog posts are credible.</td>
+            <td>A user should see a checkmark next to a verified climber's name when viewing the list of blog posts and when viewing a blog post written by a verified climber.</td>
+            <td><a href="user-stories/user_story_15">User Story 15</a></td>
+        </tr>
+        <tr>
+            <td>6</td> <td>-</td> <td>U</td> <td>1</td> <td></td>
+            <td>As a user, I would like to be able to register an account so I can use features on the site</td>
+            <td>On a registration page, I would like to be able to create a username and password to use on the site and get confirmation that my account was created.</td>
+            <td></td>
         </tr>
         <tr>
             <td>9</td> <td>-</td> <td>U</td> <td>2</td> <td></td>
@@ -96,12 +104,6 @@ the site and the features currently available</td>
         <tr>
             <td>14</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
             <td>As a logged-in administrator, I would like to have the ability to edit or delete posts on the blog</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>15</td> <td>-</td> <td>E</td> <td>-</td> <td></td>
-            <td>As a user, I would like to be able to identify which posts/comments are made by verified famous climbers</td>
             <td></td>
             <td></td>
         </tr>

@@ -28,6 +28,7 @@ namespace HimalayanDbProject.Models
         public string LastName { get; set; }
         [Column(TypeName = "date")]
         public DateTime? BirthDate { get; set; }
+        public bool Verified { get; set; }
 
         [InverseProperty(nameof(BlogPost.Author))]
         public virtual ICollection<BlogPost> BlogPosts { get; set; }

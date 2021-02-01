@@ -55,13 +55,13 @@ the site and the features currently available</td>
             <td>8</td> <td>Complete</td> <td>U</td> <td>1</td> <td>John</td>
             <td>As a user, I would like to search for blog posts by keyword, date, etc.</td>
             <td>On the blog page, there would be options to search for blog posts by keyword in the title and body, date range, and user. Results would show on a new page</td>
-            <td>[User Story Description](/user-stories/user_story_8.md)</td>
+            <td><a href="user-stories/user_story_8">User Story 8</a></td>
         </tr>
         <tr>
             <td>15</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>
-            <td>As a user, I would like to be able to identify which posts are made by verified famous climbers</td>
-            <td>A user should see a checkmark next to a verified climber's name when viewing the list of blogs and when viewing a blog post written by a verified climber.</td>
-            <td></td>
+            <td>As a user, I would like to be able to see which authors are verified famous climbers so that I can tell which blog posts are credible.</td>
+            <td>A user should see a checkmark next to a verified climber's name when viewing the list of blog posts and when viewing a blog post written by a verified climber.</td>
+            <td><a href="user-stories/user_story_15">User Story 15</a></td>
         </tr>
         <tr>
             <td>6</td> <td>-</td> <td>U</td> <td>1</td> <td></td>

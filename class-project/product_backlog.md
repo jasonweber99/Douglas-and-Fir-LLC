@@ -43,7 +43,7 @@ the site and the features currently available</td>
             <td>5</td> <td>Started</td> <td>U</td> <td>2</td> <td>Kelby</td>
             <td>As a user I would like to see an attractive home page with dynamic information including pictures of popular peaks and recent expeditions along with links to each of the main features of the site</td>
             <td>The 5 most recent expeditions and a slidehow of popular peaks will be displayed on the home page, with colors and styling and links to each feature of the website added.</td>
-            <td>[Description](user-stories/user_story_5.md)</td>
+            <td><a href="user-stories/user_story_5.md">Description</a></td>
         </tr>
         <tr>
             <td>6</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>

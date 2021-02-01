@@ -49,13 +49,13 @@ the site and the features currently available</td>
             <td>7</td> <td>Complete</td> <td>U</td> <td>2</td> <td>Quincey</td>
             <td>As a visitor to the site, I would like to be able to filter expeditions for each peak by year, season, etc</td>
             <td>On the peak page, there would be options for filtering expeditions by year, season, termination reason, and trekking agency</td>
-            <td></td>
+            <td><a href="https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/class-project/user-stories/user_story_7.md">User Story 7</a></td>
         </tr>
         <tr>
-            <td>8</td> <td>Started</td> <td>U</td> <td>1</td> <td>John</td>
+            <td>8</td> <td>Complete</td> <td>U</td> <td>1</td> <td>John</td>
             <td>As a user, I would like to search for blog posts by keyword, date, etc.</td>
             <td>On the blog page, there would be options to search for blog posts by keyword in the title and body, date range, and user. Results would show on a new page</td>
-            <td></td>
+            <td>[User Story Description](/user-stories/user_story_8.md)</td>
         </tr>
         <tr>
             <td>15</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>

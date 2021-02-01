@@ -59,10 +59,33 @@ namespace HimalayanDbProject.Controllers
             return View(peaks);
         }
         [HttpGet]
-        public IActionResult Peak(int? id)
+        public IActionResult Peak(int? id, string sort)
         {
-            var content = _dbContext.Peaks.Include(e => e.Expeditions).ThenInclude(t => t.TrekkingAgency).Where(peak => peak.Id == id);
-            return View(content);
+            PeakModel model = new PeakModel();
+            model.expeditions = _dbContext.Expeditions.Include(p => p.Peak).Include(t => t.TrekkingAgency).Where(peak => peak.Peak.Id == id);
+            if(sort != null)
+            {
+                switch(sort)
+                {
+                    case "Season":
+                        model.sortedExpeditions = model.expeditions.GroupBy(s => s.Season);
+                        break;
+                    case "Year":
+                        model.sortedExpeditions = model.expeditions.GroupBy(s => s.Year.ToString());
+                        break;
+                    case "TerminationReason":
+                        var unsuccessful = model.expeditions.Where(s => !(s.TerminationReason.ToLower().Contains("success (main peak)"))).GroupBy(x => ("Unsuccessful"));
+                        var successful = model.expeditions.Where(s => (s.TerminationReason.ToLower().Contains("success (main peak)"))).GroupBy(t => ("Successful"));
+                        model.sortedExpeditions = successful.Concat(unsuccessful);
+                        break;
+                    case "TrekkingAgency":
+                        model.sortedExpeditions = model.expeditions.GroupBy(s => s.TrekkingAgency.Name);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

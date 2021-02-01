@@ -25,6 +25,28 @@ namespace HimalayanDbProject.Controllers
             return View(await expeditionsDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Results(string query, DateTime start = default, DateTime end = default)
+        {
+            if (query != null)
+            {
+                var blogSearchResults = _context.BlogPosts.Where(post => post.Title.Contains(query) 
+                                                                || post.Content.Contains(query) 
+                                                                || post.Author.FirstName.Contains(query))
+                                                                .Include(post => post.Author);
+                return View(await blogSearchResults.ToListAsync());
+            }
+
+            if (start != default && end != default)
+            {
+                var blogSearchResults = _context.BlogPosts.Where(post => post.DatePosted.Value.CompareTo(start) >= 0
+                                                                && post.DatePosted.Value.CompareTo(end) < 0)
+                                                                .Include(post => post.Author);
+                return View(await blogSearchResults.ToListAsync());
+            }
+
+            return View();
+        }
+
         // GET: BlogPosts/Details/5
         public async Task<IActionResult> Details(int? id)
         {

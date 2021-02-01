@@ -1,13 +1,25 @@
-@model IQueryable<Peak>
+@model PeakModel
 @{
     ViewData["Title"] = "Peaks";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Expeditions for @Model.First().Name</h1>
+    <h1 class="display-4">Expeditions for @Model.expeditions.First().Peak.Name </h1>
 </div>
 
+<div class="row mt-3 mb-3">
+        <span style="margin-left: 1em;"></span>
+        @Html.ActionLink("Season", "Peak", new { sort = "Season"}, new {@class = "btn btn-dark sort"})
+        <span style="margin-left: 1em;"></span>
+        @Html.ActionLink("Year", "Peak", new { sort = "Year"}, new {@class = "btn btn-dark sort"})
+        <span style="margin-left: 1em;"></span>
+        @Html.ActionLink("TerminationReason", "Peak", new { sort = "TerminationReason"}, new {@class = "btn btn-dark sort"})
+        <span style="margin-left: 1em;"></span>
+        @Html.ActionLink("TrekkingAgency", "Peak", new { sort = "TrekkingAgency"}, new {@class = "btn btn-dark sort"})
+</div>
 
+@if (Model.sortedExpeditions == null)
+{
 <table class="table">
     <thead>
         <tr>
@@ -18,12 +30,43 @@
         </tr>
     </thead>
     <tbody>
-@foreach (Expedition e in Model.First().Expeditions)
-{
+    @foreach (Expedition e in Model.expeditions)
+    {
     <tr>
         <td> @e.Season </td>
         <td> @e.Year </td>
         <td> @e.TerminationReason </td>
         <td> @e.TrekkingAgency.Name </td>
     </tr>
+    }
+    </tbody> 
+</table>
+}
+else {
+    @foreach (var item in Model.sortedExpeditions)
+    {
+        <h1 class="display-6">@item.Key</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Season</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Termination Reason</th>
+                    <th scope="col">Trekking Agency</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (Expedition e in item)
+            {
+            <tr>
+                <td> @e.Season </td>
+                <td> @e.Year </td>
+                <td> @e.TerminationReason </td>
+                <td> @e.TrekkingAgency.Name </td>
+            </tr>
+            }
+            </tbody> 
+        </table>
+    }
 }

@@ -76,9 +76,7 @@ Go through all the information gathered during the previous round of elicitation
     Diagrams
 
 ### Use Case Diagrams
-    Diagrams
-
-### Sequence Diagrams
+    [Website Use Case Diagram](diagrams/Team Project Use Case Diagram.pdf)
 
 ### Other Modeling
     Diagrams, UI wireframes, page flows, ...

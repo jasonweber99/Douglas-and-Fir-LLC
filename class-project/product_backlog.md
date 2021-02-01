@@ -58,10 +58,10 @@ the site and the features currently available</td>
             <td></td>
         </tr>
         <tr>
-            <td>8</td> <td>Started</td> <td>U</td> <td>1</td> <td>John</td>
+            <td>8</td> <td>Complete</td> <td>U</td> <td>1</td> <td>John</td>
             <td>As a user, I would like to search for blog posts by keyword, date, etc.</td>
             <td>On the blog page, there would be options to search for blog posts by keyword in the title and body, date range, and user. Results would show on a new page</td>
-            <td></td>
+            <td>[User Story Description](/user-stories/user_story_8.md)</td>
         </tr>
         <tr>
             <td>9</td> <td>-</td> <td>U</td> <td>2</td> <td></td>

@@ -17,10 +17,11 @@ On the blog page, there are options to search for blog posts by keyword in the t
 3. If I enter in a date range on the blog page and click "Search", then a list of blog posts created within that date range will appear on a new page.
 
 ## Tasks
-1. 
-2. ...
+1. Add search feature mark-up to BlogPosts/Index
+2. Create Results page
+3. Create Results() method in BlogPostsController to complete functionality
 
 ## Dependencies
-Other user stories that this one depends on
+User story IDs 1, 4, 5
 
 ## Any notes written while implementing this story

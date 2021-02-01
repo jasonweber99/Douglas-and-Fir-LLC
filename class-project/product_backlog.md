@@ -52,7 +52,7 @@ the site and the features currently available</td>
             <td></td>
         </tr>
         <tr>
-            <td>7</td> <td>Started</td> <td>U</td> <td>2</td> <td>Quincey</td>
+            <td>7</td> <td>Complete</td> <td>U</td> <td>2</td> <td>Quincey</td>
             <td>As a visitor to the site, I would like to be able to filter expeditions for each peak by year, season, etc</td>
             <td>On the peak page, there would be options for filtering expeditions by year, season, termination reason, and trekking agency</td>
             <td></td>

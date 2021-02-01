@@ -24,22 +24,26 @@ namespace HimalayanDbProject.Controllers
 
         public IActionResult Index()
         {
-            var expeditionDbContext = _dbContext.Peaks.Include(p => p.Expeditions).OrderByDescending(p => p.Height).Take(15).ToList();
-            var vmList = new List<HomeIndexVM>();
+            var expeditionDbContext = _dbContext.Expeditions.Include(e => e.Peak).Include(e => e.TrekkingAgency).OrderByDescending(e => e.StartDate).Take(5).ToList();
 
-            for (int i = 0; i < 15; i++)
-            {
-                vmList.Add(new HomeIndexVM
-                {
-                    Rank = i + 1,
-                    Name = expeditionDbContext[i].Name,
-                    Height = expeditionDbContext[i].Height,
-                    FirstClimbed = expeditionDbContext[i].FirstAscentYear,
-                    NumExpeditions = expeditionDbContext[i].Expeditions.Count()
-                });
-            }
+            return View(expeditionDbContext);
 
-            return View(vmList);
+            //var expeditionDbContext = _dbContext.Peaks.Include(p => p.Expeditions).OrderByDescending(p => p.Height).Take(15).ToList();
+            //var vmList = new List<HomeIndexVM>();
+
+            //for (int i = 0; i < 15; i++)
+            //{
+            //    vmList.Add(new HomeIndexVM
+            //    {
+            //        Rank = i + 1,
+            //        Name = expeditionDbContext[i].Name,
+            //        Height = expeditionDbContext[i].Height,
+            //        FirstClimbed = expeditionDbContext[i].FirstAscentYear,
+            //        NumExpeditions = expeditionDbContext[i].Expeditions.Count()
+            //    });
+            //}
+
+            //return View(vmList);
         }
 
         public IActionResult Submit()

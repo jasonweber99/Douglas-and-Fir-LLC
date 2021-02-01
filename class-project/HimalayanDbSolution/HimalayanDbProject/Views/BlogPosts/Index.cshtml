@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.DatePosted)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author.FirstName) @Html.DisplayFor(modelItem => item.Author.LastName)
+                @Html.DisplayFor(modelItem => item.Author.FirstName) @Html.DisplayFor(modelItem => item.Author.LastName) @if(item.Author.Verified) { <img src="~/images/verified-checkmark.png" alt="Verified check mark" width="10"/>}
             </td>
             <td>
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

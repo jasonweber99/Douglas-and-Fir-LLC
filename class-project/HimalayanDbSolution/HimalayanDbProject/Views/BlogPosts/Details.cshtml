@@ -22,7 +22,8 @@
             @Html.DisplayNameFor(model => model.Author)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Author.FirstName) @Html.DisplayFor(model => model.Author.LastName)
+            @Html.DisplayFor(model => model.Author.FirstName) @Html.DisplayFor(model => model.Author.LastName) @if (Model.Author.Verified)
+            {<img src="~/images/verified-checkmark.png" alt="Verified check mark" width="10" />}
         </dd>
     </dl>
 

@@ -13,8 +13,9 @@ A user should see a checkmark next to a verified climber's name when viewing the
 
 ## Acceptance Criteria
 
-1. If I navigate to the blog post page, then I will be able to see checkmarks next to the authors that are verified famous climbers.
-2. If I navigate to a blog post that is written by a verified user, I should see a checkmark by their name.
+1. Checkmarks should be displayed next to the authors that are verified famous climbers on the blog index page.
+2. A checkmark should be displayed next to the author if they a are verified famous climber on a blog post.
+3. Checkmarks should be displayed next to the authors that are verified famous climbers on the blog search page.
 
 ## Tasks
 1. Update DB up and seed scripts to include a verified bool column.
@@ -25,3 +26,4 @@ A user should see a checkmark next to a verified climber's name when viewing the
 User stories 1 and 4.
 
 ## Any notes written while implementing this story
+Had to add third acceptance criteria after noticing that the blog search page is separate from the basic blog list.

@@ -4,6 +4,8 @@ We're not estimating points for stories yet, and it's a bit too cumbersome to pu
 
 We will be using <a href="https://pivotaltracker.com">Pivotal Tracker</a> to make this much easier starting with your team project.  But there's nothing magical about using software for this -- co-located teams could use sticky notes on a whiteboard for this.
 
+<a href="http://himalayandatabase.azurewebsites.net/">Link to Azure Website</a>
+
 <table>
     <thead>
         <tr>
@@ -58,7 +60,7 @@ the site and the features currently available</td>
             <td><a href="user-stories/user_story_8">User Story Description</a></td>
         </tr>
         <tr>
-            <td>15</td> <td>Started</td> <td>U</td> <td>1</td> <td>Jason</td>
+            <td>15</td> <td>Complete</td> <td>U</td> <td>1</td> <td>Jason</td>
             <td>As a user, I would like to be able to see which authors are verified famous climbers so that I can tell which blog posts are credible.</td>
             <td>A user should see a checkmark next to a verified climber's name when viewing the list of blog posts and when viewing a blog post written by a verified climber.</td>
             <td><a href="user-stories/user_story_15">User Story 15</a></td>

@@ -41,7 +41,7 @@ This website will serve as the senior capstone project for Douglas and Fir, LLC 
 * Primary keys should always be named "ID"
 * Database, entity, and attribute names should all be in PascalCase
 * When possible, any additions to Models should be done by creating a partial class in a new file named {ModelName}Partial
-* All local databases should be named according to the [ERD]()
+* All local databases should be named according to the [ERD](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/diagrams/MIVisitorCenter.png)
 
 ## Git Conventions
 * All merges to dev should be done through pull requests, to be reviewed by [Jason Weber](https://github.com/jasonweber99)

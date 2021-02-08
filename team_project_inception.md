@@ -73,13 +73,13 @@ Go through all the information gathered during the previous round of elicitation
         * Ability to update inventory offerings
 
 ## Initial Modeling
-    Diagrams
+    [Mind Map](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/diagrams/mind%20map.png)
 
 ### Use Case Diagrams
-    [Website Use Case Diagram](diagrams/Team Project Use Case Diagram.pdf)
+    [Website Use Case Diagram](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/main/diagrams/Team%20Project%20Use%20Case%20Diagram.pdf)
 
 ### Other Modeling
-    Diagrams, UI wireframes, page flows, ...
+    [UI Wireframe](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/diagrams/website_design_idea.png)
 
 ## Identify Non-Functional Requirements
 * Optimization for mobile devices
@@ -107,7 +107,7 @@ T: Task
     Diagrams and drawings, lists of components
 
 ## Agile Data Modeling
-    Diagrams, SQL modeling (dbdiagram.io), UML diagrams
+    [ER Diagram](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/diagrams/MIVisitorCenter.png)
 
 ## Timeline and Release Plan
     Sprint 1: February 9th - February 22nd

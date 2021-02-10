@@ -5,6 +5,9 @@ This website will serve as the senior capstone project for Douglas and Fir, LLC 
 
 [Vision Statement](https://github.com/jasonweber99/Douglas-and-Fir-LLC/blob/dev/diagrams/Vision_Statement.md)
 
+## Deployment
+[Website](https://mivisitorcenterdev.azurewebsites.net/) for Dev branch deployment at end of sprint.
+
 ## Contributors
 
 ### Team Members

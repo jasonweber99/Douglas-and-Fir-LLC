@@ -26,6 +26,18 @@ namespace MIVisitorCenter.Controllers
             return View(await mIVisitorCenterDbContext.ToListAsync());
         }
 
+        public IActionResult EatAndDrink()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable()
+                                    .GroupBy(c => c.Name);
+            return View(businesses);
+        }
+
         // GET: Businesses/Details/5
         public async Task<IActionResult> Details(int? id)
         {

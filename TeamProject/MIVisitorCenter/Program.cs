@@ -23,8 +23,9 @@ namespace MIVisitorCenter
                 {
                     var config = host.Services.GetRequiredService<IConfiguration>();
 
-                    var testUserPw = config["SeedUserPW"];
                     var adminPw = config["SeedAdminPW"];
+
+                    SeedUsers.InitializeAdmin(services, "admin@example.com", "admin@example.com", adminPw, "admin").Wait();
                 }
                 catch (Exception ex)
                 {

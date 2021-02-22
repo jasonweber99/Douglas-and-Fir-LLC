@@ -5,6 +5,12 @@
       "type": "mssql.azure",
       "connectionId": "MIVisitorCenterConnection",
       "secretStore": "AzureAppSettings"
+    },
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/mi-visitor-center-server/databases/MIVisitorCenterAuthDb",
+      "type": "mssql.azure",
+      "connectionId": "AuthenticationConnection",
+      "secretStore": "AzureAppSettings"
     }
   }
 }

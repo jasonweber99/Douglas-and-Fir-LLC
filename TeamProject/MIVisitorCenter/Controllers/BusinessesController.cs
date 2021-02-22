@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -70,6 +71,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Create
+        [Authorize(Roles = "admin")]
         public IActionResult Create()
         {
             ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "City");
@@ -81,6 +83,7 @@ namespace MIVisitorCenter.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Phone,Website,PictureFileName,AddressId")] Business business)
         {
             if (ModelState.IsValid)
@@ -94,6 +97,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,6 +119,7 @@ namespace MIVisitorCenter.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Phone,Website,PictureFileName,AddressId")] Business business)
         {
             if (id != business.Id)
@@ -147,6 +152,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -168,6 +174,7 @@ namespace MIVisitorCenter.Controllers
         // POST: Businesses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var business = await _context.Businesses.FindAsync(id);

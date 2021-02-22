@@ -38,6 +38,18 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult ArtAndCulture()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "Historic Sites & Museums" || n.Name == "Art Galleries" || n.Name == "Festivals & Events" || n.Name == "Cinemas & Performing Arts")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable()
+                                    .GroupBy(c => c.Name);
+            return View(businesses);
+        }
+
         // GET: Businesses/Details/5
         public async Task<IActionResult> Details(int? id)
         {

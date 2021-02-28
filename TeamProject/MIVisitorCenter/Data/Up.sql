@@ -1,7 +1,7 @@
 CREATE TABLE [Business] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
   [Name] nvarchar(64) NOT NULL,
-  [Description] text,
+  [Description] nvarchar(1024),
   [Phone] nvarchar(32),
   [Website] nvarchar(128),
   [PictureFileName] nvarchar(256),

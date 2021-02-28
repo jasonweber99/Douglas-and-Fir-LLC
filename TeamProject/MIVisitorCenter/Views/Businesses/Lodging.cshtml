@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Lodging>
+
+@{
+    ViewData["Title"] = "Lodging";
+}
+
+@if (Model != null)
+{
+    @foreach(var b in Model)
+    {
+
+    }
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
+        <p> Check back later!</p>
+    </div>
+}

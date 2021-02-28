@@ -51,6 +51,12 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult Lodging()
+        {
+            var businesses = _context.Lodgings/*.Include(l => l.Business).ThenInclude(b => b.Address).Include(l => l.LodgingAmenities)*/;
+            return View(businesses);
+        }
+
         // GET: Businesses/Details/5
         public async Task<IActionResult> Details(int? id)
         {

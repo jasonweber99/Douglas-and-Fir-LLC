@@ -1,3 +1,6 @@
+ SET QUOTED_IDENTIFIER OFF
+ SET ANSI_NULLS ON 
+
 INSERT INTO [Category](Name) VALUES ('Hiking');
 INSERT INTO [Category](Name) VALUES ('Cycling');
 INSERT INTO [Category](Name) VALUES ('Birding');
@@ -36,6 +39,11 @@ INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1403 Thompson Wa
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('332 Independence Street', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('80230 Ford Street', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('57324 La Croix Boulevard', 'Independence', '97351', 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('270 Pacific Ave S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('201 Osprey Lane', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('212 Knox Street N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('14810 Airlie Road', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('50 C Street', 'Independence', 97351, 'OR');
 
 
 -- Development Bar Seed
@@ -94,3 +102,74 @@ INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Mo
 INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independence Little Theater', 'See the stars of local community theater on our 16 square foot stage!', '971-555-8501', 'www.ourstageissmall.com', '8');
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (19, 11);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (20, 11);
+
+-- Development Amenities Seed
+INSERT INTO [Amenities](Name) VALUES ('Free Wi-Fi');
+INSERT INTO [Amenities](Name) VALUES ('Free Parking');
+INSERT INTO [Amenities](Name) VALUES ('Handicap Accessible');
+INSERT INTO [Amenities](Name) VALUES ('Air Conditioning');
+INSERT INTO [Amenities](Name) VALUES ('Business Center');
+INSERT INTO [Amenities](Name) VALUES ('Pet-friendly');
+INSERT INTO [Amenities](Name) VALUES ('Microwave and Fridge');
+INSERT INTO [Amenities](Name) VALUES ('Smoke-free');
+INSERT INTO [Amenities](Name) VALUES ('Free Breakfast');
+INSERT INTO [Amenities](Name) VALUES ('Fitness Center');
+INSERT INTO [Amenities](Name) VALUES ('Electric Car Charging');
+INSERT INTO [Amenities](Name) VALUES ('Meeting Rooms');
+INSERT INTO [Amenities](Name) VALUES ('Horse Boarding');
+INSERT INTO [Amenities](Name) VALUES ('Bike Repair Station');
+INSERT INTO [Amenities](Name) VALUES ('Bike Storage');
+INSERT INTO [Amenities](Name) VALUES ('Campground');
+INSERT INTO [Amenities](Name) VALUES ('Bed & Breakfast');
+
+
+--Development Lodging Seed
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('College Inn Monmouth', "Welcome to College Inn, a great place to stay that's within walking distance of Western Oregon University in Monmouth, Oregon. Use our convenient, quiet and affordable hotel as your gateway to Salem, just 15 miles away. There's also plenty to see and do here in town, including many local businesses, restaurants and shopping destinations. Plus, some of the state's best vineyards and wineries are close at hand as well. You might also enjoy the Jensen Arctic Museum. We're pleased to bring you the best hotel experience in the area because we combine the consistency, cleanliness and service you expect from a well-regarded chain hotel with the down-home friendliness and affordability that only an independent hotel can provide.", '(503) 838-4438', 'www.hotelcollegeinn.com', 21);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('The Independence Hotel', "As Oregon’s only boutique hotel on the Willamette River, we welcome you to come and experience what made Independence so special to Oregon’s early pioneers. Located in the heart of the Willamette Valley, The Independence Hotel is situated in the heart of Oregon Wine Country. Whether you are visiting us for the wine, a river adventure, a bike ride along the Willamette Valley Scenic Bikeway or just getting away for the weekend, we are waiting to help you create amazing memories and provide a fantastic experience. Breathtaking views of the Willamette River and Riverview Park serve as the perfect backdrop for the nature-inspired decor of our uniquely styled rooms. Each room features a microwave and fridge, in-room bike storage, Keurig coffee makers, 49 inch 4k HDTV's, luxury robes, locally made bath products by Sojourn Beauty, and local artwork.", '(503) 837-0200', 'www.theindependencehotel.com', 22);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ("MaMere's Guest House", "Located in the heart of the Willamette Valley near the intersecting Highways of 99W and 22, MaMere’s is surrounded by some of the best wineries in the state (and, yes, we do have our favorites to recommend). An hour away from both the Pacific Ocean and the Cascade Mountains, MaMere’s is in downtown Monmouth, Oregon, the proud home of Western Oregon University. Located close to the scenic Willamette Valley Bike Route and TransAmerica Bike route, we are happy to lock your bike up if you are a two wheeled nomad. We are also only 10 minutes from sister city Independence, Oregon. From our dining room, you can view the activity of Main Street Park as you enjoy a delicious breakfast. You’ll hear the bands playing as you lounge in the gazebo during our Music in the Park series all summer long. Hit the bike trail or mosey over to neighboring eateries and shops. Or, you can always opt to do not much of anything here at MaMere’s.", '(503) 917-8745', 'www.mameresguesthouse.com', 23);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Airlie Farm Bed & Breakfast', "Airlie Farm Bed and Breakfast is a great getaway located on 226 spectacular, scenic acres in Oregon's Willamette Valley beautiful horse and farm country. Rolling hills and lovely peaceful views surround this old fashioned Inn. Owners Nancy and Joe Petterson have made this inn a place to remember. The bed and breakfast inn is part of their working Quarter Horse farm nestled in the heart of Willamette Valley Wine Country, perfect for an overnight or several day vacation. There are lots of things to do in the area as it is located between Corvallis, Monmouth, Independence and Albany.", '(503) 838-1500', 'www.airliefarminn.com', 24);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Bicycle Boater Campground', "Independence's Riverview Park is home to a biker/boater campground for travelers on the Willamette River Water Trail and the Willamette Valley Scenic Bikeway.  Nestled along the beautiful Willamette River and is 1 block away from a bustling downtown district with local food, drink, and entertainment, this basic camping area has five sites, each with a picnic table and bike rack.  A (cold) shower is located at the west end of the area in a white fenced enclosure. Solar showers have been installed for a warm shower on sunny days.  A water tap and bike repair station are located at the entrance to the camping area. A camp host is present during the summer to assist campers and provide information about the area.  WiFi is also available in the campground with a code provided by the Camp Host.  A camp site costs $10 per night and is first come first served.", '(503) 848-1212', 'www.ci.independence.or.us/recreation/bicycle-boater-campground', 25);
+
+INSERT INTO [Lodging](BusinessID, Price, Rating) VALUES (21, 1, 2);
+INSERT INTO [Lodging](BusinessID, Price, Rating) VALUES (22, 3, 3);
+INSERT INTO [Lodging](BusinessID, Price, Rating) VALUES (23, 2, 2);
+INSERT INTO [Lodging](BusinessID, Price, Rating) VALUES (24, 2, 2);
+INSERT INTO [Lodging](BusinessID, Price, Rating) VALUES (25, 1, 2);
+
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 1);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 2);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 3);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 4);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 5);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 6);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 7);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (1, 8);
+
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 1);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 2);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 4);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 7);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 8);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 9);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 10);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 11);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 12);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (2, 15);
+
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 1);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 2);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 4);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 8);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 9);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 15);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (3, 17);
+
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 1);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 2);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 9);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 13);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 17);
+
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 1);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 14);
+INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 16);

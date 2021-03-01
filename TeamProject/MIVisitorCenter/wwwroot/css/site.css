@@ -7,6 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.navbar .nav-item:not(:last-child) {
+    margin-right: 35px;
+}
+
+.dropdown-menu {
+    margin-top: 0;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;

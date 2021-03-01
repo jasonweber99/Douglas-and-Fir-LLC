@@ -4,17 +4,37 @@
     ViewData["Title"] = "Lodging";
 }
 
-@if (Model != null)
-{
-    @foreach(var b in Model)
-    {
-
-    }
-}
-else
-{
-    <div class="text-center">
-        <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
-        <p> Check back later!</p>
+<div class="row">
+    <div id="container" style="position:relative;">
+        <img src="/assets/Lodging2.jpg" style="width: 100%; height: 15em; border-radius: 10px;" />
+        <h1 style="position:absolute; top:100px; left:50px; color: white; background-color: rgba(0, 0, 0, 0.80); padding: 0.5em; border-radius: 10px;">Lodging</h1>
     </div>
-}
+    @if (Model != null)
+     {
+        <table>
+        @foreach (var b in Model)
+        {
+            IList<string> amenitiesList = new List<string>();
+            foreach (var a in b.LodgingAmenities)
+            {
+                amenitiesList.Add(a.Amenities.Name);
+            }
+            string amenities = string.Join(", ", amenitiesList);
+            <tr>
+                <td>@b.Business.Name</td>
+                <td>@b.Business.Address.StreetAddress<br />@b.Business.Address.City, @b.Business.Address.State @b.Business.Address.Zip</td>
+                <td>@b.Business.Phone</td>
+                <td>@amenities</td>
+            </tr>
+         }
+        </table> 
+     }
+     else
+     {
+        <div class="text-center">
+            <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
+            <p> Check back later!</p>
+        </div>
+     }
+</div>
+

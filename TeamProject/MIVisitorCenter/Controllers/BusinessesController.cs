@@ -53,7 +53,7 @@ namespace MIVisitorCenter.Controllers
 
         public IActionResult Lodging()
         {
-            var businesses = _context.Lodgings/*.Include(l => l.Business).ThenInclude(b => b.Address).Include(l => l.LodgingAmenities)*/;
+            var businesses = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address);
             return View(businesses);
         }
 

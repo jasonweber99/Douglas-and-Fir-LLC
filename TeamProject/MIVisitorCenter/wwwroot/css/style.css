@@ -1,0 +1,117 @@
+/* Color Scheme Class */
+:root {
+    --white: #ffffffff;
+    --charcoal: #3d464dff;
+    --gainsboro: #e0e2eaff;
+    --fulvous: #e98a15ff;
+    --azure: #337edfff;
+}
+/* Text Class */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+p {
+    font-size: 18px;
+    font-weight: 400;
+}
+small {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+
+
+/* Headings Class */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    padding: 0.75em 0 0.75em 0;
+}
+
+
+
+
+/* Forms Class */
+.form-group label {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.01em;
+}
+.form-control {
+    -webkit-appearance: none;
+    border-color: rgb(192, 200, 207);
+    border-radius: 10px;
+}
+
+
+
+
+/* Buttons Class */
+.btn {
+    font-family: 'Roboto', sans-serif;
+}
+.btn-submit {
+    background-color: var(--gainsboro);
+    border-color: rgb(177, 185, 192);
+    border-radius: 10px;
+}
+.btn-submit:hover {
+    background-color: rgb(202, 210, 217);
+}
+.btn-submit:active {
+    background-color: #fff;
+}
+
+.btn-blue {
+    color: #ffffff;
+    background-color: var(--azure);
+    border-color: rgb(210, 221, 235);
+    border-radius: 10px;
+}
+.btn-blue:hover {
+    color: #ffffff;
+    background-color: rgb(43, 111, 199);
+}
+.btn-blue:active {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.btn-orange {
+    background-color: var(--fulvous);
+    border-color: rgb(210, 221, 235);
+    border-radius: 10px;
+    color: rgb(235, 235, 235);
+}
+.btn-orange:hover {
+    color: #ffffff;
+    background-color: rgb(219, 130, 20);
+}
+.btn-orange:active {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.btn-grey {
+    background-color: var(--charcoal);
+    border-radius: 10px;
+    color: rgb(235, 235, 235);
+    border-color: rgb(210, 221, 235);
+
+}
+.btn-grey:hover {
+    color: #ffffff;
+    background-color: rgb(50, 57, 63);
+}
+.btn-grey:active {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+
+
+
+/* Images */
+.rounded-img {
+    border-radius: 10px;
+}

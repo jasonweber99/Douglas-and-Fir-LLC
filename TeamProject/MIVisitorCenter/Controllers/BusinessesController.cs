@@ -51,6 +51,19 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult OutdoorRecreation()
+        {
+            var businesses = _context.Categories
+                .Where(n => n.Name == "Hiking" || n.Name == "Cycling" || n.Name == "Birding" || n.Name == "Fishing" || n.Name == "Golf" || n.Name == "Disc Golf" || n.Name == "Skating")
+                .Include(b => b.BusinessCategories)
+                .ThenInclude(b => b.Business)
+                .ThenInclude(a => a.Address)
+                .AsEnumerable()
+                .GroupBy(c => c.Name);
+
+            return View(businesses);
+        }
+
         // GET: Businesses/Details/5
         public async Task<IActionResult> Details(int? id)
         {

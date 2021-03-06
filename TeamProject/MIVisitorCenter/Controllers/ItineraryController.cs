@@ -12,5 +12,10 @@ namespace MIVisitorCenter.Controllers
         {
             return View();
         }
+
+        public IActionResult PlanATrip()
+        {
+            return View();
+        }
     }
 }

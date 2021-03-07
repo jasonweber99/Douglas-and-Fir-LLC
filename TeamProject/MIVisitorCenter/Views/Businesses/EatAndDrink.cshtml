@@ -4,68 +4,53 @@
     ViewData["Title"] = "Eat And Drink";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@if (Model != null)
-{
-    int i = 0;
-    <div class="container" id="accordion" class="mb-5">
-    @foreach (var m in Model)
+<div class="accordion-content_container">
+    @if (Model != null)
     {
-        @foreach (var c in m)
+        @foreach (var m in Model)
         {
-                <div style="text-align:center; width: 100%;">
-                    <div id="heading@(i)">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse@(i)" aria-expanded="true" aria-controls="collapse@(i)">
-                            <div id="container" style="position:relative;">
-                                <img src="/assets/@(c.Name).jpeg" style="width: 100%; height: 15em; border-radius: 10px;" />
-                                <h1 style="position:absolute; top:100px; left:50px; color: white; background-color: rgba(0, 0, 0, 0.80); padding: 0.5em; border-radius: 10px;">@c.Name</h1>    
-                            </div>
-                        </button>
-                        </h5>
-                    </div>
-                </div>
+            @foreach (var c in m)
+            {
+            <ul class="uk-accordion_custom" uk-accordion >
+                <li>
+                    <a href="#" class="uk-accordion-title uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+                    data-src="/assets/Accordion-Images/@(c.Name).jpeg" data-sizes="(min-width: 650px) 650px, 100vw" style="color: #fff; border-radius: 10px" uk-img>
+                        <div class="accordion-title-card">@c.Name + </div>
+                    </a>
 
-                <div style="margin: auto; width: 85%">
-                    <div id="collapse@(i)" class="collapse" aria-labelledby="heading@(i)" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                            <table class="table">
-                            <thead class="thead">
+                    <div class="uk-accordion-content uk-flex uk-flex-center">
+                    <div class="uk-overflow-auto accordion-width">
+                    <table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th class="uk-width-small">Name</th>
+                                <th>Address</th>
+                                <th>Site</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (BusinessCategory b in c.BusinessCategories)
+                            {
                                 <tr>
-                                    <th>Local @c.Name</th>
-                                    <th colspan="2">Address</th>
+                                    <td>@b.Business.Name</td>
+                                    <td>@b.Business.Address.StreetAddress, @b.Business.Address.City, @b.Business.Address.State</td>
+                                    <td><button class="uk-button uk-button-default" type="button">Visit</button></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (BusinessCategory b in c.BusinessCategories)
-                                {
-                                    <tr>
-                                        <td>@b.Business.Name</td>
-                                        <td>@b.Business.Address.StreetAddress, @b.Business.Address.City, @b.Business.Address.State</td>
-                                        <td><button class="btn btn-secondary">Details</button></td>
-
-                                        @* This routes to EatAndDrink View using the ID of the Business, dummy button in place until later story implementation *@
-                                        @* <td><button class="btn btn-secondary"><a href="/Businesses/EatAndDrink/@b.Id" style="color: white;">Details</a></button></td> *@
-
-                                    </tr>
-                                }
-                            </tbody>
-                            </table>
-                            </div>
-                        </div>
+                            }
+                        </tbody>
+                    </table>
                     </div>
-                </div>
-            i++;
+                    </div>
+                </li>
+            </ul> 
+            }
         }
     }
-    </div>
-}
-else
-{
-    <div class="text-center">
-        <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
-        <p> Check back later!</p>
-    </div>
-}
-
+    else
+    {
+        <div class="text-center">
+            <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
+            <p> Check back later!</p>
+        </div>
+    }
+</div>

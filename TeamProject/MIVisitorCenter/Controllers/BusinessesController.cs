@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,51 @@ namespace MIVisitorCenter.Controllers
                                     .AsEnumerable()
                                     .GroupBy(c => c.Name);
             return View(businesses);
+        }
+
+        [HttpGet]
+        public IActionResult Lodging()
+        {
+            ViewData["Amenities"] = _context.Amenities.OrderBy(a => a.Name).ToArray();
+
+            var businesses = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address);
+
+            return View(businesses);
+        }
+
+        [HttpPost]
+        public ActionResult Lodging(string[] tags)
+        {
+            ViewData["Amenities"] = _context.Amenities.OrderBy(a => a.Name).ToArray();
+            var businesses = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address);
+
+            if (tags.Length == 0)
+            {
+                return View("Lodging", businesses);
+            }
+
+            var filtered = new List<Lodging>();
+
+            foreach (var b in businesses)
+            {
+                int tagCount = 0;
+                foreach (var la in b.LodgingAmenities)
+                {
+                    for (var i = 0; i < tags.Length; i++)
+                    {
+                        if (la.Amenities.Name == tags[i])
+                        {
+                            tagCount++;
+                            if (tags.Length == tagCount)
+                            {
+                                filtered.Add(b);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return View("Lodging", filtered);
         }
 
         // GET: Businesses/Details/5

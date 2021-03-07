@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Lodging>
+
+@{
+    ViewData["Title"] = "Lodging";
+}
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col">
+        <div id="container" style="position:relative;">
+            <img src="/assets/Lodging2.jpg" style="width: 100%; height: 100%; border-radius: 10px;" />
+            <h1 style="position:absolute; top:0px; left:0px; color: white; background-color: rgba(0, 0, 0, 0.80); padding: 0.3em; border-radius: 10px;">Lodging</h1>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row">
+    <p>
+        <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#amenitiesFilter" aria-expanded="false" aria-controls="collapseExample" style="margin-top:15px; margin-left:15px;">
+            Filter by Amenities
+        </button>
+    </p>
+    <div class="collapse col-10" id="amenitiesFilter" style="margin-top:15px;">
+        <div class="card card-body">
+            <h5>Filter by Amenities:</h5>
+            @using (Html.BeginForm(new { action = "Lodging" }))
+            {
+                @foreach (var a in ViewData["Amenities"] as IList<Amenity>)
+                {
+                    <div class="form-check-inline col-md-3">
+                        <input class="form-check-input" type="checkbox" name="tags" id="check-@a.Id" value="@a.Name" />
+                        <label class="form-check-label" for="check-@a.Id">@a.Name</label>
+                    </div> 
+                    
+                }
+                 <br />
+                 <input class="btn btn-primary" type="submit" value="Filter" style="margin-top: 10px;" />
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @if (Model != null)
+     {
+        <table class="table table-responsive-sm" style="margin-top:30px;">
+            <thead class="thead">
+                <tr>
+                    <th style="width:20%">Lodging</th>
+                    <th style="width:20%">Address</th>
+                    <th style="width:15%">Phone</th>
+                    <th style="width:35%">Amenities</th>
+                    <th></th>
+                </tr>
+            </thead>
+        @foreach (var b in Model)
+        {
+            IList<string> amenitiesList = new List<string>();
+            foreach (var a in b.LodgingAmenities)
+            {
+                amenitiesList.Add(a.Amenities.Name);
+            }
+            string amenities = string.Join(", ", amenitiesList);
+            <tr>
+                <td><a href="https://@b.Business.Website">@b.Business.Name</a></td>
+                <td>@b.Business.Address.StreetAddress<br />@b.Business.Address.City, @b.Business.Address.State @b.Business.Address.Zip</td>
+                <td>@b.Business.Phone</td>
+                <td>@amenities</td>
+                <td><a class="btn btn-primary" href="http://@b.Business.Website">Website</a></td>
+            </tr>
+         }
+        </table> 
+        @if (Model.Count() == 0)
+        {
+        <div class="container">
+            <div class="row" style="margin-bottom:30px;">
+                <h5>No lodging options matched your search.</h5>
+            </div>
+            <div class="row">
+                <button type="button"
+                    class="btn btn-primary"
+                    style="margin:15px"
+                    onclick="location.href='@Url.Action("Lodging", "Businesses")'">
+                    Reset Filter
+                </button>
+            </div>
+        </div>
+            
+            
+        }
+     }
+     else
+     {
+        <div class="text-center">
+            <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
+            <p> Check back later!</p>
+        </div>
+     }
+</div>
+

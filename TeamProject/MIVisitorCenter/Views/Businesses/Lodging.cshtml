@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Lodging>
+
+@{
+    ViewData["Title"] = "Lodging";
+}
+
+<div class="image-container">
+    <div class="image-cover" data-src="/assets/Lodging2.jpg" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+        <div class="accordion-title-card">Lodging</div>
+    </div>
+</div>
+
+<div class="row">
+    <p class="uk-align-center">
+        <button class="uk-button uk-button-primary" type="button" data-toggle="collapse" data-target="#amenitiesFilter" aria-expanded="false" aria-controls="collapseExample" style="margin-top:15px; margin-left:15px;">
+            Filter by Amenities
+        </button>
+    </p>
+    <div class="collapse col-10 uk-align-center" id="amenitiesFilter" style="margin-top:15px;">
+        <div class="card card-body">
+            <h5>Filter by Amenities:</h5>
+            @using (Html.BeginForm(new { action = "Lodging" }))
+            {
+                @foreach (var a in ViewData["Amenities"] as IList<Amenity>)
+                {
+                    <div class="form-check-inline col-md-3">
+                        <label for="check-@a.Id">
+                            <input class="uk-checkbox" type="checkbox" name="tags" id="check-@a.Id" value="@a.Name" > @a.Name 
+                        </label>
+                    </div> 
+                    
+                }
+                 <br />
+                 <input class="uk-button uk-button-primary" type="submit" value="Filter" style="margin-top: 10px;" />
+            }
+        </div>
+    </div>
+</div>
+
+    @if (Model != null)
+     {
+        <div class="uk-overflow-auto uk-flex uk-flex-center mb-5">
+            <table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
+            <thead>
+                <tr>
+                    <th class="uk-table-small">Lodging</th>
+                    <th class="uk-table-small">Address</th>
+                    <th class="uk-table-small">Phone</th>
+                    <th class="uk-table-expand">Amenities</th>
+                    <th></th>
+                </tr>
+            </thead>
+        @foreach (var b in Model)
+        {
+            IList<string> amenitiesList = new List<string>();
+            foreach (var a in b.LodgingAmenities)
+            {
+                amenitiesList.Add(a.Amenities.Name);
+            }
+            string amenities = string.Join(", ", amenitiesList);
+            <tr>
+                <td>@b.Business.Name</td>
+                <td>@b.Business.Address.StreetAddress<br />@b.Business.Address.City, @b.Business.Address.State @b.Business.Address.Zip</td>
+                <td>@b.Business.Phone</td>
+                <td class="uk-text-truncate">@amenities</td>
+                <td><a class="uk-button uk-button-default" href="http://@b.Business.Website">Website</a></td>
+            </tr>
+         }
+        </table> 
+        </div>
+        @if (Model.Count() == 0)
+        {
+        <div class="container">
+            <div class="row" style="margin-bottom:30px;">
+                <h5>No lodging options matched your search.</h5>
+            </div>
+            <div class="row">
+                <button type="button"
+                    class="btn btn-primary"
+                    style="margin:15px"
+                    onclick="location.href='@Url.Action("Lodging", "Businesses")'">
+                    Reset Filter
+                </button>
+            </div>
+        </div>
+            
+            
+        }
+     }
+     else
+     {
+        <div class="text-center">
+            <h1 class="display-4">There doesn't seem be any businesses to show right now.</h1>
+            <p> Check back later!</p>
+        </div>
+     }
+

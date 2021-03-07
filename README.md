@@ -68,6 +68,7 @@ Here are some examples for the adheared styling for the Monmouth-Independence Vi
 - [Accordion](#accordion)
 - [Table](#table)
 - [Buttons](#buttons)
+- [Images](#images)
 - [Color Scheme](#color-scheme)
 
 ## Font
@@ -195,6 +196,8 @@ Note how the table uses the `uk-table-reponsive` class, which allow for tables t
 
 ![](https://i.imgur.com/pa0xSat.png)
 
+>For a more detailed list of all the available classes for tables, visit the [Table](https://getuikit.com/docs/table) documetation.
+
 ## Buttons
 
 The website will use slightly styled buttons from UIKit to stay cohesive across all elements of the website. Below are UIKits implementation for buttons
@@ -259,6 +262,23 @@ The website will use custom styled forms from UIKit. These form elements have be
 Using the styles for forms designated, the above form would be displayed as
 
 ![](https://i.imgur.com/QiZMGwb.png)
+
+## Images
+
+This class can be used for image headers on pages that are cohesive with pages that include an accordion list of businesses. This class is also mobile-responsive so there is no need for additional styling other than what is shown in the example example below
+
+```html
+<div class="image-container">
+    <div class="image-cover" data-src="(Image Path)" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+        <div class="accordion-title-card">Title For Image Here</div>
+    </div>
+</div>
+```
+
+The above code sample would produce an image such as
+
+![](https://i.imgur.com/54jaJRj.png)
+
 
 
 ## Color Scheme

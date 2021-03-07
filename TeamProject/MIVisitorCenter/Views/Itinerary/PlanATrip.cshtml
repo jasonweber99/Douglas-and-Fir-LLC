@@ -1,37 +1,155 @@
-﻿
+﻿@model IQueryable<Category>
 @{
     ViewData["Title"] = "PlanATrip";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h1>PlanATrip</h1>
+<div id="container" style="position:relative;">
+    <img src="/assets/PlanATrip.jpg" style="width: 100%; height: 15em; border-radius: 10px;" />
+    <h1 style="position:absolute; top:100px; left:50px; color: white; background-color: rgba(0, 0, 0, 0.80); padding: 0.5em; border-radius: 10px;">Plan A Trip!</h1>
+</div>
 
-<table class="table-sm table-borderless">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>twitter</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-xs-6">
+        <h2 style="text-align:center">Got a free afternoon?</h2>
+        <table class="table-sm table-borderless">
+            <thead>
+                <tr>
+                    <th colspan="4" style="text-align:center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Lunch</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td>Activity/Event</td>
+                    <td>Activity/Event.Address</td>
+                    <td>Activity/Event.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Evening</th>
+                    <td>Art &amp; Culture</td>
+                    <td>Art &amp; Culture.Address</td>
+                    <td>Art &amp; Culture.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Dinner</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-6">
+        <h2 style="text-align:center">Staying the weekend?</h2>
+        <table class="table-sm table-borderless">
+            <thead>
+                <tr>
+                    <th colspan="4" style="text-align:center">Day One</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Lodging</th>
+                    <td>Hotel</td>
+                    <td>Hotel.Address</td>
+                    <td>Hotel.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Breakfast</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td>Activity/Event</td>
+                    <td>Activity/Event.Address</td>
+                    <td>Activity/Event.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Lunch</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td>Activity/Event</td>
+                    <td>Activity/Event.Address</td>
+                    <td>Activity/Event.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Evening</th>
+                    <td>Art &amp; Culture</td>
+                    <td>Art &amp; Culture.Address</td>
+                    <td>Art &amp; Culture.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Dinner</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table-sm table-borderless">
+            <thead>
+                <tr>
+                    <th colspan="4" style="text-align:center">Day Two</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Lodging</th>
+                    <td>Hotel</td>
+                    <td>Hotel.Address</td>
+                    <td>Hotel.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Breakfast</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Morning</th>
+                    <td>Activity/Event</td>
+                    <td>Activity/Event.Address</td>
+                    <td>Activity/Event.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Lunch</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Afternoon</th>
+                    <td>Activity/Event</td>
+                    <td>Activity/Event.Address</td>
+                    <td>Activity/Event.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Evening</th>
+                    <td>Art &amp; Culture</td>
+                    <td>Art &amp; Culture.Address</td>
+                    <td>Art &amp; Culture.Description</td>
+                </tr>
+                <tr>
+                    <th scope="row">Dinner</th>
+                    <td>Restaurant</td>
+                    <td>Restaurant.Address</td>
+                    <td>Restaurant.Description</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

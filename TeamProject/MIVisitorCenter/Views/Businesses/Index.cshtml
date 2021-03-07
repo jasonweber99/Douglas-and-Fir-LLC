@@ -13,22 +13,22 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th style="width:20%;">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
+            </th>*@
+            <th style="width:20%;">
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
+            <th style="width:20%;">
                 @Html.DisplayNameFor(model => model.Website)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.PictureFileName)
-            </th>
-            <th>
+            </th>*@
+            <th style="width:20%;">
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th></th>
@@ -40,19 +40,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Website)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.PictureFileName)
-            </td>
+            </td>*@
             <td>
+                @Html.DisplayFor(modelItem => item.Address.StreetAddress)
                 @Html.DisplayFor(modelItem => item.Address.City)
             </td>
             <td>

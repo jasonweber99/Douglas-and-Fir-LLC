@@ -5,45 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MIVisitorCenter</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* Importing Fonts *@
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    @* UIKit CSS *@
+    <link rel="stylesheet" href="~/lib/uikit-3/css/uikit.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Monmouth & Indpendence</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">What to Do</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Recreation</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Where to Stay</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Plan a Trip</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+
+        @* For Mobile Responsiveness, we need to create an off-canvas nav that is hidden on desktop. *@
+        @* As a result, we need to update the links for both the desktop nav as well as the off-canvas nav *@
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+
+        <nav class="uk-navbar-container uk-navbar" uk-navbar>
+
+            <div class="uk-navbar-left">
+        
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a asp-controller="Home" asp-action="Index">Monmouth<strong>Independence</strong></a></li>
+                    <li class="hidden-mobile">
+                        <a href="#">What to Do</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="#">Recreation</a></li>
+                                <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
+                                <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="hidden-mobile"><a href="#">Where to Stay</a></li>
+                    <li class="hidden-mobile"><a href="#">Plan a Trip</a></li>
+                </ul>
+        
             </div>
+        
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav uk-visible@s">
+                    <partial name="_LoginPartial" />
+                </ul>
+                <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-nav"></a>
+        
+            </div>
+        
         </nav>
+        </div>
+
+        <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar">
+        
+                <ul class="uk-nav uk-nav-default">
+                    <li class="uk-parent">
+                        <a href="#">What to Do</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#">Recreation</a></li>
+                            <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
+                            <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Where to Stay</a></li>
+                    <li><a href="#">Plan a Trip</a></li>
+                    <li class="uk-nav-header">Account</li>
+                    <li class="uk-nav-divider"></li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </div>
+    </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -51,14 +81,20 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Douglas and Fir, LLC
+    <div class="uk-section uk-section-muted uk-section-xsmall uk-position-bottom">
+        <div class="uk-container">
+            @* <footer class="footer text-muted"> *@
+            <div class="container text-muted">
+                &copy; 2021 - Douglas and Fir, LLC
+            </div>
+            @* </footer> *@
         </div>
-    </footer>
+    </div>   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/uikit-3/js/uikit-icons.min.js"></script>
+    <script src="~/lib/uikit-3/js/uikit.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

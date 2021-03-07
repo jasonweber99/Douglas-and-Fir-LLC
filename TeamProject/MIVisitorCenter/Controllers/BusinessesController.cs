@@ -22,6 +22,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
             var mIVisitorCenterDbContext = _context.Businesses.Include(b => b.Address);
@@ -98,6 +99,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Details/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

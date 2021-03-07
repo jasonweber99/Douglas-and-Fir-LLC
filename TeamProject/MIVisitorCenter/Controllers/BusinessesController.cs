@@ -22,6 +22,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
             var mIVisitorCenterDbContext = _context.Businesses.Include(b => b.Address);
@@ -98,6 +99,7 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Details/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -156,7 +158,7 @@ namespace MIVisitorCenter.Controllers
             {
                 return NotFound();
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "City", business.AddressId);
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
             return View(business);
         }
 
@@ -166,7 +168,7 @@ namespace MIVisitorCenter.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Phone,Website,PictureFileName,AddressId")] Business business)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Phone,Website,AddressId")] Business business)
         {
             if (id != business.Id)
             {
@@ -193,7 +195,7 @@ namespace MIVisitorCenter.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "City", business.AddressId);
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
             return View(business);
         }
 

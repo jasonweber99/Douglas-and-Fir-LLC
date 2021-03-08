@@ -16,14 +16,13 @@
             Filter by Amenities
         </button>
     </p>
-    <div class="collapse col-10 uk-align-center" id="amenitiesFilter" style="margin-top:15px;">
+    <div class="collapse col-10 uk-align-center" id="amenitiesFilter" style="margin-top:-20px;">
         <div class="card card-body">
-            <h5>Filter by Amenities:</h5>
             @using (Html.BeginForm(new { action = "Lodging" }))
             {
                 @foreach (var a in ViewData["Amenities"] as IList<Amenity>)
                 {
-                    <div class="form-check-inline col-md-3">
+                    <div class="form-check-inline col-lg-3 col-md-4">
                         <label for="check-@a.Id">
                             <input class="uk-checkbox" type="checkbox" name="tags" id="check-@a.Id" value="@a.Name" > @a.Name 
                         </label>
@@ -44,8 +43,8 @@
             <thead>
                 <tr>
                     <th class="uk-table-small">Lodging</th>
-                    <th class="uk-table-small">Address</th>
-                    <th class="uk-table-small">Phone</th>
+                    <th class="uk-table-small" style="width:20%">Address</th>
+                    <th class="uk-table-small" style="width:15%">Phone</th>
                     <th class="uk-table-expand">Amenities</th>
                     <th></th>
                 </tr>
@@ -62,7 +61,7 @@
                 <td>@b.Business.Name</td>
                 <td>@b.Business.Address.StreetAddress<br />@b.Business.Address.City, @b.Business.Address.State @b.Business.Address.Zip</td>
                 <td>@b.Business.Phone</td>
-                <td class="uk-text-truncate">@amenities</td>
+                <td>@amenities</td>
                 <td><a class="uk-button uk-button-default" href="http://@b.Business.Website">Website</a></td>
             </tr>
          }

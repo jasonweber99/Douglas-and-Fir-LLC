@@ -25,3 +25,14 @@ $(window).on("load resize", function () {
         $dropdown.off("mouseenter mouseleave");
     }
 });
+
+// map and initMap used for google maps api calls
+let map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 44.853, lng: -123.209 },
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+}

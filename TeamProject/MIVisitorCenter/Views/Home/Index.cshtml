@@ -1,39 +1,49 @@
-﻿@{
+﻿@model String
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="slideshow-content">
-        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="autoplay: true; animation: push; min-height: 300; max-height: 800">
+<div class="slideshow-content">
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="autoplay: true; animation: push; min-height: 300; max-height: 800">
 
-            <ul style="border-radius: 10px;" class="uk-slideshow-items">
-                <li>
-                    <img src="/assets/Homepage/slide-1.jpg" alt="" uk-cover>
-                </li>
-                <li>
-                    <img src="/assets/Homepage/slide-2.jpg" alt="" uk-cover>
-                </li>
-                <li>
-                    <img src="/assets/Homepage/slide-3.jpg" alt="" uk-cover>
-                </li>
-            </ul>
-            <div class="uk-overlay-primary uk-position-cover" style="border-radius: 10px;"></div>
-            <div class="uk-overlay uk-position-center uk-light">
-                <h1 class="custom-header uk-margin-remove uk-text-center" style="font-style: italic;">Welcome To Monmouth and Independence!</h1>
-            </div>
-        
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+        <ul style="border-radius: 10px;" class="uk-slideshow-items">
+            <li>
+                <img src="/assets/Homepage/slide-1.jpg" alt="" uk-cover>
+            </li>
+            <li>
+                <img src="/assets/Homepage/slide-2.jpg" alt="" uk-cover>
+            </li>
+            <li>
+                <img src="/assets/Homepage/slide-3.jpg" alt="" uk-cover>
+            </li>
+        </ul>
+        <div class="uk-overlay-primary uk-position-cover" style="border-radius: 10px;"></div>
+        <div class="uk-overlay uk-position-center uk-light">
+            <h1 class="custom-header uk-margin-remove uk-text-center" style="font-style: italic;">Welcome To Monmouth and Independence!</h1>
         </div>
-    </div>
-
-    <div class="uk-tile uk-tile-secondary">
-        <p class="uk-h4">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
-    </div>
-    <div class="uk-tile uk-tile-primary">
-        <h1 class="custom-header uk-margin-remove" style="text-align: center;">Explore #wouwolves</h1>
-    </div>
 
 
-    <div class="social-stream">
-        <script async src="https://walls.io/js/wallsio-widget-1.2.js" data-wallurl="https://my.walls.io/c4y29?nobackground=1&amp;show_header=0&amp;initial_posts=5" data-width="100%" data-autoheight="1" data-height="100"></script>    
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
     </div>
+</div>
+
+<div class="uk-tile uk-tile-secondary">
+    <p class="uk-h4">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
+</div>
+<div class="uk-tile uk-tile-primary">
+    <h1 class="custom-header uk-margin-remove" style="text-align: center;">Explore #wouwolves</h1>
+</div>
+
+
+<div class="social-stream">
+    <script async src="https://walls.io/js/wallsio-widget-1.2.js" data-wallurl="https://my.walls.io/c4y29?nobackground=1&amp;show_header=0&amp;initial_posts=5" data-width="100%" data-autoheight="1" data-height="100"></script>
+</div>
+
+<div id="map"></div>
+
+@section Scripts {
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@(Model)&callback=initMap&libraries=&v=weekly" async></script>
+}

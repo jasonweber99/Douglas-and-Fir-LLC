@@ -8,17 +8,18 @@
     var random = new Random();
 }
 
-<div id="container" style="position:relative;">
-    <img src="/assets/PlanATrip.jpg" style="width: 100%; height: 15em; border-radius: 10px;" />
-    <h1 style="position:absolute; top:100px; left:50px; color: white; background-color: rgba(0, 0, 0, 0.80); padding: 0.5em; border-radius: 10px;">Plan A Trip!</h1>
+<div class="image-container">
+    <div class="image-cover" data-src="/assets/PlanATrip.jpg" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+        <div class="accordion-title-card">Plan A Trip</div>
+    </div>
 </div>
-<div><br />
+<div>
     <p style="text-align:center">Check out our example iteneraries below!</p>
 </div>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h4 style="text-align:center">Got a free afternoon?</h4>
-            <table id="itinerary" class="table table-sm">
+            <h4 style="text-align:center;font-weight:700">Got a free afternoon?</h4>
+            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
                 <thead>
                     <tr>
                         <th colspan="4" style="text-align:center">Day Trip</th>
@@ -71,8 +72,8 @@
             </table>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h4 style="text-align:center">Staying the weekend?</h4>
-            <table id="itinerary" class="table table-sm">
+            <h4 style="text-align:center;font-weight:700">Staying the weekend?</h4>
+            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider"">
                 <thead>
                     <tr>
                         <th colspan="4" style="text-align:center">Day One</th>
@@ -147,7 +148,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="itinerary" class="table table-sm">
+            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
                 <thead>
                     <tr>
                         <th colspan="4" style="text-align:center">Day Two</th>

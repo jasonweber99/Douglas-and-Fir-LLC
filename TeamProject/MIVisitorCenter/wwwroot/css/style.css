@@ -29,6 +29,10 @@
     .social-stream {
         padding: 0 0.5em 0 0.5em;
     }
+    #map {
+        width: 100%;
+        height: 250px;
+    }
 }
 
 /* Desktop-specific CSS Styling */
@@ -53,6 +57,10 @@
     }
     .social-stream {
         padding: 0 0em 5em 0em;
+    }
+    #map {
+        width: 100%;
+        height: 500px;
     }
 }
 
@@ -138,7 +146,6 @@ body {
 }
 
 /* Google Maps */
-html, body, .container, main, #map {
-    width: 100%;
-    height: 100%;
+#map {
+    margin: auto;
 }

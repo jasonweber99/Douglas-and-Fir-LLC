@@ -29,6 +29,9 @@
     <div class="uk-tile uk-tile-secondary">
         <p class="uk-h4">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
     </div>
+
+    <div id="map"></div>
+
     <div class="uk-tile uk-tile-primary">
         <h1 class="custom-header uk-margin-remove" style="text-align: center;">Explore #wouwolves</h1>
     </div>
@@ -37,3 +40,9 @@
     <div class="social-stream">
         <script async src="https://walls.io/js/wallsio-widget-1.2.js" data-wallurl="https://my.walls.io/c4y29?nobackground=1&amp;show_header=0&amp;initial_posts=5" data-width="100%" data-autoheight="1" data-height="100"></script>    
     </div>
+
+    @section Scripts {
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOqCsMf4lZpUsrHWFOcrOp546btEUEWy0&callback=initMap&libraries=&v=weekly" async></script>
+    }
+    

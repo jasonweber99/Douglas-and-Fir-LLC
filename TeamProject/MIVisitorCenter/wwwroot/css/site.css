@@ -15,6 +15,12 @@ a.navbar-brand {
     margin-top: 0;
 }
 
+#itinerary {
+    table-layout: fixed;
+    width: 500px;
+    padding: 10px;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;

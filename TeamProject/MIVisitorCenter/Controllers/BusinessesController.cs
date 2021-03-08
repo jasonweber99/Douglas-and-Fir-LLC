@@ -52,7 +52,6 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
-<<<<<<< HEAD
         public IActionResult OutdoorRecreation()
         {
             var businesses = _context.Categories
@@ -62,20 +61,19 @@ namespace MIVisitorCenter.Controllers
                 .ThenInclude(a => a.Address)
                 .AsEnumerable()
                 .GroupBy(c => c.Name);
-=======
+            return View(businesses);
+        }
+
         [HttpGet]
         public IActionResult Lodging()
         {
             ViewData["Amenities"] = _context.Amenities.OrderBy(a => a.Name).ToArray();
 
             var businesses = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address);
->>>>>>> dev
 
             return View(businesses);
         }
 
-<<<<<<< HEAD
-=======
         [HttpPost]
         public ActionResult Lodging(string[] tags)
         {
@@ -111,7 +109,6 @@ namespace MIVisitorCenter.Controllers
             return View("Lodging", filtered);
         }
 
->>>>>>> dev
         // GET: Businesses/Details/5
         public async Task<IActionResult> Details(int? id)
         {

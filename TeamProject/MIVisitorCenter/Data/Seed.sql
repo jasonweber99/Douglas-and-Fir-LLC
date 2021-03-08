@@ -44,15 +44,31 @@ INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('57324 La Croix B
 
 SET IDENTITY_INSERT Address ON;
 
+-- Development Lodging Address Seed
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('300', '270 Pacific Ave S', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('301', '201 Osprey Lane', 'Independence', 97351, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('302', '212 Knox Street N', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('303', '14810 Airlie Road', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('304', '50 C Street', 'Independence', 97351, 'OR');
 
+-- Development Recreation Address Seed
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (200, '10995 Highway 22', 'Dallas', 97338, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (201, '29555 Camp Adair Road', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (202, '50 C Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (203, 'Fort Yamhill State Heritage Area', 'Grand Ronde', 97347, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (204, 'Buena Vista Rd NW', 'Albany', 97321, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (205, '120 Main St E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (206, '11545 Helmick Rd', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (207, 'Mill Creek Rd', 'Sheridan', 97378, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (208, '520 Pacific Ave S', 'Rickreall', 97371, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (209, 'Halls Ferry Rd', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (210, '13935 Hwy 22', 'Dallas', 97338, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (211, '11875 Orrs Corner Rd', 'Dallas', 97338, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (212, '6335 Hwy 22', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (213, '401 SW Levens St', 'Dallas', 97338, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (214, 'Stadium Drive', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (215, '1005 LaCreole Dr SE', 'Dallas', 97338, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (216, '410 Hogan Rd', 'Monmouth', 97361, 'OR');
 
 SET IDENTITY_INSERT Address OFF;
 
@@ -190,32 +206,92 @@ INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 14);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 16);
 
 -- Development Hiking Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES('Baskett Slough Wildlife Refuge', 'Baskett Slough National Wildlife Refuge provides habitat for a wide variety of wildlife and plants. Populations of several endangered and threatened animal and plant species can be found on the refuge, and wildlife/wildlands observation, photography, hiking, and environmental education and interpretation are some of the visitor activities allowed on the Refuge.', '503-623-2749', 'https://www.fws.gov/refuge/baskett_slough/', 21);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES('E.E. Wilson Wildlife Area', 'The E.E. Wilson Wildlife Area came into existence in 1950 when the U.S. Government gave quitclaim title to the property to the Oregon Department of Fish and Wildlife. The wildlife area covers approximately 1,788 acres, is located on Highway 99W about 10 miles north of Corvallis and is situated on the Willamette Valley floor.', '541-745-5334', 'https://myodfw.com/e-e-wilson-wildlife-area-visitors-guide', 22);
-
-
 SET IDENTITY_INSERT Business ON;
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (23, 'Willamette River Trail', 'In 2012, the City opened the Willamette River Trail, a 5k soft surface trail loop that runs from the Riverview Park Amphitheater to the North Riverfront Ballfield Complex and back.  The trail passes in and out of the Willamette River''s riparian zone offering excellent birdwatching and nature viewing opportunities, and also passes the Independence Dog Park.  Primary access for the trail is from the north side of Riverview Park where a pedestrian bridge crosses Ash Creek.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/running-trails-and-walking-paths', 23);
+
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES(200, 'Baskett Slough Wildlife Refuge', 'Baskett Slough National Wildlife Refuge provides habitat for a wide variety of wildlife and plants. Populations of several endangered and threatened animal and plant species can be found on the refuge, and wildlife/wildlands observation, photography, hiking, and environmental education and interpretation are some of the visitor activities allowed on the Refuge.', '503-623-2749', 'https://www.fws.gov/refuge/baskett_slough/', 200);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES(201, 'E.E. Wilson Wildlife Area', 'The E.E. Wilson Wildlife Area came into existence in 1950 when the U.S. Government gave quitclaim title to the property to the Oregon Department of Fish and Wildlife. The wildlife area covers approximately 1,788 acres, is located on Highway 99W about 10 miles north of Corvallis and is situated on the Willamette Valley floor.', '541-745-5334', 'https://myodfw.com/e-e-wilson-wildlife-area-visitors-guide', 201);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (202, 'Willamette River Trail', 'In 2012, the City opened the Willamette River Trail, a 5k soft surface trail loop that runs from the Riverview Park Amphitheater to the North Riverfront Ballfield Complex and back.  The trail passes in and out of the Willamette River''s riparian zone offering excellent birdwatching and nature viewing opportunities, and also passes the Independence Dog Park.  Primary access for the trail is from the north side of Riverview Park where a pedestrian bridge crosses Ash Creek.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/running-trails-and-walking-paths', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (203, 'Fort Yamhill State Heritage Park', 'Built in 1856 to regulate the eastern border of the Grand Ronde Indian Reservation, Fort Yamhill represented a time of transition for the people of the Northwest. The fort served to ease tension between settlers and natives, protect both populations and control traffic between them. Fort Yamhill is one of the best archaeologically preserved forts in the Northwest from the mid 19th century.', '503-879-5814', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=185', 203);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (204, 'Luckiamute Landing State Natural Area', 'The Luckiamute River meanders through the 615-acre north tract, flowing into the Willamette River from the west and just a stone''s throw from the Santiam River confluence from the east. Travelers paddling the Willamette Water Trail can camp at the boater-access-only site. Hikers can park at the North Trailhead and take the 3-mile trail along a meadow and through a riparian hardwood forest of Oregon ash and bigleaf maple.', '800-551-6949', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=192', 204);
+
 SET IDENTITY_INSERT Business OFF;
 
-
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21, 1);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22, 1);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23, 1);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (200, 1);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (201, 1);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (202, 1);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (203, 1);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (204, 1);
 
 -- Cycling Seed
+SET IDENTITY_INSERT Business ON;
 
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (205, 'Western Valley: Hops, Crops, and Winery Stops', 'As the name implies, this easy, relatively flat ride loops through the scenic farmland, hop fields, vineyards, and historic small towns of south Polk County. Wineries, breweries, and wildlife areas along the way make it easy to turn this into an all-day ride.', 'https://ridewithgps.com/ambassador_routes/99-western-valley-hops-crops-and-winery-sto', 205);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (206, 'Western Valley: Ritner Creek Covered Bridge', 'A beautiful ride with a mildly-challenging start takes you by one of the few remaining covered bridges in Oregon, past world-class wineries, and into the warm and welcoming communities of Monmouth and Independence.', 'https://ridewithgps.com/ambassador_routes/101-western-valley-ritner-creek-covered-brid', 205);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (205, 2);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (206, 2);
 
 -- Birding Seed
+SET IDENTITY_INSERT Business ON;
 
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (207, 'Sarah Helmick State Park', 'Sarah Helmick is located six miles south of Monmouth off Highway 99W. The small, shady park is situated along the Luckiamute River. Two picnic areas for groups up to 150 people each can be reserved. Electricity, water and picnic tables are provided at each site. Big leaf maples provide ample shade. Visitors can take a walk along the trails that border the Luckiamute River, with plenty of birds and native plant life to investigate.', '541-924-8492', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=98', 206);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (208, 'Riverview Park', 'Completed in 2005, the Riverview Park Amphitheater is the centerpiece of Riverview Park. In 2008, a sparkling fountain was added to the Plaza Level, welcoming visitors to Independence.  The amphitheater hosts numerous events including the 8 week River''s Edge summer movie and concert series. Riverview Park is also the starting point for the Willamette River Trail, a 5k soft-surface path that loops north along the Willamette River providing excellent river views and birdwatching. In 2014 a disc golf course was installed in Riverview Park. In 2015, the Independence Biker/Boater Campground opened.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/riverview-park', 202);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (200, 3);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (201, 3);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (204, 3);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (207, 3);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (208, 3);
 
 -- Fishing Seed
+SET IDENTITY_INSERT Business ON;
 
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (209, 'Buell Park', 'Buell Park has the following facilities: Picnic Tables, Playground Equipment, Full-Service Mens/Womens Restroom, Fire Pits, Horseshoe Pits, Fishing, and Scenic Trails', '503-623-8172', 'https://www.co.polk.or.us/ms/buell-park', 207);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (210, 'Nesmith Park', 'The Polk County Parks and Recreation Commission and the Polk County Fair Board joined forces in 1969 to acquire 21.5 acres of land adjacent to the Polk County Fairgounds for a Park. It was their desire to recognize the burial site of Polk County Pioneer, James Nesmith, and to provide joint use of the property for Park and Fairgrounds.', '503-623-8172', 'https://www.co.polk.or.us/ms/nesmith-park', 208);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (211, 'Social Security Hole', 'Social Security Hole has the following facilities: Picnic Tables, ADA Restroom (No Running Water), and Fishing', '503-623-8172', 'https://www.co.polk.or.us/ms/social-security-hole', 209);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (209, 4);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (210, 4);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (211, 4);
 
 -- Golf Seed
+SET IDENTITY_INSERT Business ON;
 
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (212, 'Cross Creek Golf Course', 'One of the top 10 most beautiful Oregon golf courses. Our unique layout combines traditional and links style golf, creating a challenging course in the midst of the beautiful Mid Willamette Valley.', '503-623-6666', 'https://crosscreekgc.com/', 210);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (213, 'Dallas Golf Club', 'Dallas Golf Club is a 2250 yard, 9-hole executive golf course with 5 par 3''s and 4 par 4''s. The course is a challenge to the most polished golfer yet enjoyable to the beginner! We also have a driving range.', '503-623-6832', 'https://dallasgolfclub.wixsite.com/dallasgolfclub', 211);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (214, 'Oak Knoll Golf Course', 'Is work getting to you? Come into Oak Knoll and take your stress out on our beautiful course and driving range.', '503-378-0344', 'https://oakknollgolfclub.com/', 212);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (212, 5);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (213, 5);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (214, 5);
 
 -- Disc Golf Seed
+SET IDENTITY_INSERT Business ON;
 
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (215, 'Dallas Disc Golf Course', 'The Dallas Disc Golf Course is located in the the Brandvold (new) section of the park. Access via the entrance located at 401 Southwest Levens Street and head east at Brandvold Drive.', '503-623-2338', 'https://www.ci.dallas.or.us/383/Disc-Golf', 213);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (216, 'Western Oregon University Disc Golf Course', 'The 9-Hole (par 27) Disc Golf Course is open to Western Oregon University students, faculty and staff and the surrounding community. The course is located north of the Campus Recreation Turf Field. A course map and rules are located next to Hole #1. There is no charge to use the course. Players may use their own discs or check out a set at the Peter Courtney Health and Wellness Center´s front desk. The course is open from dusk to dawn and is closed during Cross Country home meets.', '503-838-9530', 'https://wou.edu/campusrec/facilities/disc-golf/', 214);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (215, 6);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (208, 6);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (216, 6);
 
 -- Skating Seed
+SET IDENTITY_INSERT Business ON;
+
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (217, 'Dallas Skate Park', 'Dallas Skate Park has the following facilities: Water fountain, bathroom, adjacent fields and parking lot lights.', '503-623-2338', 'https://www.westcoastskateparks.com/skateparks/dallas-skatepark-dallas-oregon', 215);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (218, 'Monmouth City Skate Park', 'In-Line Skates or Skate Boards only (NO Bicycles, or motorized vehicles). Facility is open one hour before sunrise until one hour after sunset. This facility is unsupervised, USE AT YOUR OWN RISK.', '503-838-0722', 'https://www.ci.monmouth.or.us/pView.aspx?id=4827&catid=552', 216);
+
+SET IDENTITY_INSERT Business OFF;
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (217, 7);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (218, 7);

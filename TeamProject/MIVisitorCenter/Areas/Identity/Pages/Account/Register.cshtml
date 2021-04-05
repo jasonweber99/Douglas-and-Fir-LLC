@@ -1,7 +1,7 @@
 @page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Register a User";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -15,7 +15,8 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.BusinessName"></label>
-                <input asp-for="Input.BusinessName" class="form-control" />
+                @Html.DropDownListFor(model => model.Input.BusinessName, new SelectList(Model.Context.Businesses.OrderBy(x => x.Name), "BusinessName", "BusinessName"), "-- Select Business --", new { @class = "form control" })
+                <!-- <input asp-for="Input.BusinessName" class="form-control" /> -->
                 <span asp-validation-for="Input.BusinessName" class="text-danger"></span>
             </div>
             <div class="form-group">

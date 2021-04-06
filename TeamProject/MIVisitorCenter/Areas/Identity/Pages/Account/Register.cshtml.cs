@@ -51,9 +51,12 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
 
         public MIVisitorCenterDbContext Context
         {
-            get { return _context; }
-            set { _context = value; }
+            get => _context;
+            set => _context = value;
         }
+
+        public List<SelectListItem> Businesses => _context.Businesses.OrderBy(x => x.Name)
+            .Select(n => new SelectListItem(n.Name, n.Name)).ToList();
 
         public class InputModel
         {

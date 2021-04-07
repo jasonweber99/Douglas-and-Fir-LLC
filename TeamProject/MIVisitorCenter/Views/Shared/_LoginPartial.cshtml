@@ -7,24 +7,30 @@
     if (User.IsInRole("admin"))
     {
         <li class="nav-item">
-            <a class="nav-link" asp-controller="Businesses" asp-action="Index">Edit Businesses</a>
+            <a class="nav-link" asp-controller="Businesses" asp-action="Index">EDIT BUSINESSES</a>
+        </li>
+        <li class="nav-item">
+            <a class="uk-text-large" asp-area="Identity" asp-page="/Account/Register">REGISTER USERS</a>
         </li>
     }
     <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>
-    
+    <!-- Need to fix routing ID
+    <li class="nav-item">
+        <a class="uk-text-large" asp-controller="Businesses" asp-action="Edit" asp-route-id="@User"></a>
+    </li>
+        -->
     <li>
         <a class="uk-text-large">
-            <form  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button class="logout-btn" type="submit">LOGOUT</button>
             </form>
         </a>
     </li>
-    
+
 }
 else
 {
-        <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Register">REGISTER</a></li>
-        <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
+    <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
 }

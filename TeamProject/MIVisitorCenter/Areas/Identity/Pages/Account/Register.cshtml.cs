@@ -19,7 +19,7 @@ using MIVisitorCenter.Models;
 
 namespace MIVisitorCenter.Areas.Identity.Pages.Account
 {
-    // [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

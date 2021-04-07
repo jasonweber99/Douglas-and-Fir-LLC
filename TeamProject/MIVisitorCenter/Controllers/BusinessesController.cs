@@ -65,6 +65,18 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult WaterTrail()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "WaterTrail")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable()
+                                    .GroupBy(c => c.Name);
+            return View(businesses);
+        }
+
         [HttpGet]
         public IActionResult Lodging()
         {

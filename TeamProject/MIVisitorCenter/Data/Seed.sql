@@ -17,6 +17,7 @@ INSERT INTO [Category](Name) VALUES ('Restaurants');
 INSERT INTO [Category](Name) VALUES ('Wineries');
 INSERT INTO [Category](Name) VALUES ('Coffee');
 INSERT INTO [Category](Name) VALUES ('Bars'); -- ID 15
+INSERT INTO [Category](Name) VALUES ('WaterTrail');
 
 
 -- Development Address Seed
@@ -295,3 +296,7 @@ SET IDENTITY_INSERT Business OFF;
 
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (217, 7);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (218, 7);
+
+-- Water Trail Seed
+SET IDENTITY_INSERT Business ON;
+

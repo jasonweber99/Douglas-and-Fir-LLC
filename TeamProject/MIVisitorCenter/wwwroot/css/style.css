@@ -150,3 +150,26 @@ body {
 #map {
     margin: auto;
 }
+
+.river-map {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+}
+
+.river-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+}
+
+
+/* Nav Pill Styles */
+.nav-pills, .tab-content {
+    margin-top: 2em
+}
+.tab-content {
+
+}

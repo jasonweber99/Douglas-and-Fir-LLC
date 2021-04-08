@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MIVisitorCenter.Areas.Services;
 using MIVisitorCenter.Models;
 
 namespace MIVisitorCenter
@@ -42,6 +44,18 @@ namespace MIVisitorCenter
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            // TODO - await configuration details from SendGrid/SendInBlue in appsettings
+            services.AddTransient<IEmailSender, MailKitEmailSender>();
+            services.Configure<MailKitEmailSenderOptions>(options =>
+            {
+                options.HostAddress = "my-smtp-server";
+                options.HostPort = 587;
+                options.HostUsername = "my-smtp-username";
+                options.HostPassword = "my-smtp-password";
+                options.SenderEMail = "noreply@mydomain.com";
+                options.SenderName = "My Sender Name";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

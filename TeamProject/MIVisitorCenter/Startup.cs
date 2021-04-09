@@ -49,12 +49,12 @@ namespace MIVisitorCenter
             services.AddTransient<IEmailSender, MailKitEmailSender>();
             services.Configure<MailKitEmailSenderOptions>(options =>
             {
-                options.HostAddress = "my-smtp-server";
-                options.HostPort = 587;
-                options.HostUsername = "my-smtp-username";
-                options.HostPassword = "my-smtp-password";
-                options.SenderEMail = "noreply@mydomain.com";
-                options.SenderName = "My Sender Name";
+                options.HostAddress = Configuration["ServiceProviders:MailKit:SMTP:Address"];
+                options.HostPort = Convert.ToInt32(Configuration["ServiceProviders:MailKit:SMTP:Port"]);
+                options.HostUsername = Configuration["ServiceProviders:MailKit:SMTP:Account"];
+                options.HostPassword = Configuration["ServiceProviders:MailKit:SMTP:Password"];
+                options.SenderEMail = Configuration["ServiceProviders:MailKit:SMTP:SenderEmail"];
+                options.SenderName = Configuration["ServiceProviders:MailKit:SMTP:SenderName"];
             });
         }
 

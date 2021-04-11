@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter.Data;
@@ -45,7 +41,14 @@ namespace MIVisitorCenter
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            // TODO - await configuration details from SendGrid/SendInBlue in appsettings
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("BusinessOwner",
+                    policy => policy.AddRequirements(new BusinessOwnerRequirement()));
+            });
+
+            services.AddTransient<IAuthorizationHandler, BusinessOwnerHandler>();
+
             services.AddTransient<IEmailSender, MailKitEmailSender>();
             services.Configure<MailKitEmailSenderOptions>(options =>
             {

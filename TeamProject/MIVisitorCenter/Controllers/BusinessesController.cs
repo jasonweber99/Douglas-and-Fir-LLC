@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter;
 using MIVisitorCenter.Models;
+using Newtonsoft.Json.Linq;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -246,6 +247,41 @@ namespace MIVisitorCenter.Controllers
         private bool BusinessExists(int id)
         {
             return _context.Businesses.Any(e => e.Id == id);
+        }
+
+        [HttpGet]
+        public string GetAllBusinesses() {
+            var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
+
+            JArray array = new JArray(
+                businesses.Select(b => new JObject
+                {
+                    { "Id", b.Business.Id },
+                    { "Name", b.Business.Name },
+                    { "Category", b.Category.Name }
+                })
+            );
+
+            string json = array.ToString();
+            return json;
+        }
+
+        public async Task<IActionResult> Business(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var business = await _context.Businesses
+                .Include(b => b.Address)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (business == null)
+            {
+                return NotFound();
+            }
+
+            return View(business);
         }
     }
 }

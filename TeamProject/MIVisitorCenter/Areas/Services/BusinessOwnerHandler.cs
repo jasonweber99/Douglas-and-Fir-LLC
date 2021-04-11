@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using MIVisitorCenter.Data;
+using MIVisitorCenter.Data.Migrations;
 using MIVisitorCenter.Models;
 
 namespace MIVisitorCenter.Areas.Services
@@ -31,7 +32,7 @@ namespace MIVisitorCenter.Areas.Services
 
             try
             {
-                if (userBusiness.Id == business.Id)
+                if (userBusiness.Id == business.Id || AHContext.User.IsInRole("admin"))
                 {
                     AHContext.Succeed(requirement);
                 }

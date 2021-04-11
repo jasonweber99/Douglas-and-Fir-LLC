@@ -98,17 +98,10 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
                 var passwordSetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
 
                 var callbackUrl = Url.Page(
-                    "/Account/ConfirmEmail",
+                    "/Account/ResetPassword",
                     pageHandler: null,
-                    values: new { area = "Identity", userId = user.Id, code, passwordSetCode, returnUrl },
+                    values: new { area = "Identity", userId = user.Id, code, passwordSetCode = passwordSetCode, returnUrl },
                     protocol: Request.Scheme);
-
-                // original code
-                //var callbackUrl = Url.Page(
-                //    "/Account/ConfirmEmail",
-                //    pageHandler: null,
-                //    values: new { area = "Identity", userId = user.Id, code, returnUrl },
-                //    protocol: Request.Scheme);
 
                 await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");

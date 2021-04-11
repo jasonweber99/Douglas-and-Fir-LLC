@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -61,17 +62,6 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
-
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -86,25 +76,25 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (!ModelState.IsValid) return Page();
             var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, BusinessName = Input.BusinessName};
-            var result = await _userManager.CreateAsync(user, Input.Password);
+            var tempPassword = GenerateRandomPassword();
+            var result = await _userManager.CreateAsync(user, tempPassword);
             if (result.Succeeded)
             {
-                _logger.LogInformation("User created a new account with password.");
+                _logger.LogInformation($"Admin created a new account with password {tempPassword}");
 
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
 
-                // testing code
                 var passwordSetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
 
                 var callbackUrl = Url.Page(
-                    "/Account/ResetPassword",
+                    "/Account/ConfirmEmail",
                     pageHandler: null,
-                    values: new { area = "Identity", userId = user.Id, code, passwordSetCode = passwordSetCode, returnUrl },
+                    new { area = "Identity", userId = user.Id, code = token, returnUrl },
                     protocol: Request.Scheme);
 
                 await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    $"Your generated password is '{tempPassword}'. Please confirm your account and change your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 if (_userManager.Options.SignIn.RequireConfirmedAccount)
                 {
@@ -122,6 +112,36 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
             }
 
             return Page();
+        }
+
+        private static string GenerateRandomPassword()
+        {
+            const string charsUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string charsLower = "abcdefghijklmnopqrstuvwxyz";
+            const string charsNums = "0123456789";
+            const string charsSymbols = "!@#$%^&*()";
+            var password = new char[12];
+            var random = new Random();
+
+            for (var i = 0; i < password.Length; i++)
+            {
+                switch (i % 4)
+                {
+                    case 0:
+                        password[i] = charsUpper[random.Next(charsUpper.Length)];
+                        break;
+                    case 1:
+                        password[i] = charsLower[random.Next(charsLower.Length)];
+                        break;
+                    case 2:
+                        password[i] = charsNums[random.Next(charsNums.Length)];
+                        break;
+                    case 3:
+                        password[i] = charsSymbols[random.Next(charsSymbols.Length)];
+                        break;
+                }
+            }
+            return new string(password);
         }
     }
 }

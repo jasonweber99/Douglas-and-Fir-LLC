@@ -11,7 +11,7 @@ namespace MIVisitorCenter.Areas.Services
     {
         public MailKitEmailSender(IOptions<MailKitEmailSenderOptions> options)
         {
-            this.Options = options.Value;
+            Options = options.Value;
         }
 
         public MailKitEmailSenderOptions Options { get; set; }

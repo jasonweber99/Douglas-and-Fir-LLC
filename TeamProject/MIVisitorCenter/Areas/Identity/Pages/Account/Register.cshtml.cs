@@ -94,7 +94,7 @@ namespace MIVisitorCenter.Areas.Identity.Pages.Account
                     protocol: Request.Scheme);
 
                 await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    $"Your generated password is '{tempPassword}'. Please confirm your account and change your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>, then log in with your generated password '{tempPassword}'. Finally, change your password by clicking on your email at the top right of the screen. ");
 
                 if (_userManager.Options.SignIn.RequireConfirmedAccount)
                 {

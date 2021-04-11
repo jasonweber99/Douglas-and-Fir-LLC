@@ -5,35 +5,36 @@
 }
 
 <div class="slideshow-content">
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="autoplay: true; animation: push; min-height: 300; max-height: 800">
-
-        <ul style="border-radius: 10px;" class="uk-slideshow-items">
-            <li>
-                <img src="/assets/Homepage/slide-1.jpg" alt="" uk-cover>
-            </li>
-            <li>
-                <img src="/assets/Homepage/slide-2.jpg" alt="" uk-cover>
-            </li>
-            <li>
-                <img src="/assets/Homepage/slide-3.jpg" alt="" uk-cover>
-            </li>
-        </ul>
-        <div class="uk-overlay-primary uk-position-cover" style="border-radius: 10px;"></div>
-        <div class="uk-overlay uk-position-center uk-light">
-            <h1 class="custom-header uk-margin-remove uk-text-center" style="font-style: italic;">Welcome To Monmouth and Independence!</h1>
+    <div class="uk-margin" uk-slideshow>
+        <div class="slideshow" uk-slideshow="autoplay: true; autoplay-interval: 6000; pause-on-hover: false; animation: pull">
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="assets/Homepage/slide-1.jpg" alt="Western Oregon University (evening)" uk-cover>
+                </li>
+                <li>
+                    <img src="assets/Homepage/slide-2.jpg" alt="Polk County Vineyard" uk-cover>
+                </li>
+                <li>
+                    <img src="assets/Homepage/slide-3.jpg" alt="Downtown Monmouth" uk-cover>
+                </li>
+            </ul>
+            <div class="uk-card uk-card-hover uk-card-default uk-card-body">
+                <h5 class="uk-card-title uk-text-center" style="font-size: 1.2em;">WELCOME TO MONMOUTH<strong>INDEPENDENCE</strong></h5>
+            </div>
         </div>
-
-
-        <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-hidden-touch" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
     </div>
 </div>
 
-<div class="uk-tile uk-tile-secondary">
-    <p class="uk-h4">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
+<div class="home-tile">
+    <div class="uk-tile uk-tile-muted">
+        <p class="uk-h4 uk-text-center">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
+    </div>
 </div>
-<div class="uk-tile uk-tile-primary">
-    <h1 class="custom-header uk-margin-remove" style="text-align: center;">Explore #wouwolves</h1>
+
+<div class="home-tile">
+    <div class="uk-tile uk-tile-secondary">
+        <p class="uk-h1 uk-text-center" style="font-family: 'Bebas Neue';">EXPLORE #WOUWOLVES</p>
+    </div>
 </div>
 
 

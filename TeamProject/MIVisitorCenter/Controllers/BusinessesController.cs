@@ -67,13 +67,21 @@ namespace MIVisitorCenter.Controllers
 
         public IActionResult WaterTrail()
         {
+            //ViewData["Lodging"] = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address).Include(l => l.Business).ThenInclude(b => b.BusinessCategories).ThenInclude(b => b.Category);
             var businesses = _context.Categories
-                                    .Where(n => n.Name == "WaterTrail")
+                                    .Where(n => n.Name == "WaterTrailRestaurants")
                                     .Include(b => b.BusinessCategories)
                                     .ThenInclude(b => b.Business)
                                     .ThenInclude(a => a.Address)
-                                    .AsEnumerable()
-                                    .GroupBy(c => c.Name);
+                                    .AsEnumerable();
+
+            var lodging = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailLodging")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+            ViewBag.Lodging = lodging;
             return View(businesses);
         }
 

@@ -18,6 +18,13 @@
     var userBusiness = MiDbContext.Businesses.FirstOrDefault(b => b.Name.Equals(currentUser.BusinessName));
     if (User.IsInRole("admin"))
     {
+        <li class="uk-parent uk-visible@m"><a href="">Stakeholder Options</a></li>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a asp-controller="StakeholderOptions" asp-action="CalendarOptions">Calendar Options</a></li>
+                <li><a asp-controller="StakeholderOptions" asp-action="MapOptions">Map Options</a></li>
+            </ul>
+        </div>
         <li class="nav-item">
             <a class="nav-link" asp-controller="Businesses" asp-action="Index">EDIT BUSINESSES</a>
         </li>

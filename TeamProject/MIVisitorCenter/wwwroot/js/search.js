@@ -1,14 +1,23 @@
 const search = document.getElementById('search');
 const MatchList = document.getElementById('match-list');
-const table = document.getElementById('resultsTable');
 const searchTable = document.getElementById('search-table');
+const open = document.getElementById('openSearch');
+const close = document.getElementById('closeSearch');
 var businesses = '';
 
-$(document).ready(function () {
+
+window.onload = () => {
     console.log("site reloaded")
     $( ".search-table" ).hide();
     searchTable.classList.remove('uk-hidden');
-});
+
+    // Add EventListeners to window.load so they aren't executed too soon
+    // Source: https://stackoverflow.com/questions/42595427/jest-testing-of-simple-vanilla-javascript-cannot-read-property-addeventlisten
+    open.addEventListener( 'click', openSearch );
+    close.addEventListener( 'click', closeSearch );
+    search.addEventListener('input', () => searchBusinesses(search.value));
+
+};
 
 // This resets the search text field to have nothing in it
 function closeSearch() {
@@ -41,19 +50,10 @@ const getAllBusinesses = () => {
     });
 }
 
-
-
-search.addEventListener('input', () => searchBusinesses(search.value));
-
 const searchBusinesses = (searchText) => {
 
-    console.log(searchText);
-
-    // Filters the businesses so either the Name or Category matches the query
-    let matches = businesses.filter((business) => {
-        const regex = new RegExp(`${searchText}`, 'gi');
-        return business.Name.match(regex) || business.Category.match(regex);
-    });
+    // Create array to hold matches
+    let matches = [];
     
     // If user deletes everying in text field, removes all the search results    
     if(searchText.length === 0) {
@@ -65,8 +65,16 @@ const searchBusinesses = (searchText) => {
 
     // Does not provide results until there is at least three characters in text field
     if (searchText.length >= 3 ) {
+        matches = findMatches(businesses, searchText);
         showSearchResults(matches);
     }
+}
+
+// Filters the businesses so either the Name or Category matches the query
+const findMatches = (businesses, searchText) => {
+    console.log(`Matching for ${searchText}`)
+    const regex = new RegExp(`${searchText}`, 'gi');
+    return businesses.filter((business) => business.Name.match(regex) || business.Category.match(regex));
 }
 
 const showSearchResults = (matches) =>  {
@@ -81,3 +89,5 @@ const showSearchResults = (matches) =>  {
         $( ".search-table" ).fadeIn();
     }
 }
+
+export { findMatches }

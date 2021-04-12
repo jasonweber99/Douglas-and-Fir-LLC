@@ -40,7 +40,7 @@
             </div>
         
             <div class="nav-overlay uk-navbar-right">
-                <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" onclick="openSearch()"></a>
+                <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" id="openSearch"></a>
                 <div class="uk-navbar-right">
                      <ul class="uk-navbar-nav uk-visible@m">
                         <partial name="_LoginPartial" />
@@ -56,7 +56,7 @@
                         <input id='search' class="uk-search-input" type="search" placeholder="Search for business" autofocus>
                     </form>
                 </div>
-                <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" onclick="closeSearch()"></a>
+                <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" id="closeSearch"></a>
             </div>
 
             @* <!-- Mobile Navigation Component --> *@
@@ -118,7 +118,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/search.js" asp-append-version="true"></script>
+    <script src="~/js/search.js" asp-append-version="true" type="module"></script>
     <script src="~/lib/uikit-3/js/uikit-icons.min.js"></script>
     <script src="~/lib/uikit-3/js/uikit.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)

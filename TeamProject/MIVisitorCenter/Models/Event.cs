@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using MIVisitorCenter.Attributes;
 
 #nullable disable
 
@@ -28,6 +29,7 @@ namespace MIVisitorCenter
         [Column(TypeName = "datetime")]
         public DateTime StartDate { get; set; }
         [Column(TypeName = "datetime")]
+        [EndDateGreaterThanStartDate(ErrorMessage = "Event cannot end before it starts")]
         public DateTime? EndDate { get; set; }
 
         [InverseProperty(nameof(BusinessEvent.Event))]

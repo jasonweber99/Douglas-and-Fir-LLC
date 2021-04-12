@@ -17,6 +17,9 @@ INSERT INTO [Category](Name) VALUES ('Restaurants');
 INSERT INTO [Category](Name) VALUES ('Wineries');
 INSERT INTO [Category](Name) VALUES ('Coffee');
 INSERT INTO [Category](Name) VALUES ('Bars'); -- ID 15
+INSERT INTO [Category](Name) VALUES ('WaterTrailRestaurants');
+INSERT INTO [Category](Name) VALUES ('WaterTrailLodging');
+
 
 
 -- Development Address Seed
@@ -40,6 +43,16 @@ INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1403 Thompson Wa
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('332 Independence Street', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('80230 Ford Street', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('57324 La Croix Boulevard', 'Independence', '97351', 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('201 Osprey Lane', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('8175 Buena Vista Rd.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('301 S. Main St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('240 Monmouth St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('370 Main St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('226 S. Main St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('296 S. Main St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1320 Edgewater Dr.', 'Salem', 97304, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('211 Main St.', 'Independence', 97351, 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('576 Patterson St. NW', 'Salem', 97304, 'OR');
 
 
 SET IDENTITY_INSERT Address ON;
@@ -130,6 +143,38 @@ INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('In
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (19, 11);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (20, 11);
 
+-- Water Trail Restaurant Seed
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Territory Restaurant', 'Inspired by the bounty of the Pacific Northwest, we specialize in fine artisan cuisine made with fresh, local ingredients. Join us for a unique fine dining experience on the banks of the beautiful Willamette River.', '503-837-0200', 'territoryrestaurant.com', 21);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Redgate Vineyards and Winery', 'Redgate Vineyard is a small, family owned winery crafting small lot, artisan wines reflecting the terroir of Redgate Estate and located just 1 mile from the Willamette River and 12 miles SW of the State Capitol, Salem, Oregon.', '503-428-7115', 'redgatewinery.com', 22);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('The Valkyrie Wine Tavern', 'Wine and Dine! Tavern style cuisine, large wine selection, beer and liquor too. Bottle shop as well. Open late.', '503-837-0505', 'facebook.com/thevalkyriewinetavern/', 23);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Parallel 45 Brewing', 'Independence Oregons own craft brewery.', '503-479-5905', 'p45brewing.square.site', 24);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Gilgamesh Brewing The River', 'The RIVER in Downtown Independence, OR serves hand tossed pizzas, sandwiches on handmade bread, and your favorite Gilgamesh Brewing craft beers. ', '503-559-0330', 'gilgameshbrewing.com/theriver', 25);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independent Ice Cream Shop', 'Old Fashioned Ice Cream Shop located in historic downtown Independence, Oregon located in the Little Mall on Main. Unique gift shop and tea house included!', '503-877-7590', 'facebook.com/independenticecreamshop', 26);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Jubilee Champagne and Dessert Bar', 'Treat yourself to the tasty pairings we’re serving up at Jubilee Champagne and Dessert Bar, Independence, ORs favorite specialty establishment. Bring your friends for an enjoyable girls night out or stop by after work for one of our scrumptious sweets or baked goods to enjoy on your way home.', '503-837-0888', 'jubileechampagneanddessertbar.com', 27);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Brew Coffee and Taphouse - West Salem', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-370-2739', 'brewandcoffeetaphouse.com', 28);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Brew Coffee and Taphouse - Independence', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-837-0279', 'brewandcoffeetaphouse.com', 29);
+INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Xicha Brewing', 'Xicha Brewing is the Pacific Northwests only Latinx brewery located in West Salem, Oregon. We aim to offer an inclusive, family-friendly cultural environment by creating community around high quality, fresh Latin American food and house-brewed European ales and lagers.', '503-990-8292', 'xichabrewing.com', 30);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30, 12);
+
 -- Development Amenities Seed
 INSERT INTO [Amenities](Name) VALUES ('Free Wi-Fi');
 INSERT INTO [Amenities](Name) VALUES ('Free Parking');
@@ -204,6 +249,12 @@ INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 17);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 1);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 14);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 16);
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (300, 17);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (301, 17);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (302, 17);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (304, 17);
+
 
 -- Development Hiking Seed
 SET IDENTITY_INSERT Business ON;
@@ -295,3 +346,4 @@ SET IDENTITY_INSERT Business OFF;
 
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (217, 7);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (218, 7);
+

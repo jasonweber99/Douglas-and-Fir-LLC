@@ -9,16 +9,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter;
 using MIVisitorCenter.Models;
+using Newtonsoft.Json.Linq;
 
 namespace MIVisitorCenter.Controllers
 {
     public class BusinessesController : Controller
     {
         private readonly MIVisitorCenterDbContext _context;
+        private readonly IAuthorizationService _authorizationService;
 
-        public BusinessesController(MIVisitorCenterDbContext context)
+        public BusinessesController(MIVisitorCenterDbContext context, IAuthorizationService authorizationService)
         {
             _context = context;
+            _authorizationService = authorizationService;
         }
 
         // GET: Businesses
@@ -177,21 +180,19 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Edit/5
-        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var business = await _context.Businesses.FindAsync(id);
-            if (business == null)
-            {
-                return NotFound();
-            }
+            if (business == null) return NotFound();
+
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, business, "BusinessOwner");
+            if (!authorizationResult.Succeeded) return NotFound();
+
             ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
             return View(business);
+
         }
 
         // POST: Businesses/Edit/5
@@ -266,6 +267,41 @@ namespace MIVisitorCenter.Controllers
         private bool BusinessExists(int id)
         {
             return _context.Businesses.Any(e => e.Id == id);
+        }
+
+        [HttpGet]
+        public string GetAllBusinesses() {
+            var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
+
+            JArray array = new JArray(
+                businesses.Select(b => new JObject
+                {
+                    { "Id", b.Business.Id },
+                    { "Name", b.Business.Name },
+                    { "Category", b.Category.Name }
+                })
+            );
+
+            string json = array.ToString();
+            return json;
+        }
+
+        public async Task<IActionResult> Business(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var business = await _context.Businesses
+                .Include(b => b.Address)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (business == null)
+            {
+                return NotFound();
+            }
+
+            return View(business);
         }
     }
 }

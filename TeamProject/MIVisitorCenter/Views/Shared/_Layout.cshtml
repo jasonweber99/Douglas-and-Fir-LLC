@@ -19,64 +19,91 @@
         @* For Mobile Responsiveness, we need to create an off-canvas nav that is hidden on desktop. *@
         @* As a result, we need to update the links for both the desktop nav as well as the off-canvas nav *@
         <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+            <nav class="uk-navbar-container uk-margin" uk-navbar>
 
-            <nav class="uk-navbar-container uk-navbar" uk-navbar>
-
-                <div class="uk-navbar-left">
-
+            <div class="nav-overlay uk-navbar-left">
+                <div class="uk-nav-left">
                     <ul class="uk-navbar-nav">
                         <li class="uk-active"><a asp-controller="Home" asp-action="Index">Monmouth<strong>Independence</strong></a></li>
-                        <li class="hidden-mobile">
-                            <a href="#">What to Do</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
-                                    <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
-                                    <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
-                                    <li><a asp-controller="Businesses" asp-action="WaterTrail">Willamette Water Trail</a></li>
-                                </ul> 
-                            </div>
-                        </li>
-                        <li class="hidden-mobile"><a asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
-                        <li class="hidden-mobile"><a asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
+                        <li class="uk-parent uk-visible@m" ><a href="">What To Do</a></li> 
+                        <div uk-dropdown>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li><a asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
+                                <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
+                                <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
+                                <li><a asp-controller="Businesses" asp-action="WaterTrail">Willamette Water Trail</a></li>
+                            </ul>
+                        </div>
+                        <li class="uk-parent uk-visible@m"><a asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
+                        <li class="uk-parent uk-visible@m"><a asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
                     </ul>
-
                 </div>
-
+            </div>
+        
+            <div class="nav-overlay uk-navbar-right">
+                <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" id="openSearch"></a>
                 <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav uk-visible@s">
+                     <ul class="uk-navbar-nav uk-visible@m">
                         <partial name="_LoginPartial" />
                     </ul>
-                    <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-nav"></a>
-
+                    <a href="#" class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-nav"></a>
                 </div>
-
-            </nav>
-        </div>
-
-        <div id="offcanvas-nav" uk-offcanvas="overlay: true">
-            <div class="uk-offcanvas-bar">
-
-                <ul class="uk-nav uk-nav-default">
-                    <li class="uk-parent">
-                        <a href="#">What to Do</a>
-                        <ul class="uk-nav-sub">
-                            <li><a asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
-                            <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
-                            <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
-                        </ul>
-                    </li>
-                    <li><a asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
-                    <li><a asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
-                    <li class="uk-nav-header">Account</li>
-                    <li class="uk-nav-divider"></li>
-                    <partial name="_LoginPartial" />
-                </ul>
             </div>
-        </div>
+        
+            @* <!-- Search Component --> *@
+            <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+                <div class="uk-navbar-item uk-width-expand">
+                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                        <input id='search' class="uk-search-input" type="search" placeholder="Search for business" autofocus>
+                    </form>
+                </div>
+                <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" id="closeSearch"></a>
+            </div>
+
+            @* <!-- Mobile Navigation Component --> *@
+            <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-nav uk-nav-default">
+                        <li class="uk-active"><a href="">MONMOUTH<strong>INDEPENDENCE</strong></a></li>
+                        <li class="uk-parent">
+                            <a href="#">What to Do</a>
+                            <ul class="uk-nav-sub">
+                                <li><a asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
+                                <li><a asp-controller="Businesses" asp-action="EatAndDrink">Restaurants</a></li>
+                                <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
+                                <li><a asp-controller="Businesses" asp-action="WaterTrail">Willamette Water Trail</a></li>
+                            </ul>
+                        </li>
+                        <li class="uk-parent"><a asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
+                        <li class="uk-parent"><a asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
+                        <li class="uk-nav-header">Account</li>
+                        <li class="uk-nav-divider"></li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </div>
+
+
+            @* <!-- Search Results Table --> *@
+            <div id="search-table" class="search-table uk-hidden">
+                <table id="resultsTable" class="uk-table uk-table-middle uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th class="uk-table-expand">Results</th>
+                            <th class="uk-width-small"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="match-list">
+                    </tbody>
+                </table>
+            </div>
+        
+        </nav>
+
         </div>
     </header>
-    <div class="container" id="main-container">
+        
+    <div class="page-content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -84,16 +111,16 @@
 
     <div class="uk-section uk-section-muted uk-section-xsmall uk-position-bottom">
         <div class="uk-container">
-            @* <footer class="footer text-muted"> *@
             <div class="container text-muted">
                 &copy; 2021 - Douglas and Fir, LLC
             </div>
-            @* </footer> *@
         </div>
     </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/search.js" asp-append-version="true" type="module"></script>
     <script src="~/lib/uikit-3/js/uikit-icons.min.js"></script>
     <script src="~/lib/uikit-3/js/uikit.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)

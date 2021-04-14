@@ -1,33 +1,20 @@
 /* Mobile-specific Styling */
 @media (max-width: 765px) {
-    .hidden-mobile {
-    display: none;
-    }
-    .uk-accordion_custom {
-        padding: 0 0.5em 0 0.5em !important;
+    .page-content {
+        margin: auto;
+        width: 90%;
     }
     .uk-accordion-title {
         height: 14rem;
     }
-    .logout-btn {
-        padding: 0 !important; 
-    }
     .image-cover {
         height: 14rem;
     }
-
-    .uk-tile {
-        border-radius: 10px;
-        margin: 1em 0.5em 2em 0.5em;
+    .uk-accordion_custom {
+        padding: 0 0.5em 0 0.5em !important;
     }
-    .slideshow-content {
-        /* padding: 1em 2em 1em 2em; */
-        /* margin: 2em 0.5em 2em 0.5em; */
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-    }
-    .social-stream {
-        padding: 0 0.5em 0 0.5em;
+    .logout-btn {
+        padding: 0 !important; 
     }
     #map {
         width: 100%;
@@ -37,8 +24,9 @@
 
 /* Desktop-specific CSS Styling */
 @media (min-width: 767px) {
-    .hidden-desktop {
-    display: none;
+    .page-content {
+        margin: auto;
+        width: 80%;
     }
     .uk-accordion_custom {
         padding: 0 2em 0 2em !important;
@@ -51,7 +39,6 @@
         margin: 1em 4em 1em 4em;
     }
     .slideshow-content {
-        /* padding: 2em 4em 2em 4em; */
         padding-left: 0em;
         padding-right: 0em;
     }
@@ -87,7 +74,35 @@ body {
 .uk-checkbox {
     border-radius: 2px;
 }
-
+.uk-legend {
+    font-size: 48px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.uk-input {
+    border-radius: 10px;
+}
+.uk-button {
+    border-radius: 10px;
+}
+.slideshow-content {
+    padding-top: 2em;
+    justify-items: center;
+}
+.slideshow {
+    border-radius: 40px;
+}
+.slideshow > .uk-slideshow-items {
+    border-radius: 15px 15px 0 0;
+}
+.slideshow > .uk-card {
+    border-radius: 0 0 15px 15px;
+}
+.home-tile {
+    padding: 2em 0 2em 0;
+}
+.home-tile > .uk-tile {
+    border-radius: 15px;
+}
 
 /* Accordion Styles */
 .uk-accordion {
@@ -127,8 +142,6 @@ body {
     margin-top: 2em;
 }
 .image-cover {
-    /* height: 14rem; */
-    /* height: 300px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,4 +162,53 @@ body {
 /* Google Maps */
 #map {
     margin: auto;
+}
+
+.search-table {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 1px solid #ebeaea;
+    margin: auto;
+    width: 90%;
+    z-index: 1;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+#match-list {
+    animation: slide-up 1s ease;
+}
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.river-map {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+}
+
+.river-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+}
+
+
+/* Nav Pill Styles */
+.nav-pills, .tab-content {
+    margin-top: 2em
+}
+.tab-content {
+
 }

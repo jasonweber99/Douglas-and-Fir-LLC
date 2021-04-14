@@ -1,0 +1,31 @@
+@model MIVisitorCenter.Business
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" style="padding-top: 2rem;" uk-grid>
+    <div>
+        <div style="display: flex; justify-content: space-between; border-radius: 10px;" >
+            <h2 style="align-self: center;">@Model.Name</h2>
+            <img data-src="https://via.placeholder.com/150 " width="150px" height="150px" alt="Profile Picture Placeholder" style="float: right; border-radius: 10px;" uk-img>
+        </div>
+    </div>
+</div>
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" style="padding: 2rem 0 2rem 0;" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
+            <h3>Description</h3>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
+            <h3>Contact</h3>
+            <p>@Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State</p>
+            <p>@Model.Phone</p>
+            <a href="@Model.Website" style="color: #999;">@Model.Website</a>
+        </div>
+    </div>
+</div>

@@ -4,8 +4,14 @@ CREATE TABLE [Business] (
   [Description] nvarchar(1024),
   [Phone] nvarchar(32),
   [Website] nvarchar(128),
-  [PictureFileName] nvarchar(256),
+  [PictureFileName] varbinary(max),
   [AddressID] int
+);
+
+CREATE TABLE [PhotoCollection] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [BusinessID] int,
+  [Photo] varbinary(max)
 );
 
 CREATE TABLE [OperatingHours] (
@@ -116,3 +122,7 @@ FOREIGN KEY ([LodgingID]) REFERENCES [Lodging] ([ID]);
 ALTER TABLE [LodgingAmenities]
 ADD CONSTRAINT FK_AmenitiesLodgingAmenities
 FOREIGN KEY ([AmenitiesID]) REFERENCES [Amenities] ([ID]);
+
+ALTER TABLE [PhotoCollection] 
+ADD CONSTRAINT FK_BusinessPhotoCollection
+FOREIGN KEY ([BusinessID]) REFERENCES [Business] ([ID]);

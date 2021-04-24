@@ -40,6 +40,7 @@ namespace MIVisitorCenter.Controllers
                                     .ThenInclude(a => a.Address)
                                     .AsQueryable();
                                     // .GroupBy(c => c.Name);
+                                    
             return View(stops);
         }
     }

@@ -11,8 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MIVisitorCenter.Areas.Services;
 using MIVisitorCenter.Models;
-using MIVisitorCenter.Data.Abstract;
-using MIVisitorCenter.Data.Concrete;
 
 namespace MIVisitorCenter
 {
@@ -37,9 +35,6 @@ namespace MIVisitorCenter
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MIVisitorCenterConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddScoped<IBusinessRepository, BusinessRepository>();
-            services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()

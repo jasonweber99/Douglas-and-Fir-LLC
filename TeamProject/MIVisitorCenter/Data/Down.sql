@@ -42,10 +42,6 @@ ALTER TABLE [Business]
 DROP CONSTRAINT FK_AddressBusiness
 GO
 
-ALTER TABLE [PhotoCollection]
-DROP CONSTRAINT FK_BusinessPhotoCollection
-GO
-
 DROP TABLE [Amenities]
 GO
 
@@ -77,7 +73,4 @@ DROP TABLE [OperatingHours]
 GO
 
 DROP TABLE [Business]
-GO
-
-DROP TABLE [PhotoCollection]
 GO

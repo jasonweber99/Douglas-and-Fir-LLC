@@ -14,7 +14,7 @@ namespace MIVisitorCenter.Tests
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur in turpis nec pharetra. Aliquam erat volutpat. Pellentesque accumsan dictum rhoncus. Morbi magna libero, euismod non erat nec, laoreet vehicula mauris.",
                 Phone = "503-555-1234",
                 Website = "www.business.com",
-                PictureFileName = "business.jpg"
+                PictureFileName = null
             };
         }
 
@@ -101,10 +101,8 @@ namespace MIVisitorCenter.Tests
 
 
         //************* Phone ***************
-        [TestCase("5035551234")]
         [TestCase("503-555-1234")]
-        [TestCase("503.555.1234")]
-        [TestCase("!@#$%^&*()[]{}|'")]
+        [TestCase("1-123-456-7890")]
         public void Business_PhoneWithSymbolsAndNumbersAre_Valid(string phone)
         {
             Business b = MakeValidBusiness();
@@ -114,6 +112,20 @@ namespace MIVisitorCenter.Tests
 
             Assert.That(mv.ContainsFailureFor("Phone"), Is.False);
             Assert.That(mv.Valid, Is.True);
+        }
+
+        [TestCase("5035551234")]
+        [TestCase("503.555.1234")]
+        [TestCase("!@#$%^&*()[]{}|'")]
+        public void Business_PhoneWithInvalidSymbolsAre_Invalid(string phone)
+        {
+            Business b = MakeValidBusiness();
+            b.Phone = phone;
+
+            ModelValidator mv = new ModelValidator(b);
+
+            Assert.That(mv.ContainsFailureFor("Phone"), Is.True);
+            Assert.That(mv.Valid, Is.False);
         }
 
         [Test]
@@ -158,29 +170,32 @@ namespace MIVisitorCenter.Tests
 
 
         //************* PictureFileName ***************
-        [TestCase("227-2276478_tadpole-free-png-and-vector-.png")]
-        [TestCase("!@#$%^&*()[]{}|.gif'")]
-        public void Business_PictureFileNameWithSymbolsAndNumbersAre_Valid(string pfn)
-        {
-            Business b = MakeValidBusiness();
-            b.PictureFileName = pfn;
 
-            ModelValidator mv = new ModelValidator(b);
+        // Change in db makes PictureFileName byte[] instead of string
 
-            Assert.That(mv.ContainsFailureFor("PictureFileName"), Is.False);
-            Assert.That(mv.Valid, Is.True);
-        }
+        //[TestCase("227-2276478_tadpole-free-png-and-vector-.png")]
+        //[TestCase("!@#$%^&*()[]{}|.gif'")]
+        //public void Business_PictureFileNameWithSymbolsAndNumbersAre_Valid(string pfn)
+        //{
+        //    Business b = MakeValidBusiness();
+        //    b.PictureFileName = pfn;
 
-        [Test]
-        public void Business_PictureFileNameLongerThanMaxLength_NotValid()
-        {
-            Business b = MakeValidBusiness();
-            b.PictureFileName = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porttitor rhoncus ultrices. Morbi mi risus, facilisis vitae justo at, viverra sodales ante. Proin a magna vitae eros venenatis vestibulum id vel libero. Etiam posuere sit amet odio quis eros. ";
+        //    ModelValidator mv = new ModelValidator(b);
 
-            ModelValidator mv = new ModelValidator(b);
+        //    Assert.That(mv.ContainsFailureFor("PictureFileName"), Is.False);
+        //    Assert.That(mv.Valid, Is.True);
+        //}
 
-            Assert.That(mv.ContainsFailureFor("PictureFileName"), Is.True);
-            Assert.That(mv.Valid, Is.False);
-        }
+        //[Test]
+        //public void Business_PictureFileNameLongerThanMaxLength_NotValid()
+        //{
+        //    Business b = MakeValidBusiness();
+        //    b.PictureFileName = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porttitor rhoncus ultrices. Morbi mi risus, facilisis vitae justo at, viverra sodales ante. Proin a magna vitae eros venenatis vestibulum id vel libero. Etiam posuere sit amet odio quis eros. ";
+
+        //    ModelValidator mv = new ModelValidator(b);
+
+        //    Assert.That(mv.ContainsFailureFor("PictureFileName"), Is.True);
+        //    Assert.That(mv.Valid, Is.False);
+        //}
     }
 }

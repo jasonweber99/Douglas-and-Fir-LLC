@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MIVisitorCenter.Data.Abstract;
 using MIVisitorCenter.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ namespace MIVisitorCenter.Controllers
 {
     public class ItineraryController : Controller
     {
-        private readonly MIVisitorCenterDbContext _context;
+        //private readonly MIVisitorCenterDbContext _context;
+        private readonly ICategoryRepository _categoryRepo;
 
-        public ItineraryController(MIVisitorCenterDbContext context)
+        public ItineraryController(ICategoryRepository categoryRepo)
         {
-            _context = context;
+            //_context = context;
+            _categoryRepo = categoryRepo;
         }
 
         public IActionResult Index()
@@ -24,23 +27,30 @@ namespace MIVisitorCenter.Controllers
 
         public IActionResult PlanATrip()
         {
-            var stops = _context.Categories
-                                    .Where(n => n.Name == "Restaurants" ||
-                                        n.Name == "Hiking" ||
-                                        n.Name == "Cycling" ||
-                                        n.Name == "Birding" ||
-                                        n.Name == "Fishing" ||
-                                        n.Name == "Wineries" ||
-                                        n.Name == "Historic Sites & Museums" ||
-                                        n.Name == "Birding" ||
-                                        n.Name == "Art Galleries" ||
-                                        n.Name == "Cinemas & Performing Arts")
-                                    .Include(b => b.BusinessCategories)
-                                    .ThenInclude(b => b.Business)
-                                    .ThenInclude(a => a.Address)
-                                    .AsQueryable();
-                                    // .GroupBy(c => c.Name);
-            return View(stops);
+            ViewBag.Restaurants = _categoryRepo.GetBusinessesByCategory("Restaurants").ToList();
+            ViewBag.Lodging = _categoryRepo.GetAllLodging().ToList();
+            ViewBag.Activities = _categoryRepo.GetAllActivities().ToList();
+            ViewBag.Culture = _categoryRepo.GetAllArtAndCulture().ToList();
+
+            return View();
+        }
+
+        public IActionResult ItineraryBuilder()
+        {
+            return View();
+        }
+
+        public IActionResult Build(ItineraryBuilderViewModel itin) 
+        {
+            var interests = new List<Category>();
+            if(itin.Categories != null)
+            {
+                interests = _categoryRepo.GetCategoryListFromStringList(itin.Categories.ToList());
+            }
+            var businesses = _categoryRepo.GetAllMIBusinesses();
+            var lodging = _categoryRepo.GetAllLodging();
+            itin.Itinerary = new Itinerary(itin.Length, interests, businesses, lodging);
+            return View("ItineraryBuilder", itin);
         }
     }
 }

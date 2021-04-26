@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MIVisitorCenter;
+using Microsoft.EntityFrameworkCore.Query;
 using MIVisitorCenter.Models;
 using Newtonsoft.Json.Linq;
 using MIVisitorCenter.Data.Abstract;
@@ -36,7 +36,36 @@ namespace MIVisitorCenter.Controllers
 
         // GET: Businesses
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOption)
+        {
+            ViewBag.NameSortOption = string.IsNullOrEmpty(sortOption) ? "name_desc" : "";
+            
+            var addresses = _context.Addresses.ToArray();
+            var cities = new ArrayList();
+
+            foreach (var address in addresses)
+            {
+                if (!cities.Contains(address.City))
+                    cities.Add(address.City);
+            }
+
+            cities.Sort();
+
+            ViewData["Cities"] = cities;
+            ViewData["Categories"] = _context.Categories.OrderBy(c => c.Name).ToArray();
+
+            var businesses = _context.Businesses.Include(b => b.Address);
+
+            if (string.IsNullOrEmpty(sortOption)) return View(await businesses.ToListAsync());
+            
+            var sortedBusinesses = businesses.OrderByDescending(c => c.Name);
+
+            return View(await sortedBusinesses.ToListAsync());
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> Index(string cityFilter, string categoryFilter)
         {
             var mIVisitorCenterDbContext = _businessRepo.GetAll().Include(b => b.Address);
             return View(await mIVisitorCenterDbContext.ToListAsync());

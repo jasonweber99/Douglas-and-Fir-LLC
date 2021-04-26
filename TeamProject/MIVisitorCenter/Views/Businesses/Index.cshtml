@@ -1,35 +1,47 @@
-﻿@model IEnumerable<MIVisitorCenter.Business>
+﻿@using System.Collections
+@model IEnumerable<MIVisitorCenter.Business>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Business Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<form class="uk-align-center">
+    <div class="uk-margin uk-grid-small uk-child-width-auto">
+        <a button class="uk-button uk-button-default" asp-action="Create">Create New</a>
+        @using (Html.BeginForm("Index", "Businesses", FormMethod.Post))
+        {
+            <select class="uk-select" id="cityFilter">
+                <option selected disabled hidden>Filter By City</option>
+                @foreach (var city in (IEnumerable)ViewData["Cities"])
+                {
+                    <option>@city</option>
+                }
+            </select>
+            <select class="uk-select" id="categoryFilter">
+                <option selected disabled hidden>Filter By Category</option>
+                @foreach (var category in (IEnumerable<Category>)ViewData["Categories"])
+                {
+                    <option>@category.Name</option>
+                }
+            </select>
+            <input class="uk-button uk-button-default" type="submit" value="Filter" />
+        }
+    </div>
+</form>
+<table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
     <thead>
         <tr>
             <th style="width:20%;">
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.ActionLink("Name", "Index", new { sortOption = ViewBag.NameSortOption })
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>*@
-            <th style="width:20%;">
+            <th style="width:15%;">
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th style="width:20%;">
                 @Html.DisplayNameFor(model => model.Website)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.PictureFileName)
-            </th>*@
-            <th style="width:20%;">
-                @Html.DisplayNameFor(model => model.Address)
             </th>
             <th></th>
         </tr>
@@ -40,26 +52,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Website)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.PictureFileName)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Address.StreetAddress)
-                @Html.DisplayFor(modelItem => item.Address.City)
+                <a href="@Html.DisplayFor(modelItem => item.Website)">@Html.DisplayFor(modelItem => item.Website)</a>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a button class="uk-button uk-button-default" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a button class="uk-button uk-button-primary" asp-action="Business" asp-route-id="@item.Id">Details</a>
+                <a button class="uk-button uk-button-secondary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

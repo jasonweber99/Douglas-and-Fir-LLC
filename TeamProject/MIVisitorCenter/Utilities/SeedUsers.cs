@@ -6,10 +6,31 @@ using MIVisitorCenter.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace MIVisitorCenter
+namespace MIVisitorCenter.Utilities
 {
     public static class SeedUsers
     {
+        public static async Task Initialize(IServiceProvider serviceProvier, UserInfoData[] seedData, string testUserPw)
+        {
+            try
+            {
+                using (var context = new ApplicationDbContext(serviceProvier.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
+                {
+                    var userManager = serviceProvier.GetRequiredService<UserManager<ApplicationUser>>();
+
+                    foreach (var u in seedData)
+                    {
+                        var identityID = await EnsureUser(userManager, testUserPw, u.Email, u.UserName, u.BusinessName, u.EmailConfirmed);
+
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new Exception("Failed to initialize user seed data, service provider did not have the correct service");
+            }
+        }
+
         public static async Task InitializeAdmin(IServiceProvider serviceProvider, string email, string userName, string adminPw, string businessName)
         {
             try

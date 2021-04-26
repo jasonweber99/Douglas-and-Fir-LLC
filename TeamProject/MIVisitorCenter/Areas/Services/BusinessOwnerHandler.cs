@@ -32,7 +32,7 @@ namespace MIVisitorCenter.Areas.Services
 
             try
             {
-                if (userBusiness.Id == business.Id || AHContext.User.IsInRole("admin"))
+                if (AHContext.User.IsInRole("admin") || userBusiness.Id == business.Id)
                 {
                     AHContext.Succeed(requirement);
                 }

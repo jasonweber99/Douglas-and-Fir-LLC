@@ -23,6 +23,11 @@ namespace MIVisitorCenter.Data.Concrete
             return _dbSet.Where(a => a.Id == id).FirstOrDefault();
         }
 
+        public virtual Business GetBusinessByName(string name)
+        {
+            return _dbSet.Where(a => a.Name == name).FirstOrDefault();
+        }
+
         public virtual async Task UpdateBusiness(Business business, IFormFile profilePicture, IFormCollection images)
         {
             if (business == null)

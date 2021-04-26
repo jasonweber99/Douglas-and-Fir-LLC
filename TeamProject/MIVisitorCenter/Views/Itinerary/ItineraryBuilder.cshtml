@@ -1,0 +1,109 @@
+﻿@model ItineraryBuilderViewModel
+
+<div class="image-container">
+    <div class="image-cover" data-src="/assets/PlanATrip.jpg" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+        <div class="accordion-title-card">Itinerary Builder</div>
+    </div>
+</div><br />
+
+<div class="row uk-align-center">
+    <p style="text-align:center">Select your length of stay along with any number of interests. Click on 'Create Itinerary' once you're done to generate an itinerary.</p>
+</div>
+
+<div class="row uk-align-center uk-width-xlarge">
+
+    @using (Html.BeginForm(new { action = "Build" }))
+    {
+<div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-select">Length of Stay</label>
+    <div class="uk-form-controls">
+        <select asp-for="Length" class="uk-select" id="form-stacked-select">
+            <option value="1">1 Day</option>
+            <option value="2">2 Days</option>
+        </select>
+    </div>
+</div>
+
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Hiking"> Hiking</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cycling"> Cycling</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Birding"> Birding</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Fishing"> Fishing</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Golf"> Golfing</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Wineries"> Wineries</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Historic Sites & Museums"> Historic Sites & Museums</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Art Galleries"> Art Galleries</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cinemas & Performing Arts"> Cinemas & Performing Arts</label>
+                </div>
+                                <div class="uk-margin">
+                                    <input class="uk-button uk-button-primary uk-align-center" type="submit" value="Create Itinerary" />
+                                </div>}
+
+</div>
+
+@if (Model != null)
+{
+    <div class="row">
+        @for (int i = 0; i < Model.Itinerary.Days.Count; i++)
+        {
+        <div class="row uk-margin">
+            <h3 class="uk-align-center">Day @(i + 1)</h3>
+            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider" style="width: 100%">
+                <thead>
+                    <tr>
+                        <td class="uk-width-small"></td>
+                        <td class="uk-width-small"></td>
+                        <td class="uk-width-small"></td>
+                        <td class="uk-width-auto"></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th scope="row">Lodging</th>
+                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Name</td>
+                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Address.StreetAddress</td>
+                        <td class="uk-table-expand">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Breakfast</th>
+                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Name</td>
+                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Morning</th>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Name</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Lunch</th>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Name</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Afternoon</th>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[4].Business.Name</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[4].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[4].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Evening</th>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[5].Business.Name</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[5].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[5].Business.Description</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Dinner</th>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Name</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Address.StreetAddress</td>
+                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+}

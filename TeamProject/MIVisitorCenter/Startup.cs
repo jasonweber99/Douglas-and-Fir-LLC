@@ -41,6 +41,8 @@ namespace MIVisitorCenter
             services.AddScoped<IBusinessRepository, BusinessRepository>();
             services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
 
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

@@ -20,41 +20,239 @@ INSERT INTO [Category](Name) VALUES ('Bars'); -- ID 15
 INSERT INTO [Category](Name) VALUES ('WaterTrailRestaurants');
 INSERT INTO [Category](Name) VALUES ('WaterTrailLodging');
 
+SET IDENTITY_INSERT Address ON;
 
+-- Actual Eat & Drink Address Seed
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(1, '174 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(2, '189 Pacific Avenue S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(3, '615 E Main Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(4, '834 N Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(5, '564 Powell Street East', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(6, '1083 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(7, '105 E Main Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(8, '320 Pacific Ave S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(9, '1321 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(10, '1389 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(11, '423 Main Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(12, '101 Polk Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(13, '1450 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(14, '380 Pacifice Avenue S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(15, '159 Monmouth Ave N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(16, '405 E Main Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(17, '1349 Monmouth Street', 'Indpendence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(18, '109 Main Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(19, '114 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(20, '1315 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(21, '1695 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(22, '183 Main Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(23, '601 Clay Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(24, '227 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(25, '6335 OR 22', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(26, '215 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(27, '1473 Monmouth Independence Hwy', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(28, '242 D Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(29, '123 Main Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(30, '641 Clay Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(31, '1311 Monmouth Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(32, '198 Main Street W', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(33, '4705 Airport Road', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(34, '1379 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(35, '113 E Main Street', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(36, '211 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(37, '145 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(38, '140 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(39, '167 Main Street W', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(40, '191 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(41, '310 Main Street E', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(42, '220 Pacific Avenue S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(43, '87 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(44, '131 Pacific Highway W N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(45, '169 Main Street W', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(46, '152 Main Street W', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(47, '201 Osprey Lane', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(48, '8175 Buena Vista Road', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(49, '301 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(50, '240 Monmouth Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(51, '370 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(52, '226 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(53, '296 S Main Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(54, '1320 Edgewater Street NW', 'Salem', 97304, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(55, '576 Patterson Street NW Suite 140', 'Salem', 97304, 'OR');
 
--- Development Address Seed
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('978 NW Martin St.', 'Monmouth',     97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('637 E Lunar Ln.',   'Monmouth',     97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('283 NW Market St.', 'Monmouth',     97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('106 SE Poll St.',   'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('5372 Hoggle Drive', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('18 Main Street W', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('902 9th Street', 'Independence', '97351', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('2380 Bucket Avenue', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1403 Thompson Way', 'Independence', '97351', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('332 Independence Street', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('80230 Ford Street', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('57324 La Croix Boulevard', 'Independence', '97351', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('201 Osprey Lane', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('8175 Buena Vista Rd.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('301 S. Main St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('240 Monmouth St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('370 Main St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('226 S. Main St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('296 S. Main St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1320 Edgewater Dr.', 'Salem', 97304, 'OR');
+-- Actual Winery Address Seed
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(56, '3250 S Pacific Highway', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(57, '8175 Buena Vista Road', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(58, '15305 Dunn Forest Road', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(59, '11665 Airlie Road', 'Monmouth', 97361, 'OR');
+
+SET IDENTITY_INSERT Address OFF;
+SET IDENTITY_INSERT Business ON;
+
+-- Actual Eat & Drink Seed
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (1, 'Arena Sports Bar & Grill', 'Locally owned and operated sports bar featuring pool tables, live sports, and wings', '503-838-0054', 'www.arenasportsbar174.com', 1);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (2, 'BG''s Bar-B-Que', 'Kansas City-style BBQ offering dine-in or catering', '503-420-4143', 'bgdeli54.wixsite.com', 2);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (3, 'Burgerville', 'Fast-food chain using local, sustainable ingredients in its burgers, salads, & shakes', '503-838-6096', 'www.burgerville.com', 3); 
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (4, 'Mi Casita Market', 'Carniceria and grocery store', '503-838-0114', '-', 4);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (5, 'Casa Burrito', 'Bienvenidos a Casa Burrito, Taqueria donde encontrarás deliciosos burritos, tortas, quesadillas y tacos. Y Restaurante con auténtica comida Mexicana.', '503-837-0615', 'www.facebook.com/casaburritorestaurant', 5);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (6, 'Chase Bar & Grill', 'Relaxed bar and grill featuring a heated patio', '503-838-5664', '-', 6);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (7, 'Crush Wine Bar & Tasting Room', 'An intimate setting to explore local wines and local foods with friendly and knowledgeable service.', '503-838-0399', 'www.crushonmain.com', 7);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (8, 'Dairy Queen', 'Soft-serve ice cream & signature shakes top the menu at this classic burger & fries fast-food chain', '503-838-4500', 'www.dairyqueen.com', 8);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (9, 'Figaro''s Pizza', 'Simple, counter-serve chain furnishing build-your-own & specialty pizza with a choice of crusts', '503-838-6459', 'www.figaros.com', 9);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (10, 'Fro-Zone Frozen Yogurt', 'Locally-owned frozen yogurt specialists', '503-937-1376', 'www.fro-zone.com', 10);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (11, 'The Gym Bar & Grill', 'A place where our atmosphere means athletics and class!', '503-838-4284', 'www.facebook.com/tgbandg', 11);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (12, 'Lucky Dragon', 'Local staple for Chinese cuisine serving high quality and fresh ingredients', '503-538-4325', 'www.luckydragonor.com', 12);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (13, 'Jade Terrace', 'Chinese restaurant featuring large portions and a lounge area', '503-606-4092', '-', 13);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (14, 'KFC/A&W', 'Combination fast food serving fried chicken, burgers, and namesake root beer', '503-838-4266', 'www.kfc.com', 14);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (15, 'Koyote''s Tacos', 'Local favorite for tacos and traditional Mexican cuisine offering dine-in or catering', '503-838-1801', 'www.facebook.com/Koyotes-Tacos-497547736979724/', 15);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (16, 'Little Caesars Pizza', 'Carry-out chain featuring chicken wings, signature breadsticks and pizza tossed from housemade dough', '503-606-3773', 'www.littlecaesars.com', 16);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (17, 'Los Dos Amigos Hacienda', 'Eatery serving heaping plates of Mexican classics and frozen margaritas in a vibrant atmosphere', '503-838-0223', 'www.losdosamigosoregon.com', 17);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (18, 'Main Street Ice Cream Parlor', 'Locally-owned ice cream parlor featuring a wide variety of toppings and candy', '503-838-1485', 'www.facebook.com/MainSt.IceCream', 18);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (19, 'Mangiare Italian Restaurant', 'Family-owned and operated eatery offering home-cooked Italian classics, wine, and cocktails', '503-838-0566', 'mangiareindependence.weebly.com', 19);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (20, 'McDonald''s', 'Classic, long-running fast-food chain known for its burgers, fries, and shakes', '503-838-3337', 'mcdonalds.com', 20);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (21, 'Mendi''s Pizza Parlor', 'Local pizzeria serving from-scratch pizzas, pastas, and sandwiches since 1977', '503-838-5413', 'mendispizza.com', 21);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (22, 'Momiji Sushi Bar & Restaurant', 'Oregon-based chain serving fresh sushi rolls, bento boxes, and Japanese entrees', '503-837-0111', 'momijiinc.com', 22);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (23, 'Muchas', 'Local chain offering fresh and authentic Mexican cuisine', '503-837-0400', 'muchas-fresh.com', 23);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (24, 'The Naughty Noodle', 'Locally-owned restaurant featuring hand-made pasta', '503-837-0834', 'naughtynoodle.com', 24);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (25, 'Oak Tree Inn Restaurant', 'Quaint restaurant located on the Oak Knoll Golf Course', '503-378-7550', 'oakknollgolfcourse.com', 25);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (26, 'Ovenbird Bakery', 'Warm and friendly bakery offering coffee, lunch, fresh-baked breads and pastries, and catering', '503-837-0109', 'ovenbirdbakery.com', 26);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (27, 'Papa Murphy''s', 'Chain outlet offering build-your-own takeaway pizzas', '503-838-4111', 'papamurphys.com', 27);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (28, 'Pink House Cafe', 'Charming cafe serving home-cooked meals and treats', '503-837-0900', 'facebook.com/IndependencePinkHouseCafe', 28);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (29, 'Rick''s Place', 'Legendary local diner featuring great coffee and atmosphere', '503-838-4912', '-', 29);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (30, 'Rookies Sports Tap', 'Monmouth''s first bar with 40 taps, full menu, and video poker', '503-838-4806', 'rookiestap.com', 30);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (31, 'San Antonio Mexican Restaurant', 'Colorful restaurant offering Tex-Mex cuisine with excellent service', '503-838-1304', 'san-antonio-mexican-restaurant-mexican-restaurant.business.site', 31);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (32, 'Sing Fay Restaurant', 'Local staple for Chinese food with generous portions', '503-838-3723', 'singfaytogo.com', 32);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (33, 'Starduster Cafe', 'A small family owned and operated cafe that was established in 2006', '503-838-1791', 'facebook.com/Starduster-Cafe-Inc-117197471631894', 33);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (34, 'Subway of Independence', 'Casual counter-service chain for build-your-own sandwiches and salads', '503-838-5732', 'subway.com', 34);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (35, 'Subway of Monmouth', 'Casual counter-service chain for build-your-own sandwiches and salads', '503-837-0960', 'subway.com', 35);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (36, 'Brew Coffee & Tap House - Independence', 'Family-owned coffe and tap house with patio seating', '503-837-0279', 'brewcoffeeandtaphouse.com', 36);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (37, 'Urban Deli Mexican Food', 'Casual counter-service Mexican restaurant serving affordable cuisine', '503-837-0383', 'order.online/store/UrbanDeliMexicanfood-632405', 37);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (38, 'Yang''s Teriyaki Plus', 'A family business dedicated to providing fresh food and ensuring fast, friendly service', '503-838-2330', 'yangsteriyaki.com', 38);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (39, 'Yeasty Beasty', 'Local favorite for pizza and beer featuring fresh-made dough daily and 26 taps of craft brews', '503-837-1222', 'yeastybeasty.com', 39);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (40, 'The Donut Bar', 'Food truck offering gourmet donuts and pastries', '503-798-1328', 'facebook.com/Thedonutbarinmonmouth', 40);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (41, 'Domino''s Pizza', 'Delivery/carryout chain offering a wide range of pizzas', '503-836-9500', 'dominos.com', 41);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (42, 'Grain Station Brew Works', 'Brewery and brewpub offering craft beers and serving breakfast, lunch, and dinner', '503-838-1730', 'grainstation.com', 42);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (43, 'The Tap Station', 'Tap house featuring a patio with lawn games, 16 rotating craft beers, and daily specials', '541-953-2747', 'thetapstation.net', 43);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (44, 'Carl''s Jr.', 'Fast-food chain serving huge burgers and chicken sandwiches', '503-917-4100', 'carlsjr.com', 44);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (45, 'The Sippery', 'Local gathering place serving coffee, sandwiches, and beer', '503-837-0168', 'thesipperyoregon.com', 45);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (46, 'Lonney''s Lunch Wagon', 'Food truck serving Hawaiian and Korean cuisine', '-', 'facebook.com/Lonneyslunchwagon', 46); 
+
+-- Actual Winery Seed
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (56, 'Namaste Vineyards', 'We at Namasté Vineyards believe the finest wines come from the finest grapes. Our vineyards were established decades ago between 1980 and 1983 and produce complex and mature fruit. Our vineyard property is located just 15 minutes west of Salem, in the heart of Oregon''s renowned Willamette Valley. We grow Chardonnay, Riesling, Gewürztraminer, and multiple Pinot Noirs.', '503-365-8859', 'namastevinyards.com', 56);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (57, 'Redgate Vineyards', 'Redgate Vineyard is a small, family owned winery crafting small lot, artisan wines reflecting the terroir of Redgate Estate and located just 1 mile from the Willamette River and 12 miles SW of the State Capitol, Salem, Oregon.', '503-428-7115', 'redgatewinery.com', 57);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (58, 'Airlie Winery', 'A destination winery nestled in the heart of the Willamette Valley boasting an inviting atmosphere and nine varietals of wine!', '503-838-6013', 'airliewinery.com', 58);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (59, 'Emerson Vineyards', 'A family owned and operated winery with a daily tasting room on 127 acres.', '503-838-0944', 'emersonvineyards.com', 59);
+
+SET IDENTITY_INSERT Business OFF;
+
+-- Actual Restaurant Category Seed
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (1,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (1,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (2,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (3,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (4,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (5,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (6,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (6,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (7,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (7,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (8,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (9,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (10,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (11,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (11,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (12,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (13,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (14,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (15,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (16,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (17,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (18,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (19,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (20,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26,14);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28,14);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29,14);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (31,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (32,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (33,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (34,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (35,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (36,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (36,14);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (36,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (37,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (38,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (39,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (40,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (41,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (42,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (42,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (43,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (43,15);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (44,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (45,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (45,14);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (46,12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (56,13);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (57,13);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (58,13);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (59,13);
+
+SET IDENTITY_INSERT Business ON;
+
+-- Water Trail Restaurant Seed
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (47, 'Territory Restaurant', 'Inspired by the bounty of the Pacific Northwest, we specialize in fine artisan cuisine made with fresh, local ingredients. Join us for a unique fine dining experience on the banks of the beautiful Willamette River.', '503-837-0200', 'territoryrestaurant.com', 47);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (48, 'Redgate Vineyards and Winery', 'Redgate Vineyard is a small, family owned winery crafting small lot, artisan wines reflecting the terroir of Redgate Estate and located just 1 mile from the Willamette River and 12 miles SW of the State Capitol, Salem, Oregon.', '503-428-7115', 'redgatewinery.com', 48);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (49, 'The Valkyrie Wine Tavern', 'Wine and Dine! Tavern style cuisine, large wine selection, beer and liquor too. Bottle shop as well. Open late.', '503-837-0505', 'facebook.com/thevalkyriewinetavern/', 49);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (50, 'Parallel 45 Brewing', 'Independence Oregons own craft brewery.', '503-479-5905', 'p45brewing.square.site', 50);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (51, 'Gilgamesh Brewing The River', 'The RIVER in Downtown Independence, OR serves hand tossed pizzas, sandwiches on handmade bread, and your favorite Gilgamesh Brewing craft beers. ', '503-559-0330', 'gilgameshbrewing.com/theriver', 51);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (52, 'Independent Ice Cream Shop', 'Old Fashioned Ice Cream Shop located in historic downtown Independence, Oregon located in the Little Mall on Main. Unique gift shop and tea house included!', '503-877-7590', 'facebook.com/independenticecreamshop', 52);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (53, 'Jubilee Champagne and Dessert Bar', 'Treat yourself to the tasty pairings we’re serving up at Jubilee Champagne and Dessert Bar, Independence, ORs favorite specialty establishment. Bring your friends for an enjoyable girls night out or stop by after work for one of our scrumptious sweets or baked goods to enjoy on your way home.', '503-837-0888', 'jubileechampagneanddessertbar.com', 53);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (54, 'Brew Coffee and Taphouse - West Salem', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-370-2739', 'brewandcoffeetaphouse.com', 54);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (55, 'Xicha Brewing', 'Xicha Brewing is the Pacific Northwests only Latinx brewery located in West Salem, Oregon. We aim to offer an inclusive, family-friendly cultural environment by creating community around high quality, fresh Latin American food and house-brewed European ales and lagers.', '503-990-8292', 'xichabrewing.com', 55);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (47, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (48, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (49, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (50, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (51, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (52, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (53, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (54, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (36, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (55, 16);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (47, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (48, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (49, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (50, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (51, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (52, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (53, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (54, 12);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (55, 12);
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('211 Main St.', 'Independence', 97351, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('576 Patterson St. NW', 'Salem', 97304, 'OR');
 
+SET IDENTITY_INSERT Business OFF;
 
 SET IDENTITY_INSERT Address ON;
 
 -- Development Lodging Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('300', '270 Pacific Ave S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('301', '201 Osprey Lane', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('302', '212 Knox Street N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('303', '14810 Airlie Road', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES ('304', '50 C Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (300, '270 Pacific Ave S', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (301, '201 Osprey Lane', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (302, '212 Knox Street N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (303, '14810 Airlie Road', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (304, '50 C Street', 'Independence', 97351, 'OR');
 
 -- Development Recreation Address Seed
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (200, '10995 Highway 22', 'Dallas', 97338, 'OR');
@@ -87,41 +285,6 @@ INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (107, '560 S P
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (108, 'Ritner Creek Bridge', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (109, '450 S 2nd St', 'Independence', 97351, 'OR');
 
-SET IDENTITY_INSERT Address OFF;
-
-
--- Development Bar Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Monmouth Bar #1', 'A newly-renovated local bar', '123-456-7890', 'monbar.com',1);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Monmouth Bar #2', 'Another newly-renovated local bar', '123-456-7810', 'monbar2.com',2);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Monmouth Bar #3', 'A third local bar', '123-555-7890', 'monbar3.com',3);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (1,15);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (2,15);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (3,15);
-
--- Development Coffee Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independence Coffee #1', 'A local coffeehouse', '123-456-0282', 'indcof.com',4);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Caffee', 'Another local coffeehouse', '123-555-1890', 'indcof2.com',5);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Starbucks', 'Local franshise SB', '321-456-7890', 'indcof3.com',6);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (4,14);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (5,14);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (6,14);
-
--- Development Winery Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Monmouth Wine', 'Official Mon. winery', '333-456-7890', 'monwine.com',7);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independence Winery', 'Official Ind. winery', '444-456-7890', 'indwine.com',8);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Avry', 'locally owned winery', '123-654-7890', 'avry.com',9);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (7,13);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (8,13);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (9,13);
-
--- Development Restaurant Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Restaurant #1', 'Family-owned restaurant', '253-456-3253', 'restaurant.com',10);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Restaurant #2', 'Formal restaurant', '123-456-0000', 'restaurant2.com',11);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Fast Food #1', 'Local fast-food chain', '363-863-247', 'fastfood.com',12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (10,12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (11,12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (12,12);
-
 SET IDENTITY_INSERT Business ON;
 
 -- Development Festival and Event Seed
@@ -148,40 +311,6 @@ INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES 
 -- Development Entertainment Seed
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (115, 'Independence Cinema', 'Independence Cinema 8 is a state of the art, first run Movie Theater located in Independence, Oregon. The theatre features luxury reclining seats, exceptional concessions, NEC Digital Projection & Dolby Digital Surround Sound.', '(503) 606-3003', 'http://www.independencecinema8.com/', 109);
 
-SET IDENTITY_INSERT Business OFF;
-
--- Water Trail Restaurant Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Territory Restaurant', 'Inspired by the bounty of the Pacific Northwest, we specialize in fine artisan cuisine made with fresh, local ingredients. Join us for a unique fine dining experience on the banks of the beautiful Willamette River.', '503-837-0200', 'territoryrestaurant.com', 21);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Redgate Vineyards and Winery', 'Redgate Vineyard is a small, family owned winery crafting small lot, artisan wines reflecting the terroir of Redgate Estate and located just 1 mile from the Willamette River and 12 miles SW of the State Capitol, Salem, Oregon.', '503-428-7115', 'redgatewinery.com', 22);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('The Valkyrie Wine Tavern', 'Wine and Dine! Tavern style cuisine, large wine selection, beer and liquor too. Bottle shop as well. Open late.', '503-837-0505', 'facebook.com/thevalkyriewinetavern/', 23);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Parallel 45 Brewing', 'Independence Oregons own craft brewery.', '503-479-5905', 'p45brewing.square.site', 24);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Gilgamesh Brewing The River', 'The RIVER in Downtown Independence, OR serves hand tossed pizzas, sandwiches on handmade bread, and your favorite Gilgamesh Brewing craft beers. ', '503-559-0330', 'gilgameshbrewing.com/theriver', 25);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independent Ice Cream Shop', 'Old Fashioned Ice Cream Shop located in historic downtown Independence, Oregon located in the Little Mall on Main. Unique gift shop and tea house included!', '503-877-7590', 'facebook.com/independenticecreamshop', 26);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Jubilee Champagne and Dessert Bar', 'Treat yourself to the tasty pairings we’re serving up at Jubilee Champagne and Dessert Bar, Independence, ORs favorite specialty establishment. Bring your friends for an enjoyable girls night out or stop by after work for one of our scrumptious sweets or baked goods to enjoy on your way home.', '503-837-0888', 'jubileechampagneanddessertbar.com', 27);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Brew Coffee and Taphouse - West Salem', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-370-2739', 'brewandcoffeetaphouse.com', 28);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Brew Coffee and Taphouse - Independence', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-837-0279', 'brewandcoffeetaphouse.com', 29);
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Xicha Brewing', 'Xicha Brewing is the Pacific Northwests only Latinx brewery located in West Salem, Oregon. We aim to offer an inclusive, family-friendly cultural environment by creating community around high quality, fresh Latin American food and house-brewed European ales and lagers.', '503-990-8292', 'xichabrewing.com', 30);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30, 16);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (21, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (22, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (23, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30, 12);
-
 -- Development Amenities Seed
 INSERT INTO [Amenities](Name) VALUES ('Free Wi-Fi');
 INSERT INTO [Amenities](Name) VALUES ('Free Parking');
@@ -205,11 +334,11 @@ INSERT INTO [Amenities](Name) VALUES ('Bed & Breakfast');
 --Development Lodging Seed
 SET IDENTITY_INSERT Business ON;
 
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES ('300', 'College Inn Monmouth', "Welcome to College Inn, a great place to stay that's within walking distance of Western Oregon University in Monmouth, Oregon. Use our convenient, quiet and affordable hotel as your gateway to Salem, just 15 miles away. There's also plenty to see and do here in town, including many local businesses, restaurants and shopping destinations. Plus, some of the state's best vineyards and wineries are close at hand as well. You might also enjoy the Jensen Arctic Museum. We're pleased to bring you the best hotel experience in the area because we combine the consistency, cleanliness and service you expect from a well-regarded chain hotel with the down-home friendliness and affordability that only an independent hotel can provide.", '(503) 838-4438', 'www.hotelcollegeinn.com', 300);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES ('301', 'The Independence Hotel', "As Oregon’s only boutique hotel on the Willamette River, we welcome you to come and experience what made Independence so special to Oregon’s early pioneers. Located in the heart of the Willamette Valley, The Independence Hotel is situated in the heart of Oregon Wine Country. Whether you are visiting us for the wine, a river adventure, a bike ride along the Willamette Valley Scenic Bikeway or just getting away for the weekend, we are waiting to help you create amazing memories and provide a fantastic experience. Breathtaking views of the Willamette River and Riverview Park serve as the perfect backdrop for the nature-inspired decor of our uniquely styled rooms. Each room features a microwave and fridge, in-room bike storage, Keurig coffee makers, 49 inch 4k HDTV's, luxury robes, locally made bath products by Sojourn Beauty, and local artwork.", '(503) 837-0200', 'www.theindependencehotel.com', 301);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES ('302', "MaMere's Guest House", "Located in the heart of the Willamette Valley near the intersecting Highways of 99W and 22, MaMere’s is surrounded by some of the best wineries in the state (and, yes, we do have our favorites to recommend). An hour away from both the Pacific Ocean and the Cascade Mountains, MaMere’s is in downtown Monmouth, Oregon, the proud home of Western Oregon University. Located close to the scenic Willamette Valley Bike Route and TransAmerica Bike route, we are happy to lock your bike up if you are a two wheeled nomad. We are also only 10 minutes from sister city Independence, Oregon. From our dining room, you can view the activity of Main Street Park as you enjoy a delicious breakfast. You’ll hear the bands playing as you lounge in the gazebo during our Music in the Park series all summer long. Hit the bike trail or mosey over to neighboring eateries and shops. Or, you can always opt to do not much of anything here at MaMere’s.", '(503) 917-8745', 'www.mameresguesthouse.com', 302);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES ('303', 'Airlie Farm Bed & Breakfast', "Airlie Farm Bed and Breakfast is a great getaway located on 226 spectacular, scenic acres in Oregon's Willamette Valley beautiful horse and farm country. Rolling hills and lovely peaceful views surround this old fashioned Inn. Owners Nancy and Joe Petterson have made this inn a place to remember. The bed and breakfast inn is part of their working Quarter Horse farm nestled in the heart of Willamette Valley Wine Country, perfect for an overnight or several day vacation. There are lots of things to do in the area as it is located between Corvallis, Monmouth, Independence and Albany.", '(503) 838-1500', 'www.airliefarminn.com', 303);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES ('304', 'Bicycle Boater Campground', "Independence's Riverview Park is home to a biker/boater campground for travelers on the Willamette River Water Trail and the Willamette Valley Scenic Bikeway.  Nestled along the beautiful Willamette River and is 1 block away from a bustling downtown district with local food, drink, and entertainment, this basic camping area has five sites, each with a picnic table and bike rack.  A (cold) shower is located at the west end of the area in a white fenced enclosure. Solar showers have been installed for a warm shower on sunny days.  A water tap and bike repair station are located at the entrance to the camping area. A camp host is present during the summer to assist campers and provide information about the area.  WiFi is also available in the campground with a code provided by the Camp Host.  A camp site costs $10 per night and is first come first served.", '(503) 848-1212', 'www.ci.independence.or.us/recreation/bicycle-boater-campground', 304);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (300, 'College Inn Monmouth', "Welcome to College Inn, a great place to stay that's within walking distance of Western Oregon University in Monmouth, Oregon. Use our convenient, quiet and affordable hotel as your gateway to Salem, just 15 miles away. There's also plenty to see and do here in town, including many local businesses, restaurants and shopping destinations. Plus, some of the state's best vineyards and wineries are close at hand as well. You might also enjoy the Jensen Arctic Museum. We're pleased to bring you the best hotel experience in the area because we combine the consistency, cleanliness and service you expect from a well-regarded chain hotel with the down-home friendliness and affordability that only an independent hotel can provide.", '(503) 838-4438', 'www.hotelcollegeinn.com', 300);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (301, 'The Independence Hotel', "As Oregon’s only boutique hotel on the Willamette River, we welcome you to come and experience what made Independence so special to Oregon’s early pioneers. Located in the heart of the Willamette Valley, The Independence Hotel is situated in the heart of Oregon Wine Country. Whether you are visiting us for the wine, a river adventure, a bike ride along the Willamette Valley Scenic Bikeway or just getting away for the weekend, we are waiting to help you create amazing memories and provide a fantastic experience. Breathtaking views of the Willamette River and Riverview Park serve as the perfect backdrop for the nature-inspired decor of our uniquely styled rooms. Each room features a microwave and fridge, in-room bike storage, Keurig coffee makers, 49 inch 4k HDTV's, luxury robes, locally made bath products by Sojourn Beauty, and local artwork.", '(503) 837-0200', 'www.theindependencehotel.com', 301);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (302, "MaMere's Guest House", "Located in the heart of the Willamette Valley near the intersecting Highways of 99W and 22, MaMere’s is surrounded by some of the best wineries in the state (and, yes, we do have our favorites to recommend). An hour away from both the Pacific Ocean and the Cascade Mountains, MaMere’s is in downtown Monmouth, Oregon, the proud home of Western Oregon University. Located close to the scenic Willamette Valley Bike Route and TransAmerica Bike route, we are happy to lock your bike up if you are a two wheeled nomad. We are also only 10 minutes from sister city Independence, Oregon. From our dining room, you can view the activity of Main Street Park as you enjoy a delicious breakfast. You’ll hear the bands playing as you lounge in the gazebo during our Music in the Park series all summer long. Hit the bike trail or mosey over to neighboring eateries and shops. Or, you can always opt to do not much of anything here at MaMere’s.", '(503) 917-8745', 'www.mameresguesthouse.com', 302);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (303, 'Airlie Farm Bed & Breakfast', "Airlie Farm Bed and Breakfast is a great getaway located on 226 spectacular, scenic acres in Oregon's Willamette Valley beautiful horse and farm country. Rolling hills and lovely peaceful views surround this old fashioned Inn. Owners Nancy and Joe Petterson have made this inn a place to remember. The bed and breakfast inn is part of their working Quarter Horse farm nestled in the heart of Willamette Valley Wine Country, perfect for an overnight or several day vacation. There are lots of things to do in the area as it is located between Corvallis, Monmouth, Independence and Albany.", '(503) 838-1500', 'www.airliefarminn.com', 303);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (304, 'Bicycle Boater Campground', "Independence's Riverview Park is home to a biker/boater campground for travelers on the Willamette River Water Trail and the Willamette Valley Scenic Bikeway.  Nestled along the beautiful Willamette River and is 1 block away from a bustling downtown district with local food, drink, and entertainment, this basic camping area has five sites, each with a picnic table and bike rack.  A (cold) shower is located at the west end of the area in a white fenced enclosure. Solar showers have been installed for a warm shower on sunny days.  A water tap and bike repair station are located at the entrance to the camping area. A camp host is present during the summer to assist campers and provide information about the area.  WiFi is also available in the campground with a code provided by the Camp Host.  A camp site costs $10 per night and is first come first served.", '(503) 848-1212', 'www.ci.independence.or.us/recreation/bicycle-boater-campground', 304);
 
 SET IDENTITY_INSERT Business OFF;
 

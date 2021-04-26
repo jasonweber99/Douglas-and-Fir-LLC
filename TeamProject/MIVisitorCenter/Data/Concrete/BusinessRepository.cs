@@ -65,7 +65,7 @@ namespace MIVisitorCenter.Data.Concrete
         /// 
         /// </summary>
         /// <param name="img">Image to convert into byte array</param>
-        private static byte[] ImageToByteArray(IFormFile img)
+        public virtual byte[] ImageToByteArray(IFormFile img)
         {
             using (var ms = new MemoryStream())
             {
@@ -80,7 +80,7 @@ namespace MIVisitorCenter.Data.Concrete
         /// 
         /// </summary>
         /// <param name="profilePicture">File to check</param>
-        bool formFileIsImage(IFormFile profilePicture)
+        public virtual bool formFileIsImage(IFormFile profilePicture)
         {
 
             // ---- From https://stackoverflow.com/a/51879881 ---- //

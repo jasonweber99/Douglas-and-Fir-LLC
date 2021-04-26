@@ -11,6 +11,8 @@ namespace MIVisitorCenter.Data.Abstract
     {
         Business GetBusinessByID(int id);
         Task UpdateBusiness(Business business, IFormFile profilePicture, IFormCollection images);
+        byte[] ImageToByteArray(IFormFile img);
+        bool formFileIsImage(IFormFile profilePicture);
 
     }
 }

@@ -221,6 +221,9 @@ INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES 
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (53, 'Jubilee Champagne and Dessert Bar', 'Treat yourself to the tasty pairings we’re serving up at Jubilee Champagne and Dessert Bar, Independence, ORs favorite specialty establishment. Bring your friends for an enjoyable girls night out or stop by after work for one of our scrumptious sweets or baked goods to enjoy on your way home.', '503-837-0888', 'jubileechampagneanddessertbar.com', 53);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (54, 'Brew Coffee and Taphouse - West Salem', 'Serves Java Crew brand espresso drinks and has the best local beer, wine & ciders as well as great food! Come enjoy our indoor seating or our beautiful outdoor patio seating - overlooking the park and river.', '503-370-2739', 'brewandcoffeetaphouse.com', 54);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (55, 'Xicha Brewing', 'Xicha Brewing is the Pacific Northwests only Latinx brewery located in West Salem, Oregon. We aim to offer an inclusive, family-friendly cultural environment by creating community around high quality, fresh Latin American food and house-brewed European ales and lagers.', '503-990-8292', 'xichabrewing.com', 55);
+
+SET IDENTITY_INSERT Business OFF;
+
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (47, 16);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (48, 16);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (49, 16);
@@ -285,6 +288,8 @@ INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (107, '560 S P
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (108, 'Ritner Creek Bridge', 'Monmouth', 97361, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (109, '450 S 2nd St', 'Independence', 97351, 'OR');
 
+SET IDENTITY_INSERT Address OFF;
+
 SET IDENTITY_INSERT Business ON;
 
 -- Development Festival and Event Seed
@@ -310,6 +315,29 @@ INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES 
 
 -- Development Entertainment Seed
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (115, 'Independence Cinema', 'Independence Cinema 8 is a state of the art, first run Movie Theater located in Independence, Oregon. The theatre features luxury reclining seats, exceptional concessions, NEC Digital Projection & Dolby Digital Surround Sound.', '(503) 606-3003', 'http://www.independencecinema8.com/', 109);
+
+SET IDENTITY_INSERT Business OFF;
+
+-- Development Art&Culture/Category seed
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (100, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (101, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (102, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (103, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (104, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (105, 10);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (106, 10);
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (107, 9);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (108, 9);
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (109, 8);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (110, 8);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (111, 8);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (112, 8);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (113, 8);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (114, 8);
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (115, 11);
 
 -- Development Amenities Seed
 INSERT INTO [Amenities](Name) VALUES ('Free Wi-Fi');

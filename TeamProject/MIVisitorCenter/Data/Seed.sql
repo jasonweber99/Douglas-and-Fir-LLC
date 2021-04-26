@@ -23,20 +23,12 @@ INSERT INTO [Category](Name) VALUES ('WaterTrailLodging');
 
 
 -- Development Address Seed
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('123 NE Main St.', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('456 NW Main St.', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('789 SE Main St.', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('983 W Bridge St.',  'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('654 SW Marion St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('987 NE Smith St.',  'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('312 N Horton St.',  'Monmouth',     97361, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('534 E Reigh Ln.',   'Independence', 97351, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('978 NW Martin St.', 'Monmouth',     97361, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('637 E Lunar Ln.',   'Monmouth',     97361, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('283 NW Market St.', 'Monmouth',     97361, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('106 SE Poll St.',   'Independence', 97351, 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('5372 Hoggle Drive', 'Monmouth', '97361', 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('18 Main Street', 'Monmouth', '97361', 'OR');
+INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('18 Main Street W', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('902 9th Street', 'Independence', '97351', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('2380 Bucket Avenue', 'Monmouth', '97361', 'OR');
 INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('1403 Thompson Way', 'Independence', '97351', 'OR');
@@ -83,6 +75,18 @@ INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (214, 'Stadium
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (215, '1005 LaCreole Dr SE', 'Dallas', 97338, 'OR');
 INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (216, '410 Hogan Rd', 'Monmouth', 97361, 'OR');
 
+-- Development Art and Culture Address Seed
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (100, '520 S Pacific Hwy W', 'Rickreall', 97371, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (101, '184 Main St', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (102, '200 Monmouth Ave N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (103, '9615 Grand Ronde Rd', 'Grand Ronde', 97347, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (104, '9390 OR Hwy 22', 'Grand Ronde', 97347, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (105, '112 3rd St S', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (106, '855 Monmouth Ave N', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (107, '560 S Pacific Hwy W', 'Rickreall', 97371, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (108, 'Ritner Creek Bridge', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (109, '450 S 2nd St', 'Independence', 97351, 'OR');
+
 SET IDENTITY_INSERT Address OFF;
 
 
@@ -118,30 +122,33 @@ INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (10,12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (11,12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (12,12);
 
--- Development Museum Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Ye Olde Honeybucket', 'This 120 year old port-a-john is a local favorite for date nights and celebrating with your special someone.', '971-555-7448', 'www.oldpoophouse.com', '1');
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Museum of Modern Tart', 'Come see the largest collection of modern pastries in Oregon!', '971-555-8436', 'www.moderntart.org', '2');
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (13, 8);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (14, 8);
+SET IDENTITY_INSERT Business ON;
+
+-- Development Festival and Event Seed
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (100, 'Hop & Heritage Block Party', 'Independence''s celebration of hops and heritage is back this year with the Hop and Heritage Block Party! Concentrated in the streets and businesses of Downtown Independence, the Hop and Heritage Block Party will showcase Independence''s unique heritage and vibrant community. Sample local brews and ciders with our Block Party Passport- commemorative glass and tastings included! You can look forward to craft beer, music, hop history, and more!', 'https://www.downtownindependence.com/hops', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (101, 'Monmouth July 4th Festival', 'The City of Monmouth sponsors a July 4th Festival The festival is held in Main Street Park. The festival emphasizes the arts including music, dance and theater.', '503-751-0145', 'https://www.ci.monmouth.or.us/pview.aspx?id=26838', 205);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (102, 'Independence Days', 'Enjoy fun activities for all ages as our community comes together to celebrate the birth of our great nation. Not only is this traditionally a giant community-wide annual homecoming of family and friends, it also serves as an opportunity for us to welcome visitors and create new friendships as you explore the bounty that Independence has to offer. Hopefully, this glorious celebration of the Fourth of July will become a new tradition for your family, as well. What better way to celebrate our nation’s Independence Day than under a canopy of carnival lights and fireworks in Independence Oregon?', 'https://independencedaysorg.wordpress.com/', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (103, 'Music in the Park Series', 'Free concerts are offered every Wednesday from second week of July through the end of August in the Main Street Park Amphitheater.  All concerts begin at 6:30 p.m.  The Series features a wide variety of music genres.  Food,beer and wine are available in the park.  Bring your blanket or lawn chair and enjoy a summer full of music!  Please leave your pets at home.', '503.838.0722', 'https://www.ci.monmouth.or.us/pView.aspx?id=5008&catid=554', 205);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (104, 'River''s Edge Summer Series', 'The River''s Edge Summer Series provides FREE movies and concerts throughout the months of July and August. Movies are Thursday nights starting at dusk. There is lawn seating and concessions that open at 8:00 pm. Friday evenings there is free live music with concessions and a beer garden opening at 5:30 pm, and bands starting at 6:30 pm.', 'http://www.independenceamphitheater.com/', 202);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (105, 'Community Fiesta', 'Join IM Community at Riverview Park in downtown Independence and experience The Community Fiesta in August. This two day celebration will have delicious food vendors, live music, cultural dances including baile folkorico, a soccer tournament, the crowning of the fiesta queen on Friday night and fireworks Saturday night! Don’t miss this fun and exciting summer Fiesta.', 'https://www.ci.independence.or.us/ed/page/festival-events', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (106, 'Polk County Fair', 'A genuine old fashion County Fair, fun for the whole family.', '(503) 623-3048', 'https://www.co.polk.or.us/fair/annual-fair-2', 100);
 
 -- Development Art Gallery Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('The Brush', 'The premier art gallery in Monmouth. Filled with a rotating collection of pieces from local and national artists, we have something for everyone.', '971-555-5375', 'www.monmouthbrush.com', '4');
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Kilned in Action', 'The only war-themed pottery gallery in Polk county! Stop by to see our extensive collection of weapon and ammunition-based clay art!', '971-555-5333', 'www.kilnedorbekilned.com', '3');
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (15, 9);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (16, 9);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (107, 'River Gallery', 'Our gallery believes that art should be a part of everyday life, shared with everyone. Visit us at the gallery during our open hours and browse through our artists and events', '(503) 838-6171', 'https://www.rivergalleryart.com/', 102);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (108, 'The Cannon Gallery of Art', 'The Cannon Gallery of Art is located in the heart of Western Oregon University’s campus in the beautifully renovated Campbell Hall. Campbell Hall was built in 1871 and is the oldest building still in use the Oregon University System. The gallery has approximately 700 square feet of exhibition space and holds seven exhibitions during each academic year. Thematic and media-specific exhibits by regional and nationally acclaimed artists are included in each annual schedule.', '503-838-8607', 'https://wou.edu/art-and-design/cannon-gallery-of-art/', 102);
 
-
--- Development Event Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Hazelnut Days', 'Independence is home to the annual Hazelnut Days, a three-day celebration of all things filbert! Come try a taste of our hazelnut-flavored ice cream, chocolate-covered hazelnuts, and of course (the local favorite) tripe with hazelnuts!', '971-555-5632', 'www.hazelnutdays.org', '5');
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Battle of the Bands', 'Have you ever listened to a terrible local band practice in a garage three houses down and thought, "Man, I could really go for more of this, but only louder and in the middle of the park!"? Well then do we have an event for you.', '971-555-7200', 'www.bobands.com', '6');
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (17, 10);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (18, 10);
+-- Development Historic Site and Museum Seed
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (109, 'Chachalu Tribal Museum & Cultural Center', 'This vision of the Museum is to tell the story of the resiliency of the land and of the people who have lived here since time immemorial. The land, once devastated by fire, is now revitalized with healthy forests and abundant wildlife. Our salmon have once again returned to our streams; the Grand Ronde people, once uprooted from their various homelands and then Terminated by the federal government, are renewed through Restoration. This is a center for cultural activity where the Tribe’s stories, history, and culture continue to be practiced and shared.', '(503) 879-2268', 'https://www.grandronde.org/history-culture/culture/chachalu-museum-and-cultural-center/', 103);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (110, 'Fort Yamhill State Heritage Area', 'Built in 1856 to regulate the eastern border of the Grand Ronde Indian Reservation, Fort Yamhill represented a time of transition for the people of the Northwest. The fort served to ease tension between settlers and natives, protect both populations and control traffic between them. Fort Yamhill is one of the best archaeologically preserved forts in the Northwest from the mid 19th century.', '(503) 879-5814', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=185', 104);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (111, 'Heritage Museum', 'The mission of the Heritage Museum is to collect and share the natural history and diverse cultural heritage of the river community of Independence. Visit us in the heart of the Independence National Historic District, at the corner of 3rd and B Streets where we are telling stories, inspiring memories, and preserving local history.', '(503) 838-4989', 'https://orheritage.org/', 105);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (112, 'Historic Gentle House', 'Historic Gentle House is an event center, garden, and museum. The house is an important landmark for both the community and Western Oregon University.', '(503) 838-8673', 'https://wou.edu/gentlehouse/', 106);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (113, 'Polk County Museum', 'The Polk County Historical Society is a public-benefit, non-profit corporation managed by a Board of Directors consisting of the President, the Vice-President, the Secretary, the Treasurer, nine Directors and the immediate Past President. Board members are elected at the Annual Membership Meeting held each January. The volunteer Board of Directors meets monthly to implement the pronouncements comprising the PCHS Mission Statement.', '(503) 623-6251', 'http://www.polkcountyhistoricalsociety.org/', 107);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (114, 'Ritner Creek Covered Bridge', 'Ritner Creek Bridge, one of the covered bridges remaining in Oregon west of the Cascades, almost became a memory in 1974. Declared structurally unsafe, it was scheduled for removal. The children of Pedee School along with the citizens in the Pedee area rallied to its support with a "Save our Bridge" campaign. The County commissioners met with the state highway department and as a result the issue was placed on the ballot May 28, 1974. The measure passed and the covered bridge was moved to an adjacent site. The new bridge on Highway 223 parallels it.', '(503) 623-8172', 'https://www.co.polk.or.us/ms/ritner-creek-bridge', 108);
 
 -- Development Entertainment Seed
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Monmouth Cinema 32', 'The newest entertainment destination in Polk county, the Monmouth Cinema 32 houses almost 33 screens showing all of the newest blockbuster hits, indie flick favorites, and two that show Armageddon (1998) 24/7!', '971-555-3495', 'www.cinema32.com', '7');
-INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Independence Little Theater', 'See the stars of local community theater on our 16 square foot stage!', '971-555-8501', 'www.ourstageissmall.com', '8');
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (19, 11);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (20, 11);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (115, 'Independence Cinema', 'Independence Cinema 8 is a state of the art, first run Movie Theater located in Independence, Oregon. The theatre features luxury reclining seats, exceptional concessions, NEC Digital Projection & Dolby Digital Surround Sound.', '(503) 606-3003', 'http://www.independencecinema8.com/', 109);
+
+SET IDENTITY_INSERT Business OFF;
 
 -- Water Trail Restaurant Seed
 INSERT INTO [Business](Name, Description, Phone, Website, AddressID) VALUES ('Territory Restaurant', 'Inspired by the bounty of the Pacific Northwest, we specialize in fine artisan cuisine made with fresh, local ingredients. Join us for a unique fine dining experience on the banks of the beautiful Willamette River.', '503-837-0200', 'territoryrestaurant.com', 21);

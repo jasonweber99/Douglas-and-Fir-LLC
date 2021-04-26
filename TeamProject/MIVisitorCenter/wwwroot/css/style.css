@@ -175,6 +175,10 @@ body {
     z-index: 1;
     background-color: #f8f8f8;
     border-radius: 10px;
+    /* Works but if results are low, fixed height makes it look weird */
+    height: auto;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 #match-list {
     animation: slide-up 1s ease;
@@ -209,6 +213,6 @@ body {
 .nav-pills, .tab-content {
     margin-top: 2em
 }
-.tab-content {
+/* .tab-content {
 
-}
+} */

@@ -17,8 +17,7 @@ using MIVisitorCenter.Data.Abstract;
 
 namespace MIVisitorCenter.Tests
 {
-    [TestFixture]
-    public class ItineraryTests
+    public class CategoryRepo
     {
         private Mock<DbSet<T>> GetMockDbSet<T>(IQueryable<T> entities) where T : class
         {
@@ -102,91 +101,100 @@ namespace MIVisitorCenter.Tests
             _mockContext = new Mock<MIVisitorCenterDbContext>();
             _mockContext.Setup(ctx => ctx.BusinessCategories).Returns(_mockBusinessCategoryDbSet.Object);
             _mockContext.Setup(ctx => ctx.Set<BusinessCategory>()).Returns(_mockBusinessCategoryDbSet.Object);
-            
         }
 
-        [TestCase(0)]
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(10)]
-        public void Itinerary_WhenCreatedWithNumberOfDays_HasThatNumberOfItineraryDays(int numDays)
+        [Test]
+        public void CategoryRepo_GetAllMIBusinessesReturns_11()
         {
             // Arrange
             ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
-            var interests = new List<Category>();
-            var businesses = categoryRepo.GetAllMIBusinesses();
-            var lodging = categoryRepo.GetAllLodging();
 
             // Act
-            Itinerary itinerary = new Itinerary(numDays, interests, businesses.AsQueryable(), lodging.AsQueryable());
+            int count = categoryRepo.GetAllMIBusinesses().Count();
 
             // Assert
-            Assert.That(itinerary.Days.Count == numDays);
+            Assert.That(count, Is.EqualTo(11));
         }
 
-        [TestCase(1)]
-        [TestCase(2)]
-        public void BuildDays_WhenCalled_EachDayContainsSevenTimeSlots(int numDays)
+        [Test]
+        public void CategoryRepo_GetAllLodgingReturns_1()
         {
             // Arrange
             ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
-            var interests = new List<Category>();
-            var businesses = categoryRepo.GetAllMIBusinesses();
-            var lodging = categoryRepo.GetAllLodging();
-            Itinerary itinerary = new Itinerary(numDays, interests, businesses.AsEnumerable(), lodging.AsEnumerable());
 
             // Act
-            List<ItineraryDay> days = itinerary.BuildDays(numDays, interests, businesses.AsEnumerable(), lodging.AsEnumerable());
+            int count = categoryRepo.GetAllLodging().Count();
 
             // Assert
-            foreach (var day in days)
+            Assert.That(count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void CategoryRepo_GetAllActivitiesReturns_6()
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+
+            // Act
+            int count = categoryRepo.GetAllActivities().Count();
+
+            // Assert
+            Assert.That(count, Is.EqualTo(6));
+        }
+
+        [Test]
+        public void CategoryRepo_GetAllArtAndCultureReturns_3()
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+
+            // Act
+            int count = categoryRepo.GetAllArtAndCulture().Count();
+
+            // Assert
+            Assert.That(count, Is.EqualTo(3));
+        }
+
+        [TestCase("Restaurants")]
+        [TestCase("Lodging")]
+        [TestCase("Hiking")]
+        [TestCase("Cycling")]
+        [TestCase("Birding")]
+        [TestCase("Fishing")]
+        [TestCase("Wineries")]
+        [TestCase("Golf")]
+        [TestCase("Historic Sites & Museums")]
+        [TestCase("Art Galleries")]
+        [TestCase("Cinemas & Performing Arts")]
+        public void CategoryRepo_GetBusinessesByCategoryReturns_CorrectCategory(string category)
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+
+            // Act
+            var businesses = categoryRepo.GetBusinessesByCategory(category);
+
+            // Assert
+            Assert.That(businesses.Count(), Is.EqualTo(1));
+            Assert.That(businesses.FirstOrDefault().Category.Name, Is.EqualTo(category));
+        }
+
+        [Test]
+        public void CategoryRepo_GetCategoryListFromStringListReturns_CorrectCategories()
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+            List<string> categoryNames = new List<string>{ "Restaurants", "Lodging", "Hiking", "Cycling", "Birding", "Fishing", "Wineries", "Golf", "Historic Sites & Museums", "Art Galleries", "Cinemas & Performing Arts" };
+
+            // Act
+            List<Category> categories = categoryRepo.GetCategoryListFromStringList(categoryNames);
+
+            // Assert
+            Assert.That(categories.Count(), Is.EqualTo(11));
+            for (int i = 0; i < categories.Count(); i++)
             {
-                Assert.That(day.ItineraryTimeSlots.Count == 7);
+                Assert.That(categories[i].Name, Is.EqualTo(categoryNames[i]));
             }
-            
-        }
-
-        [TestCase(1)]
-        [TestCase(2)]
-        public void BuildDays_WhenCalled_EachTimeSlotHasBusiness(int numDays)
-        {
-            // Arrange
-            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
-            var interests = new List<Category>();
-            var businesses = categoryRepo.GetAllMIBusinesses();
-            var lodging = categoryRepo.GetAllLodging();
-            Itinerary itinerary = new Itinerary(numDays, interests, businesses.AsEnumerable(), lodging.AsEnumerable());
-
-            // Act
-            List<ItineraryDay> days = itinerary.BuildDays(numDays, interests, businesses.AsEnumerable(), lodging.AsEnumerable());
-
-            // Assert
-            foreach (var day in days)
-            {
-                foreach (var ts in day.ItineraryTimeSlots)
-                {
-                    Assert.That(ts.Business, Is.Not.Null);
-                }
-            }
-        }
-
-        public void Itinerary_WhenCreatedWithInterests_ContainsThoseInterests()
-        {
-            // Arrange
-            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
-            var interests = new List<string>{ "Cycling", "Golf", "Art Galleries" };
-            var categories = categoryRepo.GetCategoryListFromStringList(interests);
-            var businesses = categoryRepo.GetAllMIBusinesses();
-            var lodging = categoryRepo.GetAllLodging();
-
-            // Act
-            Itinerary itinerary = new Itinerary(1, categories, businesses.AsEnumerable(), lodging.AsEnumerable());
-
-            // Assert
-            Assert.That(itinerary.Days[0].ItineraryTimeSlots[0].Business.Name == "Cycling");
-            Assert.That(itinerary.Days[0].ItineraryTimeSlots[0].Business.Name == "Golf");
-            Assert.That(itinerary.Days[0].ItineraryTimeSlots[0].Business.Name == "Art Gallery");
         }
     }
 }

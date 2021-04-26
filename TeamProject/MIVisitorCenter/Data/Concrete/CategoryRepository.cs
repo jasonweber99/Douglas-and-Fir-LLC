@@ -1,4 +1,5 @@
-﻿using MIVisitorCenter.Data.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MIVisitorCenter.Data.Abstract;
 using MIVisitorCenter.Models;
 using System;
 using System.Collections.Generic;
@@ -7,46 +8,57 @@ using System.Threading.Tasks;
 
 namespace MIVisitorCenter.Data.Concrete
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class CategoryRepository : Repository<BusinessCategory>, ICategoryRepository
     {
         public CategoryRepository(MIVisitorCenterDbContext ctx) : base(ctx)
         {
 
         }
 
-        public virtual IQueryable<Category> GetAllLodging()
+        public virtual IEnumerable<BusinessCategory> GetAllMIBusinesses()
         {
-            return _dbSet.Where(c => c.Name == "Lodging").AsQueryable();
+            return _dbSet.Where(n => n.Category.Name != "WaterTrailLodging" &&
+                n.Category.Name != "WaterTrailRestaurants").Include(c => c.Business).ThenInclude(b => b.Address).Include(c => c.Category);
         }
 
-        public virtual IQueryable<Category> GetBusinessesByCategory(string category)
+        public virtual IEnumerable<BusinessCategory> GetAllLodging()
         {
-            return _dbSet.Where(c => c.Name == category).AsQueryable();
+            return _dbSet.Where(c => c.Category.Name == "Lodging").Include(c => c.Business).ThenInclude(b => b.Address).Include(c => c.Category).AsEnumerable();
         }
 
-        public virtual IQueryable<Category> GetAllActivities()
+        public virtual IEnumerable<BusinessCategory> GetBusinessesByCategory(string category)
         {
-            return _dbSet.Where(n => n.Name == "Hiking" ||
-                n.Name == "Cycling" ||
-                n.Name == "Birding" ||
-                n.Name == "Fishing" ||
-                n.Name == "Wineries" ||
-                n.Name == "Golf");
+            return _dbSet.Where(c => c.Category.Name == category).Include(c => c.Business).ThenInclude(b => b.Address).Include(c => c.Category).AsQueryable();
         }
 
-        public virtual IQueryable<Category> GetAllArtAndCulture()
+        public virtual IEnumerable<BusinessCategory> GetAllActivities()
         {
-            return _dbSet.Where(n => n.Name == "Historic Sites & Museums" ||
-                n.Name == "Art Galleries" ||
-                n.Name == "Cinemas & Performing Arts");
+            return _dbSet.Where(n => n.Category.Name == "Hiking" ||
+                n.Category.Name == "Cycling" ||
+                n.Category.Name == "Birding" ||
+                n.Category.Name == "Fishing" ||
+                n.Category.Name == "Wineries" ||
+                n.Category.Name == "Golf").Include(c => c.Business).ThenInclude(b => b.Address).Include(c => c.Category);
         }
 
-        public virtual Business GetRandomBusinessByCategory(string category)
+        public virtual IEnumerable<BusinessCategory> GetAllArtAndCulture()
         {
-            Random random = new Random();
-            var businesses = _dbSet.Where(c => c.Name == category);
-            int index = random.Next(businesses.ElementAt(0).BusinessCategories.Count());
-            return businesses.ElementAt(0).BusinessCategories.ElementAt(index).Business;
+            return _dbSet.Where(n => n.Category.Name == "Historic Sites & Museums" ||
+                n.Category.Name == "Art Galleries" ||
+                n.Category.Name == "Cinemas & Performing Arts").Include(c => c.Business).ThenInclude(b => b.Address).Include(c => c.Category);
+        }
+
+        public virtual List<Category> GetCategoryListFromStringList(List<string> str)
+        {
+            var categories = new List<Category>();
+
+            foreach (var s in str)
+            {
+                var cat = _dbSet.Where(c => c.Category.Name == s).Include(c => c.Category).FirstOrDefault();
+                categories.Add(cat.Category);
+            }
+
+            return categories;
         }
     }
 }

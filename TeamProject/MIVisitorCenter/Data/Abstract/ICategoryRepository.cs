@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace MIVisitorCenter.Data.Abstract
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryRepository : IRepository<BusinessCategory>
     {
-        IQueryable<Category> GetAllLodging();
+        IEnumerable<BusinessCategory> GetAllMIBusinesses();
+        IEnumerable<BusinessCategory> GetAllLodging();
+        IEnumerable<BusinessCategory> GetAllActivities();
+        IEnumerable<BusinessCategory> GetAllArtAndCulture();
 
-        IQueryable<Category> GetBusinessesByCategory(string category);
-
-        IQueryable<Category> GetAllActivities();
-
-        IQueryable<Category> GetAllArtAndCulture();
-
-        Business GetRandomBusinessByCategory(string category);
+        IEnumerable<BusinessCategory> GetBusinessesByCategory(string category);
+        List<Category> GetCategoryListFromStringList(List<string> str);
     }
 }

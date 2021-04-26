@@ -19,6 +19,7 @@ INSERT INTO [Category](Name) VALUES ('Coffee');
 INSERT INTO [Category](Name) VALUES ('Bars'); -- ID 15
 INSERT INTO [Category](Name) VALUES ('WaterTrailRestaurants');
 INSERT INTO [Category](Name) VALUES ('WaterTrailLodging');
+INSERT INTO [Category](Name) VALUES ('Lodging');
 
 
 
@@ -171,9 +172,7 @@ INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (24, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (25, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (26, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (27, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (28, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (29, 12);
-INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (30, 12);
 
 -- Development Amenities Seed
 INSERT INTO [Amenities](Name) VALUES ('Free Wi-Fi');
@@ -249,6 +248,12 @@ INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (4, 17);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 1);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 14);
 INSERT INTO [LodgingAmenities](LodgingID, AmenitiesID) VALUES (5, 16);
+
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (300, 18);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (301, 18);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (302, 18);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (303, 18);
+INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (304, 18);
 
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (300, 17);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (301, 17);

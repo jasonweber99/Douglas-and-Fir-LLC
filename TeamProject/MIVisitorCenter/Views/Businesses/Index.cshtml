@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MIVisitorCenter.Business>
+﻿@using System.Collections
+@model IEnumerable<MIVisitorCenter.Business>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,14 +8,34 @@
 
 <h1>Business Index</h1>
 
-<p>
-    <a button class="uk-button uk-button-default" asp-action="Create">Create New</a>
-</p>
+<form class="uk-align-center">
+    <div class="uk-margin uk-grid-small uk-child-width-auto">
+        <a button class="uk-button uk-button-default" asp-action="Create">Create New</a>
+        @using (Html.BeginForm("Index", "Businesses", FormMethod.Post))
+        {
+            <select class="uk-select" id="cityFilter">
+                <option selected disabled hidden>Filter By City</option>
+                @foreach (var city in (IEnumerable)ViewData["Cities"])
+                {
+                    <option>@city</option>
+                }
+            </select>
+            <select class="uk-select" id="categoryFilter">
+                <option selected disabled hidden>Filter By Category</option>
+                @foreach (var category in (IEnumerable<Category>)ViewData["Categories"])
+                {
+                    <option>@category.Name</option>
+                }
+            </select>
+            <input class="uk-button uk-button-default" type="submit" value="Filter" />
+        }
+    </div>
+</form>
 <table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
     <thead>
         <tr>
             <th style="width:20%;">
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.ActionLink("Name", "Index", new { sortOption = ViewBag.NameSortOption })
             </th>
             <th style="width:15%;">
                 @Html.DisplayNameFor(model => model.Phone)

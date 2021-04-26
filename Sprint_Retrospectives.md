@@ -27,3 +27,15 @@ and collaborative capabilities. We've resolved to make ongoing and regular updat
 internal documentation and reference materials, and we will focusing on having more effective 
 and consistent stand-ups in order to better stay abreast of everyone's progress and to 
 provide more opportunities for collaboration as a whole.
+
+## Sprint 3 (03/30/21 - 04/12/21)
+
+As the sprints in our project roll by we find ourselves slowly getting better at operating 
+uner the Agile framework while also continuing to find opportunities for improvement. The 
+internal documentation and reference materials have continued to be a useful resource and 
+have proven their value as a time investment severalfold.
+
+Our continuing commitments for further process improvement continue to focus on better and 
+more consistent communication between the team during sprints. As our features scale in 
+complexity it will be vital that we utilize our stand-ups and our Discord channel to keep 
+abreast of everyone's progress.

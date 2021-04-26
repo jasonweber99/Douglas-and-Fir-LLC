@@ -17,6 +17,7 @@ namespace MIVisitorCenter
             BusinessEvents = new HashSet<BusinessEvent>();
             Lodgings = new HashSet<Lodging>();
             OperatingHours = new HashSet<OperatingHour>();
+            PhotoCollections = new HashSet<PhotoCollection>();
         }
 
         [Key]
@@ -28,11 +29,12 @@ namespace MIVisitorCenter
         [Column(TypeName = "text")]
         public string Description { get; set; }
         [StringLength(32)]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(1-)?\d{3}-\d{3}-\d{4}$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
         [StringLength(128)]
         public string Website { get; set; }
-        [StringLength(256)]
-        public string PictureFileName { get; set; }
+        public byte[] PictureFileName { get; set; }
         [Column("AddressID")]
         public int? AddressId { get; set; }
 
@@ -47,5 +49,7 @@ namespace MIVisitorCenter
         public virtual ICollection<Lodging> Lodgings { get; set; }
         [InverseProperty(nameof(OperatingHour.Business))]
         public virtual ICollection<OperatingHour> OperatingHours { get; set; }
+        [InverseProperty(nameof(PhotoCollection.Business))]
+        public virtual ICollection<PhotoCollection> PhotoCollections { get; set; }
     }
 }

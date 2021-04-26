@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter;
 using MIVisitorCenter.Models;
 using Newtonsoft.Json.Linq;
+using MIVisitorCenter.Data.Abstract;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -17,18 +19,26 @@ namespace MIVisitorCenter.Controllers
     {
         private readonly MIVisitorCenterDbContext _context;
         private readonly IAuthorizationService _authorizationService;
+        private readonly IBusinessRepository _businessRepo;
+        private readonly IPhotoCollectionRepository _photoRepo;
 
-        public BusinessesController(MIVisitorCenterDbContext context, IAuthorizationService authorizationService)
+
+        public BusinessesController(MIVisitorCenterDbContext context, 
+                                    IAuthorizationService authorizationService, 
+                                    IBusinessRepository businessRepo,
+                                    IPhotoCollectionRepository photoRepo)
         {
             _context = context;
             _authorizationService = authorizationService;
+            _businessRepo = businessRepo;
+            _photoRepo = photoRepo;
         }
 
         // GET: Businesses
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
-            var mIVisitorCenterDbContext = _context.Businesses.Include(b => b.Address);
+            var mIVisitorCenterDbContext = _businessRepo.GetAll().Include(b => b.Address);
             return View(await mIVisitorCenterDbContext.ToListAsync());
         }
 
@@ -191,6 +201,7 @@ namespace MIVisitorCenter.Controllers
             if (!authorizationResult.Succeeded) return NotFound();
 
             ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
+            ViewData["Photos"] = _photoRepo.GetAll().Where(i => i.BusinessId == id).ToArray();
             return View(business);
 
         }
@@ -200,8 +211,7 @@ namespace MIVisitorCenter.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Phone,Website,AddressId")] Business business)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Phone,Website,PictureFileName,AddressId,PhotoCollections")] Business business, IFormFile PictureFileName, IFormCollection PhotoCollections)
         {
             if (id != business.Id)
             {
@@ -211,9 +221,9 @@ namespace MIVisitorCenter.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    _context.Update(business);
-                    await _context.SaveChangesAsync();
+                {  
+                    // Save image to business record using function from BusinessRepository.cs
+                    await _businessRepo.UpdateBusiness(business, PictureFileName, PhotoCollections);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -226,7 +236,7 @@ namespace MIVisitorCenter.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Business", new {id = business.Id});
             }
             ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
             return View(business);
@@ -293,6 +303,7 @@ namespace MIVisitorCenter.Controllers
                 return NotFound();
             }
 
+            ViewData["Photos"] = _photoRepo.GetAll().Where(i => i.BusinessId == id).ToArray();
             var business = await _context.Businesses
                 .Include(b => b.Address)
                 .FirstOrDefaultAsync(m => m.Id == id);

@@ -38,6 +38,9 @@ namespace MIVisitorCenter
                     Configuration.GetConnectionString("MIVisitorCenterConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddScoped<IBusinessRepository, BusinessRepository>();
+            services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

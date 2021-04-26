@@ -18,9 +18,6 @@ namespace MIVisitorCenter.Data.Concrete
     ///      and have ModelBase define important things like the PK name and type so we can enforce that in
     ///      FindById for example.
     ///    - Non async versions
-    ///    - As Baltazar suggested, add a method called something like GetFiltered that takes Func delegate
-    ///      and allows us to apply a filter like Where when getting an IQueryable of TEntity
-    ///    - ?
     /// </summary>
     /// <typeparam name="TEntity">This is the entity for which we're making a repository</typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, new()

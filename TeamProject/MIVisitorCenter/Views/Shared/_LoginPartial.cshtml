@@ -1,57 +1,30 @@
 @using Microsoft.AspNetCore.Identity
-@using MIVisitorCenter.Data
-@using MIVisitorCenter.Data.Migrations
-@using Org.BouncyCastle.Math.EC.Rfc7748
-@using System.Net.Mime
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-@inject ApplicationDbContext AppDbContext
-@inject MIVisitorCenterDbContext MiDbContext
-
-@{
-    
-}
 
 @if (SignInManager.IsSignedIn(User))
 {
-    ApplicationUser currentUser = AppDbContext.Users.FirstOrDefault(u => u.Id == UserManager.GetUserId(User));
-    var userBusiness = MiDbContext.Businesses.FirstOrDefault(b => b.Name.Equals(currentUser.BusinessName));
     if (User.IsInRole("admin"))
     {
-        <li class="uk-parent uk-visible@m"><a href="">Stakeholder Options</a></li>
-        <div uk-dropdown>
-            <ul class="uk-nav uk-dropdown-nav">
-                <li><a asp-controller="StakeholderOptions" asp-action="CalendarOptions">Calendar Options</a></li>
-                <li><a asp-controller="StakeholderOptions" asp-action="MapOptions">Map Options</a></li>
-            </ul>
-        </div>
         <li class="nav-item">
-            <a class="nav-link" asp-controller="Businesses" asp-action="Index">EDIT BUSINESSES</a>
-        </li>
-        <li class="nav-item">
-            <a class="uk-text-large" asp-area="Identity" asp-page="/Account/Register">REGISTER USERS</a>
+            <a class="nav-link" asp-controller="Businesses" asp-action="Index">Edit Businesses</a>
         </li>
     }
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>
-    @if (userBusiness != null)
-    {
-        <li class="nav-item">
-            <a class="uk-text-large" asp-controller="Businesses" asp-action="Edit" asp-route-id="@userBusiness.Id">EDIT MY BUSINESS</a>
-        </li>
-    }
-
+    
     <li>
         <a class="uk-text-large">
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <form  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button class="logout-btn" type="submit">LOGOUT</button>
             </form>
         </a>
     </li>
-
+    
 }
 else
 {
-    <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
+        <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Register">REGISTER</a></li>
+        <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
 }

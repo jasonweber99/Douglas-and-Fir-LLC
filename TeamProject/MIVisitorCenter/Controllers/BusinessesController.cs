@@ -9,19 +9,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter;
 using MIVisitorCenter.Models;
-using Newtonsoft.Json.Linq;
 
 namespace MIVisitorCenter.Controllers
 {
     public class BusinessesController : Controller
     {
         private readonly MIVisitorCenterDbContext _context;
-        private readonly IAuthorizationService _authorizationService;
 
-        public BusinessesController(MIVisitorCenterDbContext context, IAuthorizationService authorizationService)
+        public BusinessesController(MIVisitorCenterDbContext context)
         {
             _context = context;
-            _authorizationService = authorizationService;
         }
 
         // GET: Businesses
@@ -65,26 +62,6 @@ namespace MIVisitorCenter.Controllers
                                     .ThenInclude(a => a.Address)
                                     .AsEnumerable()
                                     .GroupBy(c => c.Name);
-            return View(businesses);
-        }
-
-        public IActionResult WaterTrail()
-        {
-            //ViewData["Lodging"] = _context.Lodgings.Include(l => l.LodgingAmenities).ThenInclude(l => l.Amenities).Include(l => l.Business).ThenInclude(b => b.Address).Include(l => l.Business).ThenInclude(b => b.BusinessCategories).ThenInclude(b => b.Category);
-            var businesses = _context.Categories
-                                    .Where(n => n.Name == "WaterTrailRestaurants")
-                                    .Include(b => b.BusinessCategories)
-                                    .ThenInclude(b => b.Business)
-                                    .ThenInclude(a => a.Address)
-                                    .AsEnumerable();
-
-            var lodging = _context.Categories
-                                    .Where(n => n.Name == "WaterTrailLodging")
-                                    .Include(b => b.BusinessCategories)
-                                    .ThenInclude(b => b.Business)
-                                    .ThenInclude(a => a.Address)
-                                    .AsEnumerable();
-            ViewBag.Lodging = lodging;
             return View(businesses);
         }
 
@@ -180,19 +157,21 @@ namespace MIVisitorCenter.Controllers
         }
 
         // GET: Businesses/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
             var business = await _context.Businesses.FindAsync(id);
-            if (business == null) return NotFound();
-
-            var authorizationResult = await _authorizationService.AuthorizeAsync(User, business, "BusinessOwner");
-            if (!authorizationResult.Succeeded) return NotFound();
-
+            if (business == null)
+            {
+                return NotFound();
+            }
             ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "StreetAddress", business.AddressId);
             return View(business);
-
         }
 
         // POST: Businesses/Edit/5
@@ -267,41 +246,6 @@ namespace MIVisitorCenter.Controllers
         private bool BusinessExists(int id)
         {
             return _context.Businesses.Any(e => e.Id == id);
-        }
-
-        [HttpGet]
-        public string GetAllBusinesses() {
-            var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
-
-            JArray array = new JArray(
-                businesses.Select(b => new JObject
-                {
-                    { "Id", b.Business.Id },
-                    { "Name", b.Business.Name },
-                    { "Category", b.Category.Name }
-                })
-            );
-
-            string json = array.ToString();
-            return json;
-        }
-
-        public async Task<IActionResult> Business(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var business = await _context.Businesses
-                .Include(b => b.Address)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (business == null)
-            {
-                return NotFound();
-            }
-
-            return View(business);
         }
     }
 }

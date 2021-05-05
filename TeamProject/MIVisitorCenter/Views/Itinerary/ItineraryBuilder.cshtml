@@ -14,30 +14,31 @@
 
     @using (Html.BeginForm(new { action = "Build" }))
     {
-<div class="uk-margin">
-    <label class="uk-form-label" for="form-stacked-select">Length of Stay</label>
-    <div class="uk-form-controls">
-        <select asp-for="Length" class="uk-select" id="form-stacked-select">
-            <option value="1">1 Day</option>
-            <option value="2">2 Days</option>
-        </select>
-    </div>
-</div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-select">Length of Stay</label>
+            <div class="uk-form-controls">
+                <select asp-for="Length" class="uk-select" id="form-stacked-select">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                </select>
+            </div>
+        </div>
 
-                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Hiking"> Hiking</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cycling"> Cycling</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Birding"> Birding</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Fishing"> Fishing</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Golf"> Golfing</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Wineries"> Wineries</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Historic Sites & Museums"> Historic Sites & Museums</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Art Galleries"> Art Galleries</label>
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cinemas & Performing Arts"> Cinemas & Performing Arts</label>
-                </div>
-                                <div class="uk-margin">
-                                    <input class="uk-button uk-button-primary uk-align-center" type="submit" value="Create Itinerary" />
-                                </div>}
+        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Hiking"> Hiking</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cycling"> Cycling</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Birding"> Birding</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Fishing"> Fishing</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Golf"> Golfing</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Wineries"> Wineries</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Historic Sites & Museums"> Historic Sites & Museums</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Art Galleries"> Art Galleries</label>
+            <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cinemas & Performing Arts"> Cinemas & Performing Arts</label>
+        </div>
+        <div class="uk-margin">
+            <input class="uk-button uk-button-primary uk-align-center" type="submit" value="Create Itinerary" />
+        </div>
+    }
 
 </div>
 

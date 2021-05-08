@@ -52,7 +52,9 @@ CREATE TABLE [Address] (
   [StreetAddress] nvarchar(256) NOT NULL,
   [City] nvarchar(32) NOT NULL,
   [Zip] int NOT NULL,
-  [State] nvarchar(2) NOT NULL
+  [State] nvarchar(2) NOT NULL,
+  [Latitude] float,
+  [Longitude] float
 );
 
 CREATE TABLE [EventAddress] (

@@ -24,67 +24,67 @@ INSERT INTO [Category](Name) VALUES ('Lodging');
 SET IDENTITY_INSERT Address ON;
 
 -- Actual Eat & Drink Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(1, '174 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(2, '189 Pacific Avenue S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(3, '615 E Main Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(4, '834 N Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(5, '564 Powell Street East', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(6, '1083 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(7, '105 E Main Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(8, '320 Pacific Ave S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(9, '1321 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(10, '1389 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(11, '423 Main Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(12, '101 Polk Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(13, '1450 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(14, '380 Pacifice Avenue S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(15, '159 Monmouth Ave N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(16, '405 E Main Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(17, '1349 Monmouth Street', 'Indpendence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(18, '109 Main Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(19, '114 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(20, '1315 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(21, '1695 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(22, '183 Main Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(23, '601 Clay Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(24, '227 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(25, '6335 OR 22', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(26, '215 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(27, '1473 Monmouth Independence Hwy', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(28, '242 D Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(29, '123 Main Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(30, '641 Clay Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(31, '1311 Monmouth Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(32, '198 Main Street W', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(33, '4705 Airport Road', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(34, '1379 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(35, '113 E Main Street', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(36, '211 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(37, '145 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(38, '140 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(39, '167 Main Street W', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(40, '191 Monmouth Avenue N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(41, '310 Main Street E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(42, '220 Pacific Avenue S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(43, '87 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(44, '131 Pacific Highway W N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(45, '169 Main Street W', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(46, '152 Main Street W', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(47, '201 Osprey Lane', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(48, '8175 Buena Vista Road', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(49, '301 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(50, '240 Monmouth Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(51, '370 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(52, '226 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(53, '296 S Main Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(54, '1320 Edgewater Street NW', 'Salem', 97304, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(55, '576 Patterson Street NW Suite 140', 'Salem', 97304, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(1, '174 S Main Street', 'Independence', 97351, 'OR', 44.852346, -123.184761);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(2, '189 Pacific Avenue S', 'Monmouth', 97361, 'OR', 44.8481047, -123.2293256);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(3, '615 E Main Street', 'Monmouth', 97361, 'OR', 44.8482767, -123.228890725509);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(4, '834 N Main Street', 'Independence', 97351, 'OR', 44.860899, -123.185068);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(5, '564 Powell Street East', 'Monmouth', 97361, 'OR', 44.850976, -123.229781);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(6, '1083 Monmouth Street', 'Independence', 97351, 'OR', 44.850934, -123.200105);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(7, '105 E Main Street', 'Monmouth', 97361, 'OR', 44.8485111, -123.2290732);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(8, '320 Pacific Ave S', 'Monmouth', 97361, 'OR', 44.8481047, -123.2293256);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(9, '1321 Monmouth Street', 'Independence', 97351, 'OR', 44.850805, -123.204694);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(10, '1389 Monmouth Street', 'Independence', 97351, 'OR', 44.850133, -123.205958);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(11, '423 Main Street E', 'Monmouth', 97361, 'OR', 44.848022, -123.231284);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(12, '101 Polk Street', 'Independence', 97351, 'OR', 44.8603972501, -123.18519746);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(13, '1450 Monmouth Street', 'Independence', 97351, 'OR', 44.851564, -123.207739);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(14, '380 Pacific Avenue S', 'Monmouth', 97361, 'OR', 44.8481047, -123.2293256);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(15, '159 Monmouth Ave N', 'Monmouth', 97361, 'OR', 44.84933099, -123.237080936);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(16, '405 Main Street E', 'Monmouth', 97361, 'OR', 44.848261116, -123.23080437);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(17, '1349 Monmouth Street', 'Independence', 97351, 'OR', 44.85025, -123.204953);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(18, '109 Main Street E', 'Monmouth', 97361, 'OR', 44.848378, -123.235548);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(19, '114 S Main Street', 'Independence', 97351, 'OR', 44.852667, -123.184749);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(20, '1315 Monmouth Street', 'Independence', 97351, 'OR', 44.850961, -123.205646);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(21, '1695 Monmouth Street', 'Independence', 97351, 'OR', 44.850886, -123.213282);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(22, '183 Main Street W', 'Monmouth', 97361, 'OR', 44.8485824, -123.2429225);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(23, '601 Clay Street E', 'Monmouth', 97361, 'OR', 44.847098, -123.228887);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(24, '227 S Main Street', 'Independence', 97351, 'OR', 44.851738, -123.184258);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(25, '6335 OR-22', 'Independence', 97351, 'OR', 44.933583806, -123.15984536);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(26, '215 S Main Street', 'Independence', 97351, 'OR', 44.851845, -123.184263);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(27, '1473 Monmouth Independence Hwy', 'Monmouth', 97361, 'OR', 44.85068467, -123.21894392);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(28, '242 D Street', 'Independence', 97351, 'OR', 44.85043, -123.186631);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(29, '123 Main Street E', 'Monmouth', 97361, 'OR', 44.84841, -123.235361);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(30, '641 Clay Street E', 'Monmouth', 97361, 'OR', 44.846803, -123.228572);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(31, '1311 Monmouth Street', 'Independence', 97361, 'OR', 44.851029964, -123.2043001);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(32, '198 Main Street W', 'Monmouth', 97361, 'OR', 44.848747, -123.237113);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(33, '4705 Airport Road', 'Independence', 97351, 'OR', 44.865922, -123.196981);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(34, '1379 Monmouth Street', 'Independence', 97351, 'OR', 44.850069, -123.205886);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(35, '113 E Main Street', 'Monmouth', 97361, 'OR', 44.84838535, -123.23553991);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(36, '211 S Main Street', 'Independence', 97351, 'OR', 44.851919, -123.184263);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(37, '145 Monmouth Avenue N', 'Monmouth', 97361, 'OR', 44.849058175, -123.23660156);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(38, '140 Monmouth Avenue N', 'Monmouth', 97361, 'OR', 44.848981856, -123.237706398);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(39, '167 Main Street W', 'Monmouth', 97361, 'OR', 44.848435, -123.23684);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(40, '191 Monmouth Avenue N', 'Monmouth', 97361, 'OR', 44.8494227595, -123.236832536);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(41, '310 Main Street E', 'Monmouth', 97361, 'OR', 44.848752, -123.232684);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(42, '220 Pacific Avenue S', 'Monmouth', 97361, 'OR', 44.8496830731, -123.229632866);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(43, '87 S Main Street', 'Independence', 97351, 'OR', 44.853261, -123.184248);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(44, '131 Pacific Highway W N', 'Monmouth', 97361, 'OR', 44.8489522639, -123.228848013);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(45, '169 Main Street W', 'Monmouth', 97361, 'OR', 44.8484467181, -123.23695112);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(46, '152 Main Street W', 'Monmouth', 97361, 'OR', 44.848788, -123.236517);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(47, '201 Osprey Lane', 'Independence', 97351, 'OR', 44.851640846, -123.182892001);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(48, '8175 Buena Vista Road', 'Independence', 97351, 'OR', 44.815318536, -123.158744629);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(49, '301 S Main Street', 'Independence', 97351, 'OR', 44.851156, -123.18413);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(50, '240 Monmouth Street', 'Independence', 97351, 'OR', 44.851421, -123.1864);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(51, '370 S Main Street', 'Independence', 97351, 'OR', 44.850579, -123.184987);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(52, '226 S Main Street', 'Independence', 97351, 'OR', 44.851826, -123.184829);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(53, '296 S Main Street', 'Independence', 97351, 'OR', 44.851279, -123.184858);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(54, '1320 Edgewater Street NW', 'Salem', 97304, 'OR', 44.939439, -123.060465);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(55, '576 Patterson Street NW Suite 140', 'Salem', 97304, 'OR', 44.946475, -123.054994);
 
 -- Actual Winery Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(56, '3250 S Pacific Highway', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(57, '8175 Buena Vista Road', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(58, '15305 Dunn Forest Road', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES(59, '11665 Airlie Road', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(56, '3250 S Pacific Highway', 'Independence', 97351, 'OR', 44.88665366, -123.227348224);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(57, '8175 Buena Vista Road', 'Independence', 97351, 'OR', 44.815318536, -123.158744629);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(58, '15305 Dunn Forest Road', 'Monmouth', 97361, 'OR', 44.727530713, -123.3444682);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES(59, '11665 Airlie Road', 'Monmouth', 97361, 'OR', 44.74311435778, -123.26926374);
 
 SET IDENTITY_INSERT Address OFF;
 SET IDENTITY_INSERT Business ON;
@@ -244,71 +244,66 @@ INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (52, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (53, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (54, 12);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (55, 12);
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('211 Main St.', 'Independence', 97351, 'OR');
-INSERT INTO [Address](StreetAddress, City, Zip, State) VALUES ('576 Patterson St. NW', 'Salem', 97304, 'OR');
 
 SET IDENTITY_INSERT Business OFF;
 
 SET IDENTITY_INSERT Address ON;
 
 -- Development Lodging Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (300, '270 Pacific Ave S', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (301, '201 Osprey Lane', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (302, '212 Knox Street N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (303, '14810 Airlie Road', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (304, '50 C Street', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (300, '270 Pacific Ave S', 'Monmouth', 97361, 'OR', 44.846885445, -123.229691229);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (301, '201 Osprey Lane', 'Independence', 97351, 'OR', 44.8516560584, -123.182902729);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (302, '212 Knox Street N', 'Monmouth', 97361, 'OR', 44.849851, -123.234546);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (303, '14810 Airlie Road', 'Monmouth', 97361, 'OR', 44.751848046, -123.33809423);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (304, '50 C Street', 'Independence', 97351, 'OR', 44.852523, -123.183195);
 
 -- Development Recreation Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (200, '10995 Highway 22', 'Dallas', 97338, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (201, '29555 Camp Adair Road', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (202, '50 C Street', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (203, 'Fort Yamhill State Heritage Area', 'Grand Ronde', 97347, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (204, 'Buena Vista Rd NW', 'Albany', 97321, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (205, '120 Main St E', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (206, '11545 Helmick Rd', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (207, 'Mill Creek Rd', 'Sheridan', 97378, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (208, '520 Pacific Ave S', 'Rickreall', 97371, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (209, 'Halls Ferry Rd', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (210, '13935 Hwy 22', 'Dallas', 97338, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (211, '11875 Orrs Corner Rd', 'Dallas', 97338, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (212, '6335 Hwy 22', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (213, '401 SW Levens St', 'Dallas', 97338, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (214, 'Stadium Drive', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (215, '1005 LaCreole Dr SE', 'Dallas', 97338, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (216, '410 Hogan Rd', 'Monmouth', 97361, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (200, '10995 OR-22', 'Dallas', 97338, 'OR', 44.9478023916, -123.250353168);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (201, '29555 Camp Adair Road', 'Monmouth', 97361, 'OR', 44.7009344065, -123.208276029);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (203, 'Fort Yamhill State Heritage Area', 'Grand Ronde', 97347, 'OR', 45.0705088042, -123.5699767299);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (204, '13770 Buena Vista Rd', 'Independence', 97351, 'OR', 44.7338919175, -123.163769348);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (205, '120 Main St E', 'Monmouth', 97361, 'OR', 44.848808, -123.235353);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (206, '11545 Helmick Rd', 'Monmouth', 97361, 'OR', 44.781674156, -123.237045498);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (207, 'Mill Creek Rd', 'Sheridan', 97378, 'OR', 45.022225, -123.420359);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (208, '520 S Pacific Highway W', 'Rickreall', 97371, 'OR', 44.9258518939, -123.22813858);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (209, 'Halls Ferry Rd', 'Independence', 97351, 'OR', 44.8867761569, -123.139788329);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (210, '13935 Hwy 22', 'Dallas', 97338, 'OR', 44.9833490569, -123.313464671);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (211, '11875 Orrs Corner Rd', 'Dallas', 97338, 'OR', 44.920058764, 123.275876729);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (212, '6335 Hwy 22', 'Independence', 97351, 'OR', 44.93364456775, -123.159823901);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (213, '401 SW Levens St', 'Dallas', 97338, 'OR', 44.925684465, -123.319789529);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (214, 'Stadium Drive', 'Monmouth', 97361, 'OR', 44.85675614226, -123.24434393);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (215, '1005 LaCreole Dr SE', 'Dallas', 97338, 'OR', 44.91898236102, -123.3007089007);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (216, '410 Hogan Rd', 'Monmouth', 97361, 'OR', 44.852418, -123.220701);
 
 -- Development Art and Culture Address Seed
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (100, '520 S Pacific Hwy W', 'Rickreall', 97371, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (101, '184 Main St', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (102, '200 Monmouth Ave N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (103, '9615 Grand Ronde Rd', 'Grand Ronde', 97347, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (104, '9390 OR Hwy 22', 'Grand Ronde', 97347, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (105, '112 3rd St S', 'Independence', 97351, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (106, '855 Monmouth Ave N', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (107, '560 S Pacific Hwy W', 'Rickreall', 97371, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (108, 'Ritner Creek Bridge', 'Monmouth', 97361, 'OR');
-INSERT INTO [Address](ID, StreetAddress, City, Zip, State) VALUES (109, '450 S 2nd St', 'Independence', 97351, 'OR');
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (101, '184 Main St', 'Independence', 97351, 'OR', 44.8522688464, -123.1849848299);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (102, '200 Monmouth Ave N', 'Monmouth', 97361, 'OR', 44.85121950188, -123.237300883);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (103, '9615 Grand Ronde Rd', 'Grand Ronde', 97347, 'OR', 45.074382, -123.617022);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (105, '112 3rd St S', 'Independence', 97351, 'OR', 44.85279304638, -123.187845101);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (106, '855 Monmouth Ave N', 'Monmouth', 97361, 'OR', 44.85679385302, -123.236572929);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (107, '560 S Pacific Hwy W', 'Rickreall', 97371, 'OR', 44.925097061, -123.228442);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (108, 'Ritner Creek Bridge', 'Monmouth', 97361, 'OR', 44.728122514, -123.441949687);
+INSERT INTO [Address](ID, StreetAddress, City, Zip, State, Latitude, Longitude) VALUES (109, '450 S 2nd St', 'Independence', 97351, 'OR', 44.849759, -123.187028);
 
 SET IDENTITY_INSERT Address OFF;
 
 SET IDENTITY_INSERT Business ON;
 
 -- Development Festival and Event Seed
-INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (100, 'Hop & Heritage Block Party', 'Independence''s celebration of hops and heritage is back this year with the Hop and Heritage Block Party! Concentrated in the streets and businesses of Downtown Independence, the Hop and Heritage Block Party will showcase Independence''s unique heritage and vibrant community. Sample local brews and ciders with our Block Party Passport- commemorative glass and tastings included! You can look forward to craft beer, music, hop history, and more!', 'https://www.downtownindependence.com/hops', 202);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (100, 'Hop & Heritage Block Party', 'Independence''s celebration of hops and heritage is back this year with the Hop and Heritage Block Party! Concentrated in the streets and businesses of Downtown Independence, the Hop and Heritage Block Party will showcase Independence''s unique heritage and vibrant community. Sample local brews and ciders with our Block Party Passport- commemorative glass and tastings included! You can look forward to craft beer, music, hop history, and more!', 'https://www.downtownindependence.com/hops', 304);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (101, 'Monmouth July 4th Festival', 'The City of Monmouth sponsors a July 4th Festival The festival is held in Main Street Park. The festival emphasizes the arts including music, dance and theater.', '503-751-0145', 'https://www.ci.monmouth.or.us/pview.aspx?id=26838', 205);
-INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (102, 'Independence Days', 'Enjoy fun activities for all ages as our community comes together to celebrate the birth of our great nation. Not only is this traditionally a giant community-wide annual homecoming of family and friends, it also serves as an opportunity for us to welcome visitors and create new friendships as you explore the bounty that Independence has to offer. Hopefully, this glorious celebration of the Fourth of July will become a new tradition for your family, as well. What better way to celebrate our nation?s Independence Day than under a canopy of carnival lights and fireworks in Independence Oregon?', 'https://independencedaysorg.wordpress.com/', 202);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (102, 'Independence Days', 'Enjoy fun activities for all ages as our community comes together to celebrate the birth of our great nation. Not only is this traditionally a giant community-wide annual homecoming of family and friends, it also serves as an opportunity for us to welcome visitors and create new friendships as you explore the bounty that Independence has to offer. Hopefully, this glorious celebration of the Fourth of July will become a new tradition for your family, as well. What better way to celebrate our nation?s Independence Day than under a canopy of carnival lights and fireworks in Independence Oregon?', 'https://independencedaysorg.wordpress.com/', 304);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (103, 'Music in the Park Series', 'Free concerts are offered every Wednesday from second week of July through the end of August in the Main Street Park Amphitheater.  All concerts begin at 6:30 p.m.  The Series features a wide variety of music genres.  Food,beer and wine are available in the park.  Bring your blanket or lawn chair and enjoy a summer full of music!  Please leave your pets at home.', '503.838.0722', 'https://www.ci.monmouth.or.us/pView.aspx?id=5008&catid=554', 205);
-INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (104, 'River''s Edge Summer Series', 'The River''s Edge Summer Series provides FREE movies and concerts throughout the months of July and August. Movies are Thursday nights starting at dusk. There is lawn seating and concessions that open at 8:00 pm. Friday evenings there is free live music with concessions and a beer garden opening at 5:30 pm, and bands starting at 6:30 pm.', 'http://www.independenceamphitheater.com/', 202);
-INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (105, 'Community Fiesta', 'Join IM Community at Riverview Park in downtown Independence and experience The Community Fiesta in August. This two day celebration will have delicious food vendors, live music, cultural dances including baile folkorico, a soccer tournament, the crowning of the fiesta queen on Friday night and fireworks Saturday night! Don?t miss this fun and exciting summer Fiesta.', 'https://www.ci.independence.or.us/ed/page/festival-events', 202);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (106, 'Polk County Fair', 'A genuine old fashion County Fair, fun for the whole family.', '(503) 623-3048', 'https://www.co.polk.or.us/fair/annual-fair-2', 100);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (104, 'River''s Edge Summer Series', 'The River''s Edge Summer Series provides FREE movies and concerts throughout the months of July and August. Movies are Thursday nights starting at dusk. There is lawn seating and concessions that open at 8:00 pm. Friday evenings there is free live music with concessions and a beer garden opening at 5:30 pm, and bands starting at 6:30 pm.', 'http://www.independenceamphitheater.com/', 304);
+INSERT INTO [Business](ID, Name, Description, Website, AddressID) VALUES (105, 'Community Fiesta', 'Join IM Community at Riverview Park in downtown Independence and experience The Community Fiesta in August. This two day celebration will have delicious food vendors, live music, cultural dances including baile folkorico, a soccer tournament, the crowning of the fiesta queen on Friday night and fireworks Saturday night! Don?t miss this fun and exciting summer Fiesta.', 'https://www.ci.independence.or.us/ed/page/festival-events', 304);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (106, 'Polk County Fair', 'A genuine old fashion County Fair, fun for the whole family.', '(503) 623-3048', 'https://www.co.polk.or.us/fair/annual-fair-2', 208);
 
 -- Development Art Gallery Seed
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (107, 'River Gallery', 'Our gallery believes that art should be a part of everyday life, shared with everyone. Visit us at the gallery during our open hours and browse through our artists and events', '(503) 838-6171', 'https://www.rivergalleryart.com/', 102);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (107, 'River Gallery', 'Our gallery believes that art should be a part of everyday life, shared with everyone. Visit us at the gallery during our open hours and browse through our artists and events', '(503) 838-6171', 'https://www.rivergalleryart.com/', 101);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (108, 'The Cannon Gallery of Art', 'The Cannon Gallery of Art is located in the heart of Western Oregon University?s campus in the beautifully renovated Campbell Hall. Campbell Hall was built in 1871 and is the oldest building still in use the Oregon University System. The gallery has approximately 700 square feet of exhibition space and holds seven exhibitions during each academic year. Thematic and media-specific exhibits by regional and nationally acclaimed artists are included in each annual schedule.', '503-838-8607', 'https://wou.edu/art-and-design/cannon-gallery-of-art/', 102);
 
 -- Development Historic Site and Museum Seed
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (109, 'Chachalu Tribal Museum & Cultural Center', 'This vision of the Museum is to tell the story of the resiliency of the land and of the people who have lived here since time immemorial. The land, once devastated by fire, is now revitalized with healthy forests and abundant wildlife. Our salmon have once again returned to our streams; the Grand Ronde people, once uprooted from their various homelands and then Terminated by the federal government, are renewed through Restoration. This is a center for cultural activity where the Tribe?s stories, history, and culture continue to be practiced and shared.', '(503) 879-2268', 'https://www.grandronde.org/history-culture/culture/chachalu-museum-and-cultural-center/', 103);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (110, 'Fort Yamhill State Heritage Area', 'Built in 1856 to regulate the eastern border of the Grand Ronde Indian Reservation, Fort Yamhill represented a time of transition for the people of the Northwest. The fort served to ease tension between settlers and natives, protect both populations and control traffic between them. Fort Yamhill is one of the best archaeologically preserved forts in the Northwest from the mid 19th century.', '(503) 879-5814', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=185', 104);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (110, 'Fort Yamhill State Heritage Area', 'Built in 1856 to regulate the eastern border of the Grand Ronde Indian Reservation, Fort Yamhill represented a time of transition for the people of the Northwest. The fort served to ease tension between settlers and natives, protect both populations and control traffic between them. Fort Yamhill is one of the best archaeologically preserved forts in the Northwest from the mid 19th century.', '(503) 879-5814', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=185', 203);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (111, 'Heritage Museum', 'The mission of the Heritage Museum is to collect and share the natural history and diverse cultural heritage of the river community of Independence. Visit us in the heart of the Independence National Historic District, at the corner of 3rd and B Streets where we are telling stories, inspiring memories, and preserving local history.', '(503) 838-4989', 'https://orheritage.org/', 105);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (112, 'Historic Gentle House', 'Historic Gentle House is an event center, garden, and museum. The house is an important landmark for both the community and Western Oregon University.', '(503) 838-8673', 'https://wou.edu/gentlehouse/', 106);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (113, 'Polk County Museum', 'The Polk County Historical Society is a public-benefit, non-profit corporation managed by a Board of Directors consisting of the President, the Vice-President, the Secretary, the Treasurer, nine Directors and the immediate Past President. Board members are elected at the Annual Membership Meeting held each January. The volunteer Board of Directors meets monthly to implement the pronouncements comprising the PCHS Mission Statement.', '(503) 623-6251', 'http://www.polkcountyhistoricalsociety.org/', 107);
@@ -432,7 +427,7 @@ SET IDENTITY_INSERT Business ON;
 
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES(200, 'Baskett Slough Wildlife Refuge', 'Baskett Slough National Wildlife Refuge provides habitat for a wide variety of wildlife and plants. Populations of several endangered and threatened animal and plant species can be found on the refuge, and wildlife/wildlands observation, photography, hiking, and environmental education and interpretation are some of the visitor activities allowed on the Refuge.', '503-623-2749', 'https://www.fws.gov/refuge/baskett_slough/', 200);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES(201, 'E.E. Wilson Wildlife Area', 'The E.E. Wilson Wildlife Area came into existence in 1950 when the U.S. Government gave quitclaim title to the property to the Oregon Department of Fish and Wildlife. The wildlife area covers approximately 1,788 acres, is located on Highway 99W about 10 miles north of Corvallis and is situated on the Willamette Valley floor.', '541-745-5334', 'https://myodfw.com/e-e-wilson-wildlife-area-visitors-guide', 201);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (202, 'Willamette River Trail', 'In 2012, the City opened the Willamette River Trail, a 5k soft surface trail loop that runs from the Riverview Park Amphitheater to the North Riverfront Ballfield Complex and back.  The trail passes in and out of the Willamette River''s riparian zone offering excellent birdwatching and nature viewing opportunities, and also passes the Independence Dog Park.  Primary access for the trail is from the north side of Riverview Park where a pedestrian bridge crosses Ash Creek.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/running-trails-and-walking-paths', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (202, 'Willamette River Trail', 'In 2012, the City opened the Willamette River Trail, a 5k soft surface trail loop that runs from the Riverview Park Amphitheater to the North Riverfront Ballfield Complex and back.  The trail passes in and out of the Willamette River''s riparian zone offering excellent birdwatching and nature viewing opportunities, and also passes the Independence Dog Park.  Primary access for the trail is from the north side of Riverview Park where a pedestrian bridge crosses Ash Creek.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/running-trails-and-walking-paths', 304);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (203, 'Fort Yamhill State Heritage Park', 'Built in 1856 to regulate the eastern border of the Grand Ronde Indian Reservation, Fort Yamhill represented a time of transition for the people of the Northwest. The fort served to ease tension between settlers and natives, protect both populations and control traffic between them. Fort Yamhill is one of the best archaeologically preserved forts in the Northwest from the mid 19th century.', '503-879-5814', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=185', 203);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (204, 'Luckiamute Landing State Natural Area', 'The Luckiamute River meanders through the 615-acre north tract, flowing into the Willamette River from the west and just a stone''s throw from the Santiam River confluence from the east. Travelers paddling the Willamette Water Trail can camp at the boater-access-only site. Hikers can park at the North Trailhead and take the 3-mile trail along a meadow and through a riparian hardwood forest of Oregon ash and bigleaf maple.', '800-551-6949', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=192', 204);
 
@@ -459,7 +454,7 @@ INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (206, 2);
 SET IDENTITY_INSERT Business ON;
 
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (207, 'Sarah Helmick State Park', 'Sarah Helmick is located six miles south of Monmouth off Highway 99W. The small, shady park is situated along the Luckiamute River. Two picnic areas for groups up to 150 people each can be reserved. Electricity, water and picnic tables are provided at each site. Big leaf maples provide ample shade. Visitors can take a walk along the trails that border the Luckiamute River, with plenty of birds and native plant life to investigate.', '541-924-8492', 'https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=98', 206);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (208, 'Riverview Park', 'Completed in 2005, the Riverview Park Amphitheater is the centerpiece of Riverview Park. In 2008, a sparkling fountain was added to the Plaza Level, welcoming visitors to Independence.  The amphitheater hosts numerous events including the 8 week River''s Edge summer movie and concert series. Riverview Park is also the starting point for the Willamette River Trail, a 5k soft-surface path that loops north along the Willamette River providing excellent river views and birdwatching. In 2014 a disc golf course was installed in Riverview Park. In 2015, the Independence Biker/Boater Campground opened.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/riverview-park', 202);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (208, 'Riverview Park', 'Completed in 2005, the Riverview Park Amphitheater is the centerpiece of Riverview Park. In 2008, a sparkling fountain was added to the Plaza Level, welcoming visitors to Independence.  The amphitheater hosts numerous events including the 8 week River''s Edge summer movie and concert series. Riverview Park is also the starting point for the Willamette River Trail, a 5k soft-surface path that loops north along the Willamette River providing excellent river views and birdwatching. In 2014 a disc golf course was installed in Riverview Park. In 2015, the Independence Biker/Boater Campground opened.', '503-838-1212', 'https://www.ci.independence.or.us/recreation/riverview-park', 304);
 
 SET IDENTITY_INSERT Business OFF;
 

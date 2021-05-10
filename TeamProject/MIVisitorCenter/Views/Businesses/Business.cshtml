@@ -16,7 +16,20 @@
         </div>
     </div>
 </div>
-<div class="uk-grid-match uk-child-width-expand@s uk-text-center" style="padding: 2rem 0 2rem 0;" uk-grid>
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" style="padding:0;" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
+            <h3>Contact</h3>
+            <p>@Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State</p>
+            <p>@Model.Phone</p>
+            <a href="@Model.Website" style="color: #999;">@Model.Website</a>
+        </div>
+    </div>
+    
+</div>
+
+<div class="uk-grid-match uk-child-width-expand@s uk-text-center" style="padding:0;" uk-grid>
     <div>
         <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
             <h3>Description</h3>
@@ -24,14 +37,69 @@
         </div>
     </div>
     <div>
-        <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
-            <h3>Contact</h3>
-            <p title="@Model.Address.Latitude, @Model.Address.Longitude">@Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State</p>
-            <p>@Model.Phone</p>
-            <a href="@Model.Website" style="color: #999;">@Model.Website</a>
+        <div class="uk-card uk-card-default uk-card-body uk-align-center" style="border-radius: 10px;">
+            <h3>Hours</h3>
+            <div class="col"></div>
+            <div class="col">
+                <table class="uk table uk-table-small">
+                    <tbody>
+                        @for (var i = 0; i < Model.OperatingHours.Count; i++)
+                        {
+            <tr>
+                @switch (Model.OperatingHours.ElementAt(i).Day)
+                {
+                    case 0:
+                        <td>Sunday</td>
+                        break;
+                    case 1:
+                        <td>Monday</td>
+                        break;
+                    case 2:
+                        <td>Tuesday</td>
+                        break;
+                    case 3:
+                        <td>Wednesday</td>
+                        break;
+                    case 4:
+                        <td>Thursday</td>
+                        break;
+                    case 5:
+                        <td>Friday</td>
+                        break;
+                    case 6:
+                        <td>Saturday</td>
+                        break;
+                }
+                <td>
+                    @if (@Model.OperatingHours.ElementAt(i).Open != null)
+                    {
+                        <span>@(Model.OperatingHours.ElementAt(i).Open.Value.Hour%12)</span><span>:</span><span>@String.Format("{0:00}", Model.OperatingHours.ElementAt(i).Open.Value.Minute)</span>@if (Model.OperatingHours.ElementAt(i).Open.Value.Hour < 12)
+                        {<span> AM</span> }
+                        else
+                        { <span>PM</span>}
+                    }
+                </td>
+                <td>-</td>
+                <td>
+                    @if (@Model.OperatingHours.ElementAt(i).Close != null)
+                    {
+                        <span>@(Model.OperatingHours.ElementAt(i).Close.Value.Hour%12)</span><span>:</span><span>@String.Format("{0:00}", Model.OperatingHours.ElementAt(i).Close.Value.Minute)</span>@if (Model.OperatingHours.ElementAt(i).Close.Value.Hour < 12)
+                        {<span> AM</span> }
+                        else
+                        { <span>PM</span>}
+                    }
+                </td>
+
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col"></div>
         </div>
     </div>
+    
 </div>
+
 
     @if (Model.PhotoCollections.Count != 0)
     {

@@ -16,9 +16,9 @@ CREATE TABLE [PhotoCollection] (
 
 CREATE TABLE [OperatingHours] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
-  [Day] nvarchar(16),
-  [Open] time,
-  [Close] time,
+  [Day] int,
+  [Open] datetime,
+  [Close] datetime,
   [BusinessID] int
 );
 

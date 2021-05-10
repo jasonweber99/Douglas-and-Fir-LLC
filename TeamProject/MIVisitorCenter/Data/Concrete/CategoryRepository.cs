@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MIVisitorCenter.Data.Abstract;
 using MIVisitorCenter.Models;
+using MIVisitorCenter.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,11 @@ namespace MIVisitorCenter.Data.Concrete
             }
 
             return categories;
+        }
+
+        public virtual IEnumerable<BusinessCategory> GetAllUniqueBusinesses()
+        {
+            return _dbSet.Include(b => b.Business).Include(c => c.Category).DistinctBy(b => b.Business.Id);
         }
     }
 }

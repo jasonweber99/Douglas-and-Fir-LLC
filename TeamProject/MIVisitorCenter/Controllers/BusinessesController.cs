@@ -13,6 +13,8 @@ using MIVisitorCenter.Models;
 using Newtonsoft.Json.Linq;
 using MIVisitorCenter.Data.Abstract;
 using Microsoft.AspNetCore.Http;
+using MIVisitorCenter.Utilities;
+using System.Text;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -24,6 +26,7 @@ namespace MIVisitorCenter.Controllers
         private readonly IPhotoCollectionRepository _photoRepo;
         private readonly IAddressRepository _addressRepo;
         private readonly IHoursRepository _hoursRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
 
         public BusinessesController(MIVisitorCenterDbContext context, 
@@ -31,7 +34,8 @@ namespace MIVisitorCenter.Controllers
                                     IBusinessRepository businessRepo,
                                     IPhotoCollectionRepository photoRepo,
                                     IAddressRepository addressRepo,
-                                    IHoursRepository hoursRepository)
+                                    IHoursRepository hoursRepository,
+                                    ICategoryRepository categoryRepository)
         {
             _context = context;
             _authorizationService = authorizationService;
@@ -39,6 +43,7 @@ namespace MIVisitorCenter.Controllers
             _photoRepo = photoRepo;
             _addressRepo = addressRepo;
             _hoursRepository = hoursRepository;
+            _categoryRepository = categoryRepository;
         }
 
         // GET: Businesses
@@ -464,20 +469,34 @@ namespace MIVisitorCenter.Controllers
         }
 
         [HttpGet]
-        public string GetAllBusinesses() {
-            var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
+        public JsonResult GetAllBusinesses() {
+            //var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
+            var businesses = _categoryRepository.GetAllUniqueBusinesses();
 
-            JArray array = new JArray(
-                businesses.Select(b => new JObject
+            //JArray array = new JArray(
+            //    businesses.DistinctBy(b => b.Business.Id).Select(b => new JObject
+            //    {
+            //        { "Id", b.Business.Id },
+            //        { "Name", b.Business.Name },
+            //        { "Category", b.Category.Name },
+            //        { "Description", b.Business.Description }
+            //    })
+            //);
+
+            List<Object> array = new(
+                businesses.Select(b => new
                 {
-                    { "Id", b.Business.Id },
-                    { "Name", b.Business.Name },
-                    { "Category", b.Category.Name }
+                    b.Business.Id,
+                    b.Business.Name,
+                    Category = b.Category.Name,
+                    b.Business.Description
                 })
             );
 
-            string json = array.ToString();
-            return json;
+            return Json(array);
+
+            //string json = array.ToString();
+            //return json;
         }
 
         public async Task<IActionResult> Business(int? id)

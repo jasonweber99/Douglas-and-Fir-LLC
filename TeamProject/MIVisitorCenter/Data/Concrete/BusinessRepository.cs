@@ -20,7 +20,7 @@ namespace MIVisitorCenter.Data.Concrete
 
         public virtual Business GetBusinessByID(int id)
         {
-            return _dbSet.Where(a => a.Id == id).FirstOrDefault();
+            return _dbSet.Where(a => a.Id == id).Include(a => a.Address).Include(a => a.OperatingHours).FirstOrDefault();
         }
 
         public virtual Business GetBusinessByName(string name)

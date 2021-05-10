@@ -216,3 +216,8 @@ body {
 /* .tab-content {
 
 } */
+
+.hours-input {
+/*    margin: 0 .9em;
+*/    width: 35%;
+}

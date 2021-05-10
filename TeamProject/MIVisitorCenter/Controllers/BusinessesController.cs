@@ -13,6 +13,8 @@ using MIVisitorCenter.Models;
 using Newtonsoft.Json.Linq;
 using MIVisitorCenter.Data.Abstract;
 using Microsoft.AspNetCore.Http;
+using MIVisitorCenter.Utilities;
+using System.Text;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -310,20 +312,33 @@ namespace MIVisitorCenter.Controllers
         }
 
         [HttpGet]
-        public string GetAllBusinesses() {
+        public JsonResult GetAllBusinesses() {
             var businesses = _context.BusinessCategories.Include(b => b.Business).Include(c => c.Category);
 
-            JArray array = new JArray(
-                businesses.Select(b => new JObject
+            //JArray array = new JArray(
+            //    businesses.DistinctBy(b => b.Business.Id).Select(b => new JObject
+            //    {
+            //        { "Id", b.Business.Id },
+            //        { "Name", b.Business.Name },
+            //        { "Category", b.Category.Name },
+            //        { "Description", b.Business.Description }
+            //    })
+            //);
+
+            List<Object> array = new(
+                businesses.DistinctBy(b => b.Business.Id).Select(b => new
                 {
-                    { "Id", b.Business.Id },
-                    { "Name", b.Business.Name },
-                    { "Category", b.Category.Name }
+                    b.Business.Id,
+                    b.Business.Name,
+                    Category = b.Category.Name,
+                    b.Business.Description
                 })
             );
 
-            string json = array.ToString();
-            return json;
+            return Json(array);
+
+            //string json = array.ToString();
+            //return json;
         }
 
         public async Task<IActionResult> Business(int? id)

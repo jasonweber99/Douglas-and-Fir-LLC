@@ -72,14 +72,14 @@ const searchBusinesses = (searchText) => {
 
 // Filters the businesses so either the Name or Category matches the query
 const findMatches = (businesses, searchText) => {
-    console.log(`Matching for ${searchText}`)
+    console.log(`Matching for ${searchText}`);
     const regex = new RegExp(`${searchText}`, 'gi');
-    return businesses.filter((business) => business.Name.match(regex) || business.Category.match(regex));
+    return businesses.filter((business) => business.name.match(regex) || business.category.match(regex) || business.description.match(regex));
 }
 
 const showSearchResults = (matches) =>  {
     if(matches.length > 0) {
-        const html = matches.map(match => `<tr><td><a href="/Businesses/Business/${match.Id}">${match.Name}</a></td><td><small>- ${match.Category}</small></td></tr>`).join('');
+        const html = matches.map(match => `<tr><td><a href="/Businesses/Business/${match.id}">${match.name}</a></td><td><small>- ${match.category}</small></td></tr>`).join('');
         MatchList.innerHTML = html;
         $( ".search-table" ).fadeIn();
     } else {

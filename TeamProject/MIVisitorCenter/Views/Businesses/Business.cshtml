@@ -21,7 +21,7 @@
     <div>
         <div class="uk-card uk-card-default uk-card-body" style="border-radius: 10px;">
             <h3>Contact</h3>
-            <p>@Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State</p>
+            <p title="@Model.Address.Latitude, @Model.Address.Longitude">@Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State</ptitle="@Model.Address.Latitude,>
             <p>@Model.Phone</p>
             <a href="@Model.Website" style="color: #999;">@Model.Website</a>
         </div>

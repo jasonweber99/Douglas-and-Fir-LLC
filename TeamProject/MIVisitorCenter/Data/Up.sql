@@ -79,6 +79,43 @@ CREATE TABLE [Amenities] (
   [Name] nvarchar(64) NOT NULL
 );
 
+CREATE TABLE [Component] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [PageID] int,
+  [Name] nvarchar(64),
+  [Type] nvarchar(32),
+  [Description] nvarchar(1024)
+);
+
+CREATE TABLE [Page] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [Name] nvarchar(64)
+);
+
+CREATE TABLE [ComponentImages] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [ComponentID] int,
+  [Image] varbinary(max)
+);
+
+CREATE TABLE [ComponentText] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [ComponentID] int,
+  [Text] nvarchar(1024)
+);
+
+ALTER TABLE [Component] 
+ADD CONSTRAINT FK_PageComponent
+FOREIGN KEY ([PageID]) REFERENCES [Page] ([ID]);
+
+ALTER TABLE [ComponentText] 
+ADD CONSTRAINT FK_ComponentComponentText
+FOREIGN KEY ([ComponentID]) REFERENCES [Component] ([ID]);
+
+ALTER TABLE [ComponentImages] 
+ADD CONSTRAINT FK_ComponentComponentImages
+FOREIGN KEY ([ComponentID]) REFERENCES [Component] ([ID]);
+
 ALTER TABLE [Business]
 ADD CONSTRAINT FK_AddressBusiness
 FOREIGN KEY ([AddressID]) REFERENCES [Address] ([ID]);

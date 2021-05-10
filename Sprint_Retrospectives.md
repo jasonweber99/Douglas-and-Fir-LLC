@@ -39,3 +39,11 @@ Our continuing commitments for further process improvement continue to focus on 
 more consistent communication between the team during sprints. As our features scale in 
 complexity it will be vital that we utilize our stand-ups and our Discord channel to keep 
 abreast of everyone's progress.
+
+## Sprint 4 (04/13/21 - 04/26/21)
+
+The sprint was marked with some difficulties in our process. There were some outside 
+influences that kept some team members from being able to complete their user stories, and 
+we've found that the implementation of the new testing frameworks required a significantly 
+higher time investment than we had accounted for in our point distribution for this sprint's
+user stories. Going forward, we will do more to keep that in mind as we assign points.

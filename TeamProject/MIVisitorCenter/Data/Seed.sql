@@ -513,3 +513,13 @@ SET IDENTITY_INSERT Business OFF;
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (217, 7);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (218, 7);
 
+
+-- Administrator Components Seed
+INSERT INTO [Page](Name) Values ('Index');
+
+SET IDENTITY_INSERT Component ON;
+INSERT INTO [Component](ID, PageID, Name, Type, Description) VALUES (1, 1, 'Main Text Box', 'Text', 'This is the main text box that is presented when a visitor first views the website.');
+INSERT INTO [Component](ID, PageID, Name, Type, Description) VALUES (2, 1, 'Homepage Carousel', 'Gallery', 'This is the homepage carousel that is presented when a visitor first views the website. Note: If there are no images uploaded, then a static image will be displayed.');
+SET IDENTITY_INSERT Component OFF;
+
+INSERT INTO [ComponentText](ComponentID, Text) VALUES (1, 'A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.');

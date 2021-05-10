@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MIVisitorCenter;
 
 #nullable disable
 
@@ -24,11 +23,15 @@ namespace MIVisitorCenter.Models
         public virtual DbSet<BusinessCategory> BusinessCategories { get; set; }
         public virtual DbSet<BusinessEvent> BusinessEvents { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Component> Components { get; set; }
+        public virtual DbSet<ComponentImage> ComponentImages { get; set; }
+        public virtual DbSet<ComponentText> ComponentTexts { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<EventAddress> EventAddresses { get; set; }
         public virtual DbSet<Lodging> Lodgings { get; set; }
         public virtual DbSet<LodgingAmenity> LodgingAmenities { get; set; }
         public virtual DbSet<OperatingHour> OperatingHours { get; set; }
+        public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<PhotoCollection> PhotoCollections { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -75,6 +78,29 @@ namespace MIVisitorCenter.Models
                     .WithMany(p => p.BusinessEvents)
                     .HasForeignKey(d => d.EventId)
                     .HasConstraintName("FK_EventBusinessEvent");
+            });
+
+            modelBuilder.Entity<Component>(entity =>
+            {
+                entity.HasOne(d => d.Page)
+                    .WithMany(p => p.Components)
+                    .HasForeignKey(d => d.PageId)
+                    .HasConstraintName("FK_PageComponent");
+            });
+
+            modelBuilder.Entity<ComponentImage>(entity =>
+            {
+                entity.HasOne(d => d.Component)
+                    .WithMany(p => p.ComponentImages)
+                    .HasForeignKey(d => d.ComponentId)
+                    .HasConstraintName("FK_ComponentComponentImages");
+            });
+
+            modelBuilder.Entity<ComponentText>(entity =>
+            {
+                entity.HasOne(d => d.Component)
+                    .WithOne(p => p.ComponentTexts)
+                    .HasConstraintName("FK_ComponentComponentText");
             });
 
             modelBuilder.Entity<EventAddress>(entity =>

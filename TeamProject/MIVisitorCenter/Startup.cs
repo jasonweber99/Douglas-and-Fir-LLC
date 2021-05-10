@@ -40,6 +40,7 @@ namespace MIVisitorCenter
 
             services.AddScoped<IBusinessRepository, BusinessRepository>();
             services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IPageRepository, PageRepository>();
             services.AddScoped<IComponentRepository, ComponentRepository>();

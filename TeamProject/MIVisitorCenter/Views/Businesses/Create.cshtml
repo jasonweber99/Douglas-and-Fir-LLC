@@ -1,58 +1,93 @@
 ﻿@model MIVisitorCenter.Business
 
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Create";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h1>Create</h1>
+<h2 class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%; padding-top: 2rem;">Create Business</h2>
+<hr class="uk-align-center" style="width: 80%;" />
 
-<h4>Business</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Website" class="control-label"></label>
-                <input asp-for="Website" class="form-control" />
-                <span asp-validation-for="Website" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PictureFileName" class="control-label"></label>
-                <input asp-for="PictureFileName" class="form-control" />
-                <span asp-validation-for="PictureFileName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AddressId" class="control-label"></label>
-                <select asp-for="AddressId" class ="form-control" asp-items="ViewBag.AddressId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<form class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%;" asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="PictureFileName" />
+
+    <div class="uk-margin">
+        <label class="uk-form-label" asp-for="Name"></label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="uk-margin">
+        <label class="uk-form-label" asp-for="Description"></label>
+        <div class="uk-form-controls">
+            <textarea class="uk-textarea" style="resize: none;" rows="4" id="form-horizontal-text" type="text" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" asp-for="Phone"></label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="tel" asp-for="Phone">
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" asp-for="Website"></label>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-horizontal-text" type="text" asp-for="Website">
+            <span asp-validation-for="Website" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+            <label class="uk-form-label" asp-for="PictureFileName">Business Profile Picture</label>
+            <div class="uk-form-controls">
+                <div uk-form-custom="target: true" class="uk-align-center">
+                    <input class="uk-input" id="form-horizontal-text" type="file" asp-for="PictureFileName" placeholder="Select file">
+                    <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Upload profile picture">
+                    <span asp-validation-for="PictureFileName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label">Street Address</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" name="street">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label">City</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" name="city">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label">State</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" name="state">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label">Zip Code</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text" name="zip">
+            </div>
+        </div>
+
+    <div class="uk-button-group">
+        <a asp-action="Index"><button class="uk-button uk-button-default">Back to List</button></a>
+        <div style="padding: 1rem;"></div>
+        <input type="submit" value="Create" class="uk-button uk-button-primary" />
+    </div>
+
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

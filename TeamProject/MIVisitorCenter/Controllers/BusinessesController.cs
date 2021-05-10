@@ -22,17 +22,20 @@ namespace MIVisitorCenter.Controllers
         private readonly IAuthorizationService _authorizationService;
         private readonly IBusinessRepository _businessRepo;
         private readonly IPhotoCollectionRepository _photoRepo;
+        private readonly IAddressRepository _addressRepo;
 
 
         public BusinessesController(MIVisitorCenterDbContext context, 
                                     IAuthorizationService authorizationService, 
                                     IBusinessRepository businessRepo,
-                                    IPhotoCollectionRepository photoRepo)
+                                    IPhotoCollectionRepository photoRepo,
+                                    IAddressRepository addressRepo)
         {
             _context = context;
             _authorizationService = authorizationService;
             _businessRepo = businessRepo;
             _photoRepo = photoRepo;
+            _addressRepo = addressRepo;
         }
 
         // GET: Businesses
@@ -207,15 +210,63 @@ namespace MIVisitorCenter.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Phone,Website,PictureFileName,AddressId")] Business business)
+        public async Task<IActionResult> Create([Bind("Name,Description,Phone,Website,AddressId")] Business business, IFormFile PictureFileName)
         {
+            var street = Request.Form["street"].ToString();
+            var city = Request.Form["city"].ToString();
+            var state = Request.Form["state"].ToString();
+            var zip = Convert.ToInt32(Request.Form["zip"]);
+            var address = new Address
+            {
+                StreetAddress = street,
+                City = city,
+                State = state,
+                Zip = zip
+            };
+
+            int addressId = await _addressRepo.ReturnsIdIfExistsAsync(address);
+
+            if (addressId == 0)
+            {
+                await _addressRepo.AddOrUpdateAsync(address);
+                business.AddressId = address.Id;
+            }
+            else
+            {
+                business.AddressId = addressId;
+            }
+
+            //business.Address = address;
+            //business.Address.Id = addressId;
+
             if (ModelState.IsValid)
             {
-                _context.Add(business);
-                await _context.SaveChangesAsync();
+                await _businessRepo.AddOrUpdateAsync(business);
+                try
+                {
+                    // Save image to business record using function from BusinessRepository.cs
+                    await _businessRepo.UpdateBusiness(business, PictureFileName, null);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BusinessExists(business.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "Id", "City", business.AddressId);
+            else
+            {
+                var errors = ModelState.Select(x => x.Value.Errors)
+                    .Where(y => y.Count > 0)
+                    .ToList();
+            }
             return View(business);
         }
 

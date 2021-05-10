@@ -11,7 +11,7 @@
     <div class="uk-margin" uk-slideshow>
         <div class="slideshow" uk-slideshow="autoplay: true; autoplay-interval: 6000; pause-on-hover: false; animation: pull">
             <ul class="uk-slideshow-items">
-                @foreach (var img in Gallery.ComponentImages)
+                @foreach (var img in Gallery.ComponentImages.Take(5))
                 {
                     <li>
                         <img src="data:image/jpeg;base64,@Convert.ToBase64String(img.Image)" uk-cover>

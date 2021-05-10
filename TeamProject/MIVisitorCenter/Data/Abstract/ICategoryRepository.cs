@@ -14,6 +14,7 @@ namespace MIVisitorCenter.Data.Abstract
         IEnumerable<BusinessCategory> GetAllArtAndCulture();
 
         IEnumerable<BusinessCategory> GetBusinessesByCategory(string category);
+        IEnumerable<BusinessCategory> GetAllUniqueBusinesses();
         List<Category> GetCategoryListFromStringList(List<string> str);
     }
 }

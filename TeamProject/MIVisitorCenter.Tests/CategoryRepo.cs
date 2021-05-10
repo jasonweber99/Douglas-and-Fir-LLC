@@ -97,6 +97,12 @@ namespace MIVisitorCenter.Tests
                 }
             };
 
+            _businessCategories.Add(new BusinessCategory
+            {
+                Business = _businessCategories[0].Business,
+                Category = _businessCategories[2].Category
+            });
+
             _mockBusinessCategoryDbSet = GetMockDbSet(_businessCategories.AsQueryable());
             _mockContext = new Mock<MIVisitorCenterDbContext>();
             _mockContext.Setup(ctx => ctx.BusinessCategories).Returns(_mockBusinessCategoryDbSet.Object);
@@ -104,7 +110,7 @@ namespace MIVisitorCenter.Tests
         }
 
         [Test]
-        public void CategoryRepo_GetAllMIBusinessesReturns_11()
+        public void CategoryRepo_GetAllMIBusinessesReturns_12()
         {
             // Arrange
             ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
@@ -113,7 +119,7 @@ namespace MIVisitorCenter.Tests
             int count = categoryRepo.GetAllMIBusinesses().Count();
 
             // Assert
-            Assert.That(count, Is.EqualTo(11));
+            Assert.That(count, Is.EqualTo(12));
         }
 
         [Test]
@@ -130,7 +136,7 @@ namespace MIVisitorCenter.Tests
         }
 
         [Test]
-        public void CategoryRepo_GetAllActivitiesReturns_6()
+        public void CategoryRepo_GetAllActivitiesReturns_7()
         {
             // Arrange
             ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
@@ -139,7 +145,7 @@ namespace MIVisitorCenter.Tests
             int count = categoryRepo.GetAllActivities().Count();
 
             // Assert
-            Assert.That(count, Is.EqualTo(6));
+            Assert.That(count, Is.EqualTo(7));
         }
 
         [Test]
@@ -159,7 +165,6 @@ namespace MIVisitorCenter.Tests
         [TestCase("Lodging")]
         [TestCase("Hiking")]
         [TestCase("Cycling")]
-        [TestCase("Birding")]
         [TestCase("Fishing")]
         [TestCase("Wineries")]
         [TestCase("Golf")]
@@ -195,6 +200,19 @@ namespace MIVisitorCenter.Tests
             {
                 Assert.That(categories[i].Name, Is.EqualTo(categoryNames[i]));
             }
+        }
+
+        [Test]
+        public void CategoryRepo_GetAllUniqueBusinessesReturns_11Businesses()
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+
+            // Act
+            int count = categoryRepo.GetAllUniqueBusinesses().Count();
+
+            // Assert
+            Assert.That(count, Is.EqualTo(11));
         }
     }
 }

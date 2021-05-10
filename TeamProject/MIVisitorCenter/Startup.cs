@@ -42,8 +42,10 @@ namespace MIVisitorCenter
             services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IHoursRepository, HoursRepository>();
-
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IPageRepository, PageRepository>();
+            services.AddScoped<IComponentRepository, ComponentRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
@@ -57,7 +59,6 @@ namespace MIVisitorCenter
             });
 
             services.AddTransient<IAuthorizationHandler, BusinessOwnerHandler>();
-
             services.AddTransient<IEmailSender, MailKitEmailSender>();
             services.Configure<MailKitEmailSenderOptions>(options =>
             {

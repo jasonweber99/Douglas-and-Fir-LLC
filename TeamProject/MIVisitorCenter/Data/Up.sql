@@ -16,9 +16,9 @@ CREATE TABLE [PhotoCollection] (
 
 CREATE TABLE [OperatingHours] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
-  [Day] nvarchar(16),
-  [Open] time,
-  [Close] time,
+  [Day] int,
+  [Open] datetime,
+  [Close] datetime,
   [BusinessID] int
 );
 
@@ -52,7 +52,9 @@ CREATE TABLE [Address] (
   [StreetAddress] nvarchar(256) NOT NULL,
   [City] nvarchar(32) NOT NULL,
   [Zip] int NOT NULL,
-  [State] nvarchar(2) NOT NULL
+  [State] nvarchar(2) NOT NULL,
+  [Latitude] float,
+  [Longitude] float
 );
 
 CREATE TABLE [EventAddress] (

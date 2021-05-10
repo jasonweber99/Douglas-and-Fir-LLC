@@ -30,6 +30,8 @@ namespace MIVisitorCenter
         [Required]
         [StringLength(2)]
         public string State { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
         [InverseProperty(nameof(Business.Address))]
         public virtual ICollection<Business> Businesses { get; set; }

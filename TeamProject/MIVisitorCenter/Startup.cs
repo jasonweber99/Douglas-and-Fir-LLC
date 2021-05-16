@@ -58,6 +58,8 @@ namespace MIVisitorCenter
                     policy => policy.AddRequirements(new BusinessOwnerRequirement()));
             });
 
+            services.Configure<GeocodeAPIHandler>(options => options.apiKey = Configuration["GeocodeAPI"]);
+
             services.AddTransient<IAuthorizationHandler, BusinessOwnerHandler>();
             services.AddTransient<IEmailSender, MailKitEmailSender>();
             services.Configure<MailKitEmailSenderOptions>(options =>

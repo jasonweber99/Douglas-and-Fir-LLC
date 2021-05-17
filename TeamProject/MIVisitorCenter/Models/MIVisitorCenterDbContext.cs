@@ -26,6 +26,7 @@ namespace MIVisitorCenter.Models
         public virtual DbSet<Component> Components { get; set; }
         public virtual DbSet<ComponentImage> ComponentImages { get; set; }
         public virtual DbSet<ComponentText> ComponentTexts { get; set; }
+        public virtual DbSet<DiningSubcategory> DiningSubcategories { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<EventAddress> EventAddresses { get; set; }
         public virtual DbSet<Lodging> Lodgings { get; set; }
@@ -33,6 +34,7 @@ namespace MIVisitorCenter.Models
         public virtual DbSet<OperatingHour> OperatingHours { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<PhotoCollection> PhotoCollections { get; set; }
+        public virtual DbSet<RestaurantDiningSubcategory> RestaurantDiningSubcategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -152,6 +154,19 @@ namespace MIVisitorCenter.Models
                     .WithMany(p => p.PhotoCollections)
                     .HasForeignKey(d => d.BusinessId)
                     .HasConstraintName("FK_BusinessPhotoCollection");
+            });
+
+            modelBuilder.Entity<RestaurantDiningSubcategory>(entity =>
+            {
+                entity.HasOne(d => d.Business)
+                    .WithMany(p => p.RestaurantDiningSubcategories)
+                    .HasForeignKey(d => d.BusinessId)
+                    .HasConstraintName("FK_Business_RestaurantDiningSubcategory");
+
+                entity.HasOne(d => d.DiningSubcategory)
+                    .WithMany(p => p.RestaurantDiningSubcategories)
+                    .HasForeignKey(d => d.DiningSubcategoryId)
+                    .HasConstraintName("FK_DiningSubcategory_RestaurantDiningSubcategory");
             });
 
             OnModelCreatingPartial(modelBuilder);

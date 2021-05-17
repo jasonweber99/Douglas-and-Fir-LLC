@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\CreateBusiness - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\EditBusiness - Copy.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,12 +40,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\EatAndDrinkRestaurants.feature.cs">
+      <DependentUpon>EatAndDrinkRestaurants.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\SearchForKeyword.feature.cs">
+      <DependentUpon>SearchForKeyword.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\EditBusiness.feature.cs">
       <DependentUpon>EditBusiness.feature</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\EatAndDrinkRestaurants.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\SearchForKeyword.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\EditBusiness.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

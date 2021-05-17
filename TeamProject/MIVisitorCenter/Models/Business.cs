@@ -30,6 +30,8 @@ namespace MIVisitorCenter
         [StringLength(1024)]
         public string Description { get; set; }
         [StringLength(32)]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(1-)?\d{3}-\d{3}-\d{4}$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
         [StringLength(128)]
         public string Website { get; set; }

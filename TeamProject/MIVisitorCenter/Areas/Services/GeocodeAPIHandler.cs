@@ -18,7 +18,7 @@ namespace MIVisitorCenter.Areas.Services
             client = new HttpClient();
         }
 
-        static async Task GetData(Address address)
+        public static async Task GetData(Address address)
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(

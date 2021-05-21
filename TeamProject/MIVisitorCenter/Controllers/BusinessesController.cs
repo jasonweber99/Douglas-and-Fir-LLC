@@ -15,6 +15,7 @@ using MIVisitorCenter.Data.Abstract;
 using Microsoft.AspNetCore.Http;
 using MIVisitorCenter.Utilities;
 using System.Text;
+using MIVisitorCenter.Areas.Services;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -27,7 +28,6 @@ namespace MIVisitorCenter.Controllers
         private readonly IAddressRepository _addressRepo;
         private readonly IHoursRepository _hoursRepository;
         private readonly ICategoryRepository _categoryRepository;
-
 
         public BusinessesController(MIVisitorCenterDbContext context, 
                                     IAuthorizationService authorizationService, 
@@ -223,6 +223,7 @@ namespace MIVisitorCenter.Controllers
             var city = Request.Form["city"].ToString();
             var state = Request.Form["state"].ToString();
             var zip = Convert.ToInt32(Request.Form["zip"]);
+
             var address = new Address
             {
                 StreetAddress = street,
@@ -230,6 +231,8 @@ namespace MIVisitorCenter.Controllers
                 State = state,
                 Zip = zip
             };
+
+            await GeocodeAPIHandler.GetData(address);
 
             int addressId = await _addressRepo.ReturnsIdIfExistsAsync(address);
 

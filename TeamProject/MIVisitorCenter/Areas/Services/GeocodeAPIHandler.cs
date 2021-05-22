@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net;
+﻿using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -30,8 +28,6 @@ namespace MIVisitorCenter.Areas.Services
 
             if (geodata["status"].ToString().Equals("OK"))
             {
-                //address.Latitude = (double)geodata.SelectToken("results.geometry.location.lat");
-                //address.Longitude = (double)geodata.SelectToken("results.geometry.location.lng");
                 address.Latitude = (double)geodata["results"][0]["geometry"]["location"]["lat"];
                 address.Longitude = (double)geodata["results"][0]["geometry"]["location"]["lng"];
             }

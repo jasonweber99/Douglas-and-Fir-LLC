@@ -26,9 +26,21 @@ namespace MIVisitorCenter.Areas.Services
 
             var response = await SendRequest(UrlBuilder(address));
 
-            var geodata = JObject.Parse(response.ToString());
-            address.Latitude = (double)geodata["results"]["geometry"]["location"]["lat"];
-            address.Longitude = (double) geodata["results"]["geometry"]["location"]["lng"];
+            var geodata = JObject.Parse(response);
+
+            if (geodata["status"].ToString().Equals("OK"))
+            {
+                //address.Latitude = (double)geodata.SelectToken("results.geometry.location.lat");
+                //address.Longitude = (double)geodata.SelectToken("results.geometry.location.lng");
+                address.Latitude = (double)geodata["results"][0]["geometry"]["location"]["lat"];
+                address.Longitude = (double)geodata["results"][0]["geometry"]["location"]["lng"];
+            }
+            else
+            {
+                Debug.WriteLine(UrlBuilder(address));
+                Debug.WriteLine(geodata["status"]);
+                Debug.WriteLine(geodata["error_message"]);
+            }
         }
 
         static string UrlBuilder(Address address)
@@ -36,8 +48,8 @@ namespace MIVisitorCenter.Areas.Services
             var streetAddress = address.StreetAddress.Replace(" ", "%20");
             var requestURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" 
                              + streetAddress
-                             + address.City
-                             + address.State
+                             + "," + address.City
+                             + "," + address.State
                              + "&key="
                              + apiKey;
             return requestURL;

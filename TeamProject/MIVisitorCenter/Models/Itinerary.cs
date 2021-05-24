@@ -33,10 +33,13 @@ namespace MIVisitorCenter.Models
                 // Add lodging to first time slot
                 day.ItineraryTimeSlots[0].Business = lodging.ElementAt(random.Next(lodging.Count())).Business;
 
-                // Add restaurants for breakfast, lunch, and dinner
+
+                // Add restaurant for breakfast
+                day.ItineraryTimeSlots[1].Business = GetNearestBusinessFromCategory(day.ItineraryTimeSlots[0].Business, businesses, "Restaurants");
+
+                // Add restaurants for lunch and dinner
                 do
                 {
-                    day.ItineraryTimeSlots[1].Business = GetRandomBusinessFromCategory("Restaurants", businesses);
                     day.ItineraryTimeSlots[3].Business = GetRandomBusinessFromCategory("Restaurants", businesses);
                     day.ItineraryTimeSlots[6].Business = GetRandomBusinessFromCategory("Restaurants", businesses);
                 } while (DayContainsDuplicates(day));
@@ -133,7 +136,13 @@ namespace MIVisitorCenter.Models
                         day.ItineraryTimeSlots[2].Category = day.ItineraryTimeSlots[2].Business.BusinessCategories.FirstOrDefault().Category.Name;
                     }
                 } while (DayContainsDuplicates(day));
-                
+
+                // Set breakfast to lodging if staying at bed & breakfast
+                if (day.ItineraryTimeSlots[0].Business.Name == "MaMere's Guest House" || day.ItineraryTimeSlots[0].Business.Name == "Airlie Farm Bed & Breakfast")
+                {
+                    day.ItineraryTimeSlots[1].Business = day.ItineraryTimeSlots[0].Business;
+                }
+
                 days.Add(day); 
             }
 
@@ -185,10 +194,58 @@ namespace MIVisitorCenter.Models
         private Business GetRandomBusinessFromCategory(string category, IEnumerable<BusinessCategory> allBusinesses)
         {
             Random random = new Random();
-            var byteArray = new byte[1];
             var businesses = allBusinesses.Where(c => c.Category.Name == category);
             int index = random.Next(businesses.Count());
             return businesses.ElementAt(index).Business;
+        }
+
+        private Business GetNearestBusinessFromCategory(Business business, IEnumerable<BusinessCategory> businesses, string category)
+        {
+            var businessList = businesses.Where(c => c.Category.Name == category).ToList();
+            int index = 0;
+            double shortestDistance = double.MaxValue;
+
+            for (var i = 0; i < businessList.Count; i++)
+            {
+                double distance = GetDistanceBetweenTwoBusinesses(business, businessList[i].Business);
+                if (distance < shortestDistance)
+                {
+                    index = i;
+                    shortestDistance = distance;
+                }
+            }
+
+            return businessList[index].Business;
+        }
+
+        private double GetDistanceBetweenTwoBusinesses(Business business1, Business business2)
+        {
+            double lat1 = business1.Address.Latitude;
+            double lat2 = business2.Address.Latitude;
+            double lng1 = business1.Address.Longitude;
+            double lng2 = business2.Address.Longitude;
+
+            double distance = HaversineDistance(lat1, lat2, lng1, lng2);
+
+            return distance;
+        }
+
+        private double HaversineDistance(double lat1, double lat2, double lng1, double lng2)
+        {
+            double r = 3960;
+            var lat = toRadians(lat2 - lat1);
+            var lng = toRadians(lng2 - lng1);
+
+            double a = Math.Sin(lat / 2) * Math.Sin(lat / 2) + Math.Cos(toRadians(lat1)) * Math.Cos(toRadians(lat2)) * Math.Sin(lng / 2) * Math.Sin(lng / 2);
+            double c = 2 * Math.Asin(Math.Min(1, Math.Sqrt(a)));
+            double d = r * c;
+
+            return d;
+        }
+        
+        private double toRadians(double angle)
+        {
+            return Math.PI * angle / 180.0;
         }
     }
 }

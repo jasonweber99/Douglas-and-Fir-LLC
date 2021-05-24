@@ -91,7 +91,8 @@ CREATE TABLE [Component] (
 
 CREATE TABLE [Page] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
-  [Name] nvarchar(64)
+  [Name] nvarchar(64),
+  [NormalizedName] nvarchar(64)
 );
 
 CREATE TABLE [ComponentImages] (
@@ -103,7 +104,7 @@ CREATE TABLE [ComponentImages] (
 CREATE TABLE [ComponentText] (
   [ID] int PRIMARY KEY IDENTITY(1, 1),
   [ComponentID] int,
-  [Text] nvarchar(1024)
+  [Text] nvarchar(4000)
 );
 
 ALTER TABLE [Component] 

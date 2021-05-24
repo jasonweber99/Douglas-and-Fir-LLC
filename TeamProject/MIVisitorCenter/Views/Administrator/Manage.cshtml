@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Manage Content";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var PageName = ViewData["Pages"] as Page[];
 }
 
 <div class="home-tile">
@@ -11,116 +12,137 @@
     </div>
 </div>
 
-<div class="home-tile" style="padding-left: 5rem">
-    <ul class="uk-subnav uk-subnav-pill" uk-margin>
-    @foreach (var p in ViewData["Pages"] as IList<Page>)
-    {
-        @* implement function that shows componenets in specific page *@
-        <li class="uk-active"><a onclick="func()">@p.Name</a></li>
-    }
+
+<div uk-filter="target: .js-filter">
+
+    <ul class="uk-subnav uk-subnav-pill">
+        @foreach (var p in ViewData["Pages"] as IList<Page>)
+        {
+            @* Set Index page as active *@
+            @if (p.Name == "Index")
+            {
+                <li class="uk-active" uk-filter-control=".@(p.NormalizedName)"><a href="#">@p.Name</a></li>
+            }
+            else
+            {
+                <li uk-filter-control=".@(p.NormalizedName)"><a href="#">@p.Name</a></li>
+            }
+        }
+    </ul>
+
+    <ul class="js-filter" style="list-style-type: none;">
+        @foreach (var component in ViewData["Components"] as IList<Component>)
+        {
+            var pageName = PageName.Where(p => p.Id == component.PageId).Single();
+            <li class="@(pageName.NormalizedName)">
+
+                <div class="home-tile">
+                    <div class="uk-tile uk-tile-muted">
+                        <h2>@component.Name </h2>
+                        <small>@component.Description</small>
+
+                        @if (component.Type == "Text")
+                        {
+                            <form class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%;" asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="@component.Id" />
+                                    <input type="hidden" asp-for="@component.PageId" />
+                                    <input type="hidden" asp-for="@component.Name" />
+                                    <input type="hidden" asp-for="@component.ComponentTexts" />
+                                    <input type="hidden" asp-for="@component.ComponentTexts.Id" />
+                                    <input type="hidden" asp-for="@component.ComponentTexts.ComponentId" />
+                                    <input type="hidden" asp-for="@component.ComponentTexts.Component" />
+                                    <input type="hidden" asp-for="@component.Type" />
+                                    <input type="hidden" asp-for="@component.Description" />
+
+                                <div class="uk-margin">
+                                    <textarea id="form-horizontal-text" type="text" asp-for="@component.ComponentTexts.Text" ></textarea>
+                                    <span asp-validation-for="@component.ComponentTexts.Text" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="uk-margin uk-text-center" style="padding-top: 1rem;">
+                                    <input type="submit" value="Submit" class="uk-button uk-button-primary" />
+                                </div>
+
+                            </form>
+                        }
+
+                        @if (component.Type == "Gallery")
+                        {
+                            <form class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%;" asp-action="Edit" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="@component.Id" />
+                                    <input type="hidden" asp-for="@component.PageId" />
+                                    <input type="hidden" asp-for="@component.Name" />
+                                    <input type="hidden" asp-for="@component.ComponentImages" />
+                                    <input type="hidden" asp-for="@component.Type" />
+                                    <input type="hidden" asp-for="@component.Description" />
+
+
+                                <div class="uk-margin" uk-margin>
+                                    <label class="uk-form-label">Gallery Picture</label>
+                                    <div class="uk-form-controls">
+                                        <div uk-form-custom="target: true" class="uk-align-center">
+                                            <input class="uk-input" id="form-horizontal-text" type="file" asp-for="@component.ComponentImages" placeholder="Select images" multiple>
+                                            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Upload images">
+                                            <span asp-validation-for="@component.ComponentImages" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="uk-margin uk-text-center">
+                                    <input type="submit" value="Save Changes" class="uk-button uk-button-default" />
+                                </div>
+
+                            </form>
+
+                            <div style="padding: 3rem 0 1rem 0;">
+                                <h2 style="align-self: center;">Uploaded Images</h2>
+                                <hr class="uk-align-center"/>
+                            </div>
+
+                            @if (component.ComponentImages.Count != 0)
+                            {
+                            <div class="uk-position-relative uk-visible-toggle uk-light uk-text-center" tabindex="-1" uk-slider>
+
+                            <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-3@m">
+                                @foreach (var img in component.ComponentImages)
+                                {
+                                    <li>
+                                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(img.Image)" alt="" style="padding: 0.75rem; border-radius: 20px;">
+                                        <div class="uk-position-medium uk-position-top-right uk-panel" style="padding:1rem; width: 40px; height: 40px; background-color: rgba(0,0,0,0.8); border-radius: 10px;">
+                                            <a href='@Url.Action("Delete", "Administrator", new {id = img.Id})' class="uk-position-center" class="uk-icon-link" uk-icon="close"></a>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+
+                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+                            </div>
+                            }
+                            else
+                            {
+                                <h3 class="uk-text-center">No Images Currently Uploaded</h3>
+                                <p class="uk-text-center" style="font-style: italic;">Images uploaded will be displayed here</p>
+                            }
+                            <div style="padding: 1rem;"></div>
+                        }
+                    </div>
+                </div>
+            </li>
+        }
     </ul>
 </div>
 
 
-@foreach (var component in ViewData["Components"] as IList<Component>)
-{
-    <div class="home-tile">
-        <div class="uk-tile uk-tile-muted">
-            <h2>@component.Name </h2>
-            <small>@component.Description</small>
-
-            @if (component.Type == "Text")
-            {
-                <form class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%;" asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="@component.Id" />
-                        <input type="hidden" asp-for="@component.PageId" />
-                        <input type="hidden" asp-for="@component.Name" />
-                        <input type="hidden" asp-for="@component.ComponentTexts" />
-                        <input type="hidden" asp-for="@component.ComponentTexts.Id" />
-                        <input type="hidden" asp-for="@component.ComponentTexts.ComponentId" />
-                        <input type="hidden" asp-for="@component.ComponentTexts.Component" />
-                        <input type="hidden" asp-for="@component.Type" />
-                        <input type="hidden" asp-for="@component.Description" />
-
-                    <div class="uk-margin">
-                        <label class="uk-form-label" asp-for="@component.ComponentTexts.Text"></label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="form-horizontal-text" type="text" asp-for="@component.ComponentTexts.Text" placeholder="@component.ComponentTexts.Text">
-                            <span asp-validation-for="@component.ComponentTexts.Text" class="text-danger"></span>
-                        </div>
-                    </div>
-
-
-                    <div class="uk-margin uk-text-center" style="padding-top: 1rem;">
-                        <input type="submit" value="Submit" class="uk-button uk-button-primary" />
-                    </div>
-
-                </form>
-            }
-
-            @if (component.Type == "Gallery")
-            {
-                <form class="uk-form-horizontal uk-margin-large uk-align-center" style="width: 80%;" asp-action="Edit" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="@component.Id" />
-                        <input type="hidden" asp-for="@component.PageId" />
-                        <input type="hidden" asp-for="@component.Name" />
-                        <input type="hidden" asp-for="@component.ComponentImages" />
-                        <input type="hidden" asp-for="@component.Type" />
-                        <input type="hidden" asp-for="@component.Description" />
-
-
-                    <div class="uk-margin" uk-margin>
-                        <label class="uk-form-label">Gallery Picture</label>
-                        <div class="uk-form-controls">
-                            <div uk-form-custom="target: true" class="uk-align-center">
-                                <input class="uk-input" id="form-horizontal-text" type="file" asp-for="@component.ComponentImages" placeholder="Select images" multiple>
-                                <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Upload images">
-                                <span asp-validation-for="@component.ComponentImages" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="uk-margin uk-text-center">
-                        <input type="submit" value="Save Changes" class="uk-button uk-button-default" />
-                    </div>
-
-                </form>
-
-                <div style="padding: 3rem 0 1rem 0;">
-                    <h2 style="align-self: center;">Uploaded Images</h2>
-                    <hr class="uk-align-center"/>
-                </div>
-
-                @if (component.ComponentImages.Count != 0)
-                {
-                <div class="uk-position-relative uk-visible-toggle uk-light uk-text-center" tabindex="-1" uk-slider>
-
-                <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-3@m">
-                    @foreach (var img in component.ComponentImages)
-                    {
-                        <li>
-                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(img.Image)" alt="" style="padding: 0.75rem; border-radius: 20px;">
-                            <div class="uk-position-medium uk-position-top-right uk-panel" style="padding:1rem; width: 40px; height: 40px; background-color: rgba(0,0,0,0.8); border-radius: 10px;">
-                                <a href='@Url.Action("Delete", "Administrator", new {id = img.Id})' class="uk-position-center" class="uk-icon-link" uk-icon="close"></a>
-                            </div>
-                        </li>
-                    }
-                </ul>
-
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
-                </div>
-                }
-                else
-                {
-                    <h3 class="uk-text-center">No Images Currently Uploaded</h3>
-                    <p class="uk-text-center" style="font-style: italic;">Images uploaded will be displayed here</p>
-                }
-                <div style="padding: 1rem;"></div>
-            }
-        </div>
-    </div>
-}
+<script src="https://cdn.tiny.cloud/1/xy2tf8svsgtbfhfc6wzhw481o36i51emwa5ivbxuydkbjdpy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'advcode link linkchecker autolink permanentpen powerpaste tinymcespellchecker',
+        height: 300,
+        });
+</script>

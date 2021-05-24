@@ -28,6 +28,7 @@ namespace MIVisitorCenter.Controllers
         private readonly IAddressRepository _addressRepo;
         private readonly IHoursRepository _hoursRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IComponentRepository _componentRepo;
 
         public BusinessesController(MIVisitorCenterDbContext context, 
                                     IAuthorizationService authorizationService, 
@@ -35,7 +36,8 @@ namespace MIVisitorCenter.Controllers
                                     IPhotoCollectionRepository photoRepo,
                                     IAddressRepository addressRepo,
                                     IHoursRepository hoursRepository,
-                                    ICategoryRepository categoryRepository)
+                                    ICategoryRepository categoryRepository,
+                                    IComponentRepository componentRepository)
         {
             _context = context;
             _authorizationService = authorizationService;
@@ -44,6 +46,7 @@ namespace MIVisitorCenter.Controllers
             _addressRepo = addressRepo;
             _hoursRepository = hoursRepository;
             _categoryRepository = categoryRepository;
+            _componentRepo = componentRepository;
         }
 
         // GET: Businesses
@@ -186,6 +189,9 @@ namespace MIVisitorCenter.Controllers
                                     .ThenInclude(a => a.Address)
                                     .AsEnumerable();
             ViewBag.Lodging = lodging;
+
+            ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Willamette River Trail").ToArray();
+
             return View(businesses);
         }
 

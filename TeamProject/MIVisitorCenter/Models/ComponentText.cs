@@ -16,7 +16,7 @@ namespace MIVisitorCenter.Models
         public int Id { get; set; }
         [Column("ComponentID")]
         public int? ComponentId { get; set; }
-        [StringLength(1024)]
+        [StringLength(4000)]
         public string Text { get; set; }
 
         [ForeignKey(nameof(ComponentId))]

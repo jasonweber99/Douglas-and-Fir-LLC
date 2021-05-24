@@ -175,7 +175,6 @@ body {
     z-index: 1;
     background-color: #f8f8f8;
     border-radius: 10px;
-    /* Works but if results are low, fixed height makes it look weird */
     height: auto;
     max-height: 50vh;
     overflow-y: auto;
@@ -213,11 +212,19 @@ body {
 .nav-pills, .tab-content {
     margin-top: 2em
 }
-/* .tab-content {
-
-} */
 
 .hours-input {
-/*    margin: 0 .9em;
-*/    width: 35%;
+    width: 35%;
+}
+
+.intinerary-card__modal-table--timeslots {
+    height: 3rem;
+    vertical-align: middle;
+}
+.itinerary-card__content {
+    background-color: #f8f8f8;
+    padding: 2em;
+    border-radius: 10px;
+    max-height: 64vh;
+    overflow: auto;
 }

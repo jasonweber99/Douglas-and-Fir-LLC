@@ -35,8 +35,8 @@
 </div>
 
 <div class="home-tile">
-    <div class="uk-tile uk-tile-muted">
-        <p class="uk-h4 uk-text-center">@MainTextBox.ComponentTexts.Text</p>
+    <div class="uk-tile uk-tile-muted uk-h4 uk-text-center">
+        @Html.Raw(System.Web.HttpUtility.HtmlDecode(@MainTextBox.ComponentTexts.Text))
     </div>
 </div>
 

@@ -21,6 +21,8 @@ namespace MIVisitorCenter.Models
         public int Id { get; set; }
         [StringLength(64)]
         public string Name { get; set; }
+        [StringLength(64)]
+        public string NormalizedName { get; set; }
 
         [InverseProperty(nameof(Component.Page))]
         public virtual ICollection<Component> Components { get; set; }

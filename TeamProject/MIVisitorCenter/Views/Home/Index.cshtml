@@ -2,21 +2,30 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    var components = ViewData["Components"] as Component[];
+    var MainTextBox = components.Where(a => a.Name == "Main Text Box").Single();
+    var Gallery = components.Where(a => a.Name == "Homepage Carousel").Single();
 }
 
 <div class="slideshow-content">
     <div class="uk-margin" uk-slideshow>
         <div class="slideshow" uk-slideshow="autoplay: true; autoplay-interval: 6000; pause-on-hover: false; animation: pull">
             <ul class="uk-slideshow-items">
-                <li>
-                    <img src="assets/Homepage/slide-1.jpg" alt="Western Oregon University (evening)" uk-cover>
-                </li>
-                <li>
-                    <img src="assets/Homepage/slide-2.jpg" alt="Polk County Vineyard" uk-cover>
-                </li>
-                <li>
-                    <img src="assets/Homepage/slide-3.jpg" alt="Downtown Monmouth" uk-cover>
-                </li>
+                @foreach (var img in Gallery.ComponentImages.Take(5))
+                {
+                    <li>
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(img.Image)" uk-cover>
+                    </li>
+                }
+                @if (Gallery.ComponentImages.Count == 0)
+                {
+                    <li>
+                        <img src="assets/Homepage/slide-1.jpg" alt="Western Oregon University (evening)" uk-cover>
+                    </li>
+                    <li>
+                        <img src="assets/Homepage/slide-2.jpg" alt="Ariel Image of Polk County vineyard" uk-cover>
+                    </li>
+                }
             </ul>
             <div class="uk-card uk-card-hover uk-card-default uk-card-body">
                 <h5 class="uk-card-title uk-text-center" style="font-size: 1.2em;">WELCOME TO MONMOUTH<strong>INDEPENDENCE</strong></h5>
@@ -27,7 +36,7 @@
 
 <div class="home-tile">
     <div class="uk-tile uk-tile-muted">
-        <p class="uk-h4 uk-text-center">A hub of information to keep updated on local events and attractions, find places to dine and stay overnight, discover outdoor recreation, and create detailed itineraries.</p>
+        <p class="uk-h4 uk-text-center">@MainTextBox.ComponentTexts.Text</p>
     </div>
 </div>
 

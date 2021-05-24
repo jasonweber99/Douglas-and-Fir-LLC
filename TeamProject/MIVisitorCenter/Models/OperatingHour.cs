@@ -14,9 +14,9 @@ namespace MIVisitorCenter
         [Column("ID")]
         public int Id { get; set; }
         [StringLength(16)]
-        public string Day { get; set; }
-        public TimeSpan? Open { get; set; }
-        public TimeSpan? Close { get; set; }
+        public int Day { get; set; }
+        public DateTime? Open { get; set; }
+        public DateTime? Close { get; set; }
         [Column("BusinessID")]
         public int? BusinessId { get; set; }
 

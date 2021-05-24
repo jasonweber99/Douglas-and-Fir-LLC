@@ -20,7 +20,12 @@ namespace MIVisitorCenter.Data.Concrete
 
         public virtual Business GetBusinessByID(int id)
         {
-            return _dbSet.Where(a => a.Id == id).FirstOrDefault();
+            return _dbSet.Where(a => a.Id == id).Include(a => a.Address).Include(a => a.OperatingHours).FirstOrDefault();
+        }
+
+        public virtual Business GetBusinessByName(string name)
+        {
+            return _dbSet.Where(a => a.Name == name).FirstOrDefault();
         }
 
         public virtual async Task UpdateBusiness(Business business, IFormFile profilePicture, IFormCollection images)
@@ -65,7 +70,7 @@ namespace MIVisitorCenter.Data.Concrete
         /// 
         /// </summary>
         /// <param name="img">Image to convert into byte array</param>
-        private static byte[] ImageToByteArray(IFormFile img)
+        public virtual byte[] ImageToByteArray(IFormFile img)
         {
             using (var ms = new MemoryStream())
             {
@@ -80,7 +85,7 @@ namespace MIVisitorCenter.Data.Concrete
         /// 
         /// </summary>
         /// <param name="profilePicture">File to check</param>
-        bool formFileIsImage(IFormFile profilePicture)
+        public virtual bool formFileIsImage(IFormFile profilePicture)
         {
 
             // ---- From https://stackoverflow.com/a/51879881 ---- //

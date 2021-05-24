@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MIVisitorCenter.Utilities;
 
 namespace MIVisitorCenter
 {
@@ -23,8 +24,10 @@ namespace MIVisitorCenter
                 {
                     var config = host.Services.GetRequiredService<IConfiguration>();
 
+                    var testUserPw = config["SeedUserPW"];
                     var adminPw = config["SeedAdminPW"];
 
+                    SeedUsers.Initialize(services, SeedData.UserSeedData, testUserPw).Wait();
                     SeedUsers.InitializeAdmin(services, "admin@example.com", "admin@example.com", adminPw, "admin").Wait();
                 }
                 catch (Exception ex)

@@ -46,6 +46,30 @@ ALTER TABLE [PhotoCollection]
 DROP CONSTRAINT FK_BusinessPhotoCollection
 GO
 
+ALTER TABLE [Component]
+DROP CONSTRAINT FK_PageComponent
+GO
+
+ALTER TABLE [ComponentImages]
+DROP CONSTRAINT FK_ComponentComponentImages
+GO
+
+ALTER TABLE [ComponentText]
+DROP CONSTRAINT FK_ComponentComponentText
+GO
+
+DROP TABLE [Page]
+GO
+
+DROP TABLE [Component]
+GO
+
+DROP TABLE [ComponentImages]
+GO
+
+DROP TABLE [ComponentText]
+GO
+
 DROP TABLE [Amenities]
 GO
 

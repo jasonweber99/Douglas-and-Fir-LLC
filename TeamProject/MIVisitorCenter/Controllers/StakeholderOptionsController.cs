@@ -20,5 +20,11 @@ namespace MIVisitorCenter.Controllers
         {
             return View();
         }
+        
+        [Authorize(Roles = "admin")]
+        public IActionResult WebstoreOptions()
+        {
+            return View();
+        }
     }
 }

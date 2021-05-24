@@ -31,7 +31,7 @@
 </div>
 
                 <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                    <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Hiking"> Hiking</label>
+                    <label><input class="uk-checkbox" type="checkbox" name="Categories" id="hikingCheck" value="Hiking"> Hiking</label>
                     <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Cycling"> Cycling</label>
                     <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Birding"> Birding</label>
                     <label><input class="uk-checkbox" type="checkbox" name="Categories" value="Fishing"> Fishing</label>
@@ -79,32 +79,32 @@
 
                     <tr>
                         <th scope="row">Lodging</th>
-                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Name</td>
+                        <td class="uk-table-shrink" id="lodgingName">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Name</td>
                         <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Address.StreetAddress</td>
                         <td class="uk-table-expand">@Model.Itinerary.Days[i].ItineraryTimeSlots[0].Business.Description</td>
                     </tr>
                     <tr>
                         <th scope="row">Breakfast</th>
-                        <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Name</td>
+                        <td class="uk-table-shrink" id="breakfastName">@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Name</td>
                         <td class="uk-table-shrink">@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Address.StreetAddress</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[1].Business.Description</td>
                     </tr>
                     <tr>
                         <th scope="row">Morning</th>
-                        <td>@if (@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Hiking" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Cycling" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Birding" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Fishing")
+                        <td id="morningName">@if (@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Hiking" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Cycling" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Birding" || @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category == "Fishing")
                         {<span>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Category at </span>} @Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Name</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Address.StreetAddress</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[2].Business.Description</td>
                     </tr>
                     <tr>
                         <th scope="row">Lunch</th>
-                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Name</td>
+                        <td id="lunchName">@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Name</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Address.StreetAddress</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[3].Business.Description</td>
                     </tr>
                     <tr>
                         <th scope="row">Afternoon</th>
-                        <td>
+                        <td id="afternoonName">
                             @if (@Model.Itinerary.Days[i].ItineraryTimeSlots[4].Category == "Hiking" || @Model.Itinerary.Days[i].ItineraryTimeSlots[4].Category == "Cycling" || @Model.Itinerary.Days[i].ItineraryTimeSlots[4].Category == "Birding" || @Model.Itinerary.Days[i].ItineraryTimeSlots[4].Category == "Fishing")
                             {<span>@Model.Itinerary.Days[i].ItineraryTimeSlots[4].Category at </span>} @Model.Itinerary.Days[i].ItineraryTimeSlots[4].Business.Name
                         </td>
@@ -113,7 +113,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Evening</th>
-                        <td>
+                        <td id="eveningName">
                             @if (@Model.Itinerary.Days[i].ItineraryTimeSlots[5].Category == "Hiking" || @Model.Itinerary.Days[i].ItineraryTimeSlots[5].Category == "Cycling" || @Model.Itinerary.Days[i].ItineraryTimeSlots[5].Category == "Birding" || @Model.Itinerary.Days[i].ItineraryTimeSlots[5].Category == "Fishing")
                             {<span>@Model.Itinerary.Days[i].ItineraryTimeSlots[5].Category at </span>} @Model.Itinerary.Days[i].ItineraryTimeSlots[5].Business.Name
                         </td>
@@ -122,7 +122,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Dinner</th>
-                        <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Name</td>
+                        <td id="dinnerName">@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Name</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Address.StreetAddress</td>
                         <td>@Model.Itinerary.Days[i].ItineraryTimeSlots[6].Business.Description</td>
                     </tr>

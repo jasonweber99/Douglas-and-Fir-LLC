@@ -17,9 +17,7 @@ namespace MIVisitorCenter.BDDTests.Steps
 
         public class TestBusiness
         {
-            public int Id { get; set; }
             public string Name { get; set; }
-            public int Description { get; set; }
         }
 
         public class TestAddress
@@ -93,5 +91,45 @@ namespace MIVisitorCenter.BDDTests.Steps
             IReadOnlyList<IWebElement> dayTitles = _driver.FindElements(By.TagName("h3"));
             Assert.That(dayTitles.Count, Is.EqualTo(days));
         }
+
+        [Given(@"I select '(.*)' as an interest")]
+        public void GivenISelectAsAnInterest(string interest)
+        {
+            IWebElement checkbox = _driver.FindElement(By.Id(interest + "Check"));
+            checkbox.Click();
+        }
+
+        [Then(@"I will see an itinerary that contains '(.*)'")]
+        public void ThenIWillSeeAnItineraryThatContains(string interest)
+        {
+            string name = _driver.FindElement(By.Id("morningName")).Text;
+            bool containsInterest = name.Contains(interest);
+            Assert.That(containsInterest, Is.True);
+        }
+
+        [Then(@"the generated activities will be unique for that day")]
+        public void ThenTheGeneratedActivitiesWillBeUniqueForThatDay()
+        {
+            string morningActivity = _driver.FindElement(By.Id("morningName")).Text;
+            string afternoonActivity = _driver.FindElement(By.Id("afternoonName")).Text;
+            string eveningActivity = _driver.FindElement(By.Id("eveningName")).Text;
+
+            Assert.That(morningActivity, Is.Not.EqualTo(afternoonActivity));
+            Assert.That(morningActivity, Is.Not.EqualTo(eveningActivity));
+            Assert.That(afternoonActivity, Is.Not.EqualTo(eveningActivity));
+        }
+
+        [Then(@"the generated restaurants will be unique for that day")]
+        public void ThenTheGeneratedRestaurantsWillBeUniqueForThatDay()
+        {
+            string breakfastRestaurant = _driver.FindElement(By.Id("breakfastName")).Text;
+            string lunchRestaurant = _driver.FindElement(By.Id("lunchName")).Text;
+            string dinnerRestaurant = _driver.FindElement(By.Id("dinnerName")).Text;
+
+            Assert.That(breakfastRestaurant, Is.Not.EqualTo(lunchRestaurant));
+            Assert.That(breakfastRestaurant, Is.Not.EqualTo(dinnerRestaurant));
+            Assert.That(lunchRestaurant, Is.Not.EqualTo(dinnerRestaurant));
+        }
+
     }
 }

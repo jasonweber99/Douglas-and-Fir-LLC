@@ -161,6 +161,25 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult FoodTrail()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailRestaurants")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+
+            var lodging = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailLodging")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+            ViewBag.Lodging = lodging;
+            return View(businesses);
+        }
+
         [HttpGet]
         public IActionResult Lodging()
         {

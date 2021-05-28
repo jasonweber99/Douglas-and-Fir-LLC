@@ -15,6 +15,7 @@ using MIVisitorCenter.Data.Abstract;
 using Microsoft.AspNetCore.Http;
 using MIVisitorCenter.Utilities;
 using System.Text;
+using MIVisitorCenter.Areas.Services;
 
 namespace MIVisitorCenter.Controllers
 {
@@ -27,7 +28,7 @@ namespace MIVisitorCenter.Controllers
         private readonly IAddressRepository _addressRepo;
         private readonly IHoursRepository _hoursRepository;
         private readonly ICategoryRepository _categoryRepository;
-
+        private readonly IComponentRepository _componentRepo;
 
         public BusinessesController(MIVisitorCenterDbContext context, 
                                     IAuthorizationService authorizationService, 
@@ -35,7 +36,8 @@ namespace MIVisitorCenter.Controllers
                                     IPhotoCollectionRepository photoRepo,
                                     IAddressRepository addressRepo,
                                     IHoursRepository hoursRepository,
-                                    ICategoryRepository categoryRepository)
+                                    ICategoryRepository categoryRepository,
+                                    IComponentRepository componentRepository)
         {
             _context = context;
             _authorizationService = authorizationService;
@@ -44,11 +46,12 @@ namespace MIVisitorCenter.Controllers
             _addressRepo = addressRepo;
             _hoursRepository = hoursRepository;
             _categoryRepository = categoryRepository;
+            _componentRepo = componentRepository;
         }
 
         // GET: Businesses
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Index(string sortOption)
+        public async Task<IActionResult> Index(string sortOption, string cityFilter = null, string categoryFilter = null)
         {
             ViewBag.NameSortOption = string.IsNullOrEmpty(sortOption) ? "name_desc" : "";
             
@@ -67,21 +70,71 @@ namespace MIVisitorCenter.Controllers
             ViewData["Categories"] = _context.Categories.OrderBy(c => c.Name).ToArray();
 
             var businesses = _context.Businesses.Include(b => b.Address);
+            var filteredBusinesses = new List<Business>();
+            IQueryable filteredCategories = null;
 
-            if (string.IsNullOrEmpty(sortOption)) return View(await businesses.ToListAsync());
-            
+            if (!string.IsNullOrEmpty(cityFilter) && !string.IsNullOrEmpty(categoryFilter))
+            {
+                filteredCategories = _context.Categories.Where(b => b.Name == categoryFilter)
+                                        .Include(c => c.BusinessCategories)
+                                        .ThenInclude(d => d.Business)
+                                        .ThenInclude(e => e.Address);
+                foreach (Category c in filteredCategories)
+                {
+                    foreach (BusinessCategory b in c.BusinessCategories)
+                        filteredBusinesses = filteredBusinesses.Append(b.Business).ToList();
+                }
+                filteredBusinesses = filteredBusinesses.Where(a => a.Address.City == cityFilter).ToList();
+            }
+            else if (!string.IsNullOrEmpty(cityFilter))
+                filteredBusinesses = await businesses.Where(a => a.Address.City == cityFilter).ToListAsync();
+            else if (!string.IsNullOrEmpty(categoryFilter))
+            {
+                filteredCategories = _context.Categories.Where(b => b.Name == categoryFilter)
+                                                        .Include(c => c.BusinessCategories)
+                                                        .ThenInclude(d => d.Business)
+                                                        .ThenInclude(e => e.Address);
+                foreach (Category c in filteredCategories)
+                {
+                    foreach (BusinessCategory b in c.BusinessCategories)
+                        filteredBusinesses = filteredBusinesses.Append(b.Business).ToList();
+                }
+            }
+
+            if (filteredBusinesses.Any())
+                return View(filteredBusinesses);
+            if (string.IsNullOrEmpty(sortOption)) 
+                return View(await businesses.ToListAsync());
+
             var sortedBusinesses = businesses.OrderByDescending(c => c.Name);
 
             return View(await sortedBusinesses.ToListAsync());
         }
 
-        [HttpPost]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> Index(string cityFilter, string categoryFilter)
-        {
-            var mIVisitorCenterDbContext = _businessRepo.GetAll().Include(b => b.Address);
-            return View(await mIVisitorCenterDbContext.ToListAsync());
-        }
+        //[HttpPost]
+        //[Authorize(Roles = "admin")]
+        //public async Task<IActionResult> Index(string cityFilter = null, string categoryFilter = null)
+        //{
+        //    var addresses = _context.Addresses.ToArray();
+        //    var cities = new ArrayList();
+
+        //    foreach (var address in addresses)
+        //    {
+        //        if (!cities.Contains(address.City))
+        //            cities.Add(address.City);
+        //    }
+
+        //    cities.Sort();
+
+        //    ViewData["Cities"] = cities;
+        //    ViewData["Categories"] = _context.Categories.OrderBy(c => c.Name).ToArray();
+
+        //    var businesses = _context.Businesses.Include(b => b.Address);
+
+        //    if (!string.IsNullOrEmpty(cityFilter))
+        //        return View(await businesses.Where(a => a.Address.City == cityFilter).ToListAsync());
+        //    return View(await businesses.ToListAsync());
+        //}
 
         public IActionResult EatAndDrink()
         {
@@ -158,6 +211,9 @@ namespace MIVisitorCenter.Controllers
                                     .ThenInclude(a => a.Address)
                                     .AsEnumerable();
             ViewBag.Lodging = lodging;
+
+            ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Willamette River Trail").ToArray();
+
             return View(businesses);
         }
 
@@ -245,6 +301,7 @@ namespace MIVisitorCenter.Controllers
             var city = Request.Form["city"].ToString();
             var state = Request.Form["state"].ToString();
             var zip = Convert.ToInt32(Request.Form["zip"]);
+
             var address = new Address
             {
                 StreetAddress = street,
@@ -252,6 +309,8 @@ namespace MIVisitorCenter.Controllers
                 State = state,
                 Zip = zip
             };
+
+            await GeocodeAPIHandler.GetData(address);
 
             int addressId = await _addressRepo.ReturnsIdIfExistsAsync(address);
 

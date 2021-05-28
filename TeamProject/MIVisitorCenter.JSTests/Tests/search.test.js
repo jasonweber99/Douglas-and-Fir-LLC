@@ -2,21 +2,25 @@ import { findMatches } from '../../MIVisitorCenter/wwwroot/js/search';
 
 let mockBusinesses = [
     {
-        Name: 'Local Pub',
-        Category: 'Bar'
+        name: 'Local Pub',
+        category: 'Bar',
+        description: 'A local pub.'
     },
     {
-        Name: 'Monmouth Bar Second',
-        Category: 'Bar'
+        name: 'Monmouth Bar Second',
+        category: 'Bar',
+        description: 'Another local bar'
     },
     {
-        Name: 'Local Restaraunt',
-        Category: 'Restaraunt'
+        name: 'Local Restaraunt',
+        category: 'Restaraunt',
+        description: 'A local restaraunt.'
     }
     ,
     {
-        Name: 'Pizzaria',
-        Category: 'Restaraunt'
+        name: 'Pizzaria',
+        category: 'Restaraunt',
+        description: 'A foreign pizzeria.'
     }
 ];
 
@@ -78,4 +82,24 @@ test('Search for `NoMatches` should match to no businesses', () => {
 
     // Assert
     expect(matches.length).toBe(0);
+});
+
+test('Search for `local` should match three businesses', () => {
+    // Arange
+
+    // Act
+    var matches = findMatches(mockBusinesses, 'local');
+
+    // Assert
+    expect(matches.length).toBe(3);
+});
+
+test('Search for `foreign` should match one business', () => {
+    // Arange
+
+    // Act
+    var matches = findMatches(mockBusinesses, 'foreign');
+
+    // Assert
+    expect(matches.length).toBe(1);
 });

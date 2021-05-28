@@ -214,5 +214,18 @@ namespace MIVisitorCenter.Tests
             // Assert
             Assert.That(count, Is.EqualTo(11));
         }
+
+        [Test]
+        public void CategoryRepo_GetAllUniqueBusinessesReturns_UniqueBusinesses([Range(1,11)] int p)
+        {
+            // Arrange
+            ICategoryRepository categoryRepo = new CategoryRepository(_mockContext.Object);
+
+            // Act
+            int count = categoryRepo.GetAllUniqueBusinesses().Count(f => f.Business.Id == p);
+
+            // Assert
+            Assert.That(count, Is.EqualTo(1));
+        }
     }
 }

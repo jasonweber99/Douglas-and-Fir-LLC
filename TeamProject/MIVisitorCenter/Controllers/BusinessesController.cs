@@ -138,6 +138,8 @@ namespace MIVisitorCenter.Controllers
 
         public IActionResult EatAndDrink()
         {
+            ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
+
             var businesses = _context.Categories
                                     .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
                                     .Include(b => b.BusinessCategories)
@@ -146,6 +148,26 @@ namespace MIVisitorCenter.Controllers
                                     .AsEnumerable()
                                     .GroupBy(c => c.Name);
             return View(businesses);
+        }
+
+        [HttpPost]
+        public ActionResult EatAndDrink(string[] tags)
+        {
+            ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
+                                    .Include(c => c.BusinessCategories)
+                                        .ThenInclude(bc => bc.Business)
+                                            .ThenInclude(b => b.Address)
+                                    .Include(c => c.BusinessCategories)
+                                        .ThenInclude(bc => bc.Business)
+                                            .ThenInclude(b => b.RestaurantDiningSubcategories)
+                                    .AsEnumerable()
+                                    .GroupBy(c => c.Name);
+
+            ViewData["FilteredSubcategories"] = tags;
+
+            return View("EatAndDrink", businesses);
         }
 
         public IActionResult ArtAndCulture()

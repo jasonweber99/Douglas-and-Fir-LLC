@@ -8,21 +8,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MIVisitorCenter
 {
-    public partial class OperatingHour
+    [Table("RestaurantDiningSubcategory")]
+    public partial class RestaurantDiningSubcategory
     {
         [Key]
         [Column("ID")]
         public int Id { get; set; }
-        public int? Day { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime? Open { get; set; }
-        [Column(TypeName = "datetime")]
-        public DateTime? Close { get; set; }
         [Column("BusinessID")]
         public int? BusinessId { get; set; }
+        [Column("DiningSubcategoryID")]
+        public int? DiningSubcategoryId { get; set; }
 
         [ForeignKey(nameof(BusinessId))]
-        [InverseProperty("OperatingHours")]
+        [InverseProperty("RestaurantDiningSubcategories")]
         public virtual Business Business { get; set; }
+        [ForeignKey(nameof(DiningSubcategoryId))]
+        [InverseProperty("RestaurantDiningSubcategories")]
+        public virtual DiningSubcategory DiningSubcategory { get; set; }
     }
 }

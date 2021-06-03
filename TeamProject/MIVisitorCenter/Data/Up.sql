@@ -107,6 +107,17 @@ CREATE TABLE [ComponentText] (
   [Text] nvarchar(4000)
 );
 
+CREATE TABLE [DiningSubcategory] (
+	[ID] int PRIMARY KEY IDENTITY(1, 1),
+	[Name] nvarchar(64) NOT NULL
+);
+
+CREATE TABLE [RestaurantDiningSubcategory] (
+  [ID] int PRIMARY KEY IDENTITY(1, 1),
+  [BusinessID] int,
+  [DiningSubcategoryID] int
+);
+
 ALTER TABLE [Component] 
 ADD CONSTRAINT FK_PageComponent
 FOREIGN KEY ([PageID]) REFERENCES [Page] ([ID]);
@@ -166,3 +177,11 @@ FOREIGN KEY ([AmenitiesID]) REFERENCES [Amenities] ([ID]);
 ALTER TABLE [PhotoCollection] 
 ADD CONSTRAINT FK_BusinessPhotoCollection
 FOREIGN KEY ([BusinessID]) REFERENCES [Business] ([ID]);
+
+ALTER TABLE [RestaurantDiningSubcategory]
+ADD CONSTRAINT FK_Business_RestaurantDiningSubcategory
+FOREIGN KEY ([BusinessID]) REFERENCES [Business] ([ID]);
+
+ALTER TABLE [RestaurantDiningSubcategory]
+ADD CONSTRAINT FK_DiningSubcategory_RestaurantDiningSubcategory
+FOREIGN KEY ([DiningSubcategoryID]) REFERENCES [DiningSubcategory] ([ID]);

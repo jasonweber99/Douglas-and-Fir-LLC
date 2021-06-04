@@ -1,0 +1,57 @@
+﻿@using MIVisitorCenter.Models
+@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Great Oaks Food Trail";
+    var components = ViewData["Components"] as Component[];
+    var TravelTipsContent = components.Where(a => a.Name == "Travel Tips Content").Single();
+    var DallasToMonmouthContent = components.Where(a => a.Name == "Dallas to Monmouth Content").Single();
+    var WestSalemToAmityContent = components.Where(a => a.Name == "West Salem to Amity Content").Single();
+    var DallasToIndependenceContent = components.Where(a => a.Name == "Dallas to Independence Content").Single();
+}
+
+
+<div class="image-container">
+    <div class="image-cover" data-src="/assets/Food-Trail/IndependenceHotel.jpg" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+        <div class="accordion-title-card">Great Oaks Food Trail</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-tips-tab" data-toggle="pill" href="#v-pills-tips" role="tab" aria-controls="v-pills-tips" aria-selected="true">Travel Tips</a>
+            <a class="nav-link" id="v-pills-dm-tab" data-toggle="pill" href="#v-pills-dm" role="tab" aria-controls="v-pills-dm" aria-selected="false">Dallas to Monmouth</a>
+            <a class="nav-link" id="v-pills-wsa-tab" data-toggle="pill" href="#v-pills-wsa" role="tab" aria-controls="v-pills-wsa" aria-selected="false">West Salem to Amity Content</a>
+            <a class="nav-link" id="v-pills-di-tab" data-toggle="pill" href="#v-pills-di" role="tab" aria-controls="v-pills-di" aria-selected="false">Dallas to Independence Content</a>
+            <a class="nav-link" id="v-pills-map-tab" data-toggle="pill" href="#v-pills-map" role="tab" aria-controls="v-pills-map" aria-selected="false">Map</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+
+            <div class="tab-pane fade show active" id="v-pills-tips" role="tabpanel" aria-labelledby="v-pills-tips-tab">
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(TravelTipsContent.ComponentTexts.Text))
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-dm" role="tabpanel" aria-labelledby="v-pills-dm-tab">
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(DallasToMonmouthContent.ComponentTexts.Text))
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-wsa" role="tabpanel" aria-labelledby="v-pills-wsa-tab">
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(WestSalemToAmityContent.ComponentTexts.Text))
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-di" role="tabpanel" aria-labelledby="v-pills-di-tab">
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(DallasToIndependenceContent.ComponentTexts.Text))
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-map" role="tabpanel" aria-labelledby="v-pills-map-tab">
+                <div class="river-map">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1UtOme9e_9wvhwrseB5hx16TLvCwSNLmn&z=10" width="640" height="480"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

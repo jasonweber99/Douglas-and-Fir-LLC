@@ -217,6 +217,27 @@ namespace MIVisitorCenter.Controllers
             return View(businesses);
         }
 
+        public IActionResult FoodTrail()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailRestaurants")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+
+            var lodging = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailLodging")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+
+            ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Great Oaks Food Trail").ToArray();
+
+            return View(businesses);
+        }
+
         [HttpGet]
         public IActionResult Lodging()
         {

@@ -232,7 +232,9 @@ namespace MIVisitorCenter.Controllers
                                     .ThenInclude(b => b.Business)
                                     .ThenInclude(a => a.Address)
                                     .AsEnumerable();
-            ViewBag.Lodging = lodging;
+
+            ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Great Oaks Food Trail").ToArray();
+
             return View(businesses);
         }
 

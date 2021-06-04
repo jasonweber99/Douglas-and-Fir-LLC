@@ -114,6 +114,9 @@ body {
     border-radius: 10px; 
     opacity: 0.9;
 }
+.accordion-title-card-large {
+    padding: 3em 10em 2em 10em;
+}
 .accordion-width {
     width: 90%;
 }

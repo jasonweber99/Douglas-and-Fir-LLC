@@ -111,31 +111,6 @@ namespace MIVisitorCenter.Controllers
             return View(await sortedBusinesses.ToListAsync());
         }
 
-        //[HttpPost]
-        //[Authorize(Roles = "admin")]
-        //public async Task<IActionResult> Index(string cityFilter = null, string categoryFilter = null)
-        //{
-        //    var addresses = _context.Addresses.ToArray();
-        //    var cities = new ArrayList();
-
-        //    foreach (var address in addresses)
-        //    {
-        //        if (!cities.Contains(address.City))
-        //            cities.Add(address.City);
-        //    }
-
-        //    cities.Sort();
-
-        //    ViewData["Cities"] = cities;
-        //    ViewData["Categories"] = _context.Categories.OrderBy(c => c.Name).ToArray();
-
-        //    var businesses = _context.Businesses.Include(b => b.Address);
-
-        //    if (!string.IsNullOrEmpty(cityFilter))
-        //        return View(await businesses.Where(a => a.Address.City == cityFilter).ToListAsync());
-        //    return View(await businesses.ToListAsync());
-        //}
-
         public IActionResult EatAndDrink()
         {
             ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
@@ -365,7 +340,7 @@ namespace MIVisitorCenter.Controllers
                     }
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Business", business.Id);
             }
             else
             {

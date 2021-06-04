@@ -34,7 +34,7 @@
                                             <tr>
                                                 <td>@b.Business.Name</td>
                                                 <td>@b.Business.Address.StreetAddress, @b.Business.Address.City, @b.Business.Address.State</td>
-                                                <td><button class="uk-button uk-button-default" type="button">Visit</button></td>
+                                                <td><a button class="uk-button uk-button-default" type="button" asp-controller="Businesses" asp-action="Business" asp-route-id="@b.Business.Id">Details</a></td>
                                             </tr>
                                         }
                                     </tbody>

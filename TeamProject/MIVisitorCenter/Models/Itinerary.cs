@@ -220,10 +220,10 @@ namespace MIVisitorCenter.Models
 
         private double GetDistanceBetweenTwoBusinesses(Business business1, Business business2)
         {
-            double lat1 = business1.Address.Latitude;
-            double lat2 = business2.Address.Latitude;
-            double lng1 = business1.Address.Longitude;
-            double lng2 = business2.Address.Longitude;
+            double lat1 = (double)business1.Address.Latitude;
+            double lat2 = (double)business2.Address.Latitude;
+            double lng1 = (double)business1.Address.Longitude;
+            double lng2 = (double)business2.Address.Longitude;
 
             double distance = HaversineDistance(lat1, lat2, lng1, lng2);
 

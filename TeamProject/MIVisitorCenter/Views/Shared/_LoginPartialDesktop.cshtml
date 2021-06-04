@@ -18,15 +18,15 @@
     var userBusiness = MiDbContext.Businesses.FirstOrDefault(b => b.Name.Equals(currentUser.BusinessName));
     if (User.IsInRole("admin"))
     {
-        <li class="uk-parent uk-visible@m"><a href="">Feature Links</a></li>
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Feature Links</a></li>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
-                <li><a asp-controller="StakeholderOptions" asp-action="WebstoreOptions">Webstore Options</a></li>
-                <li><a asp-controller="StakeholderOptions" asp-action="MapOptions">Map Options</a></li>
+                <li><a class="nav-link" asp-controller="StakeholderOptions" asp-action="WebstoreOptions">Webstore Options</a></li>
+                <li><a class="nav-link" asp-controller="StakeholderOptions" asp-action="MapOptions">Map Options</a></li>
             </ul>
         </div>
 
-        <li class="uk-parent uk-visible@m"><a href="">Manage</a></li>
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Manage</a></li>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
                 <li><a class="nav-link" asp-controller="Administrator" asp-action="Manage">Manage Website Content</a></li>
@@ -38,7 +38,7 @@
     }
     if (!User.IsInRole("admin"))
     {
-        <li class="uk-parent uk-visible@m"><a href="">Hello, @userBusiness.Name </a></li>
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Hello, @userBusiness.Name </a></li>
         <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav">
                 <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account Information</a></li>

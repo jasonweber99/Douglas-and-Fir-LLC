@@ -25,18 +25,18 @@
                 <div class="uk-nav-left">
                     <ul class="uk-navbar-nav">
                         <li class="uk-active"><a asp-controller="Home" asp-action="Index">Monmouth<strong>Independence</strong></a></li>
-                        <li class="uk-parent uk-visible@m" ><a href="">What To Do</a></li> 
+                        <li class="uk-parent uk-visible@m" ><a class="nav-link" href="">What To Do</a></li> 
                         <div uk-dropdown>
                             <ul class="uk-nav uk-dropdown-nav">
-                                <li><a asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
-                                <li><a asp-controller="Businesses" asp-action="EatAndDrink">Eat &#38; Drink</a></li>
-                                <li><a asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
-                                <li><a asp-controller="Businesses" asp-action="WaterTrail">Willamette Water Trail</a></li>
-                                <li><a asp-controller="Businesses" asp-action="FoodTrail">Great Oaks Food Trail</a></li>
+                                <li><a class="nav-link" asp-controller="Businesses" asp-action="OutdoorRecreation">Recreation</a></li>
+                                <li><a class="nav-link" asp-controller="Businesses" asp-action="EatAndDrink">Eat &#38; Drink</a></li>
+                                <li><a class="nav-link" asp-controller="Businesses" asp-action="ArtAndCulture">Art and Culture</a></li>
+                                <li><a class="nav-link" asp-controller="Businesses" asp-action="WaterTrail">Willamette Water Trail</a></li>
+                                <li><a class="nav-link" asp-controller="Businesses" asp-action="FoodTrail">Great Oaks Food Trail</a></li>
                             </ul>
                         </div>
-                        <li class="uk-parent uk-visible@m"><a asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
-                        <li class="uk-parent uk-visible@m"><a asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
+                        <li class="uk-parent uk-visible@m"><a class="nav-link" asp-controller="Businesses" asp-action="Lodging">Where to Stay</a></li>
+                        <li class="uk-parent uk-visible@m"><a class="nav-link" asp-controller="Itinerary" asp-action="PlanATrip">Plan a Trip</a></li>
                     </ul>
                 </div>
             </div>
@@ -114,7 +114,7 @@
     <div class="uk-section uk-section-muted uk-section-xsmall uk-position-bottom">
         <div class="uk-container">
             <div class="container text-muted">
-                &copy; 2021 - Douglas and Fir, LLC
+                <a class="uk-text-right" asp-controller="Credits" asp-action="Credits">&copy; 2021 - Douglas and Fir, LLC</a>
             </div>
         </div>
     </div>

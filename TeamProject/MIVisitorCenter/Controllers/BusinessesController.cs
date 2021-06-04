@@ -111,33 +111,10 @@ namespace MIVisitorCenter.Controllers
             return View(await sortedBusinesses.ToListAsync());
         }
 
-        //[HttpPost]
-        //[Authorize(Roles = "admin")]
-        //public async Task<IActionResult> Index(string cityFilter = null, string categoryFilter = null)
-        //{
-        //    var addresses = _context.Addresses.ToArray();
-        //    var cities = new ArrayList();
-
-        //    foreach (var address in addresses)
-        //    {
-        //        if (!cities.Contains(address.City))
-        //            cities.Add(address.City);
-        //    }
-
-        //    cities.Sort();
-
-        //    ViewData["Cities"] = cities;
-        //    ViewData["Categories"] = _context.Categories.OrderBy(c => c.Name).ToArray();
-
-        //    var businesses = _context.Businesses.Include(b => b.Address);
-
-        //    if (!string.IsNullOrEmpty(cityFilter))
-        //        return View(await businesses.Where(a => a.Address.City == cityFilter).ToListAsync());
-        //    return View(await businesses.ToListAsync());
-        //}
-
         public IActionResult EatAndDrink()
         {
+            ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
+
             var businesses = _context.Categories
                                     .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
                                     .Include(b => b.BusinessCategories)
@@ -146,6 +123,26 @@ namespace MIVisitorCenter.Controllers
                                     .AsEnumerable()
                                     .GroupBy(c => c.Name);
             return View(businesses);
+        }
+
+        [HttpPost]
+        public ActionResult EatAndDrink(string[] tags)
+        {
+            ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
+                                    .Include(c => c.BusinessCategories)
+                                        .ThenInclude(bc => bc.Business)
+                                            .ThenInclude(b => b.Address)
+                                    .Include(c => c.BusinessCategories)
+                                        .ThenInclude(bc => bc.Business)
+                                            .ThenInclude(b => b.RestaurantDiningSubcategories)
+                                    .AsEnumerable()
+                                    .GroupBy(c => c.Name);
+
+            ViewData["FilteredSubcategories"] = tags;
+
+            return View("EatAndDrink", businesses);
         }
 
         public IActionResult ArtAndCulture()
@@ -191,6 +188,27 @@ namespace MIVisitorCenter.Controllers
             ViewBag.Lodging = lodging;
 
             ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Willamette River Trail").ToArray();
+
+            return View(businesses);
+        }
+
+        public IActionResult FoodTrail()
+        {
+            var businesses = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailRestaurants")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+
+            var lodging = _context.Categories
+                                    .Where(n => n.Name == "WaterTrailLodging")
+                                    .Include(b => b.BusinessCategories)
+                                    .ThenInclude(b => b.Business)
+                                    .ThenInclude(a => a.Address)
+                                    .AsEnumerable();
+
+            ViewData["Components"] = _componentRepo.GetAll().Include(i => i.ComponentImages).Include(t => t.ComponentTexts).Where(p => p.Page.Name == "Great Oaks Food Trail").ToArray();
 
             return View(businesses);
         }
@@ -322,7 +340,7 @@ namespace MIVisitorCenter.Controllers
                     }
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Business", business.Id);
             }
             else
             {

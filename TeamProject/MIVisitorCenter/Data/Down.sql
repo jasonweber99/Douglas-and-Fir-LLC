@@ -58,6 +58,14 @@ ALTER TABLE [ComponentText]
 DROP CONSTRAINT FK_ComponentComponentText
 GO
 
+ALTER TABLE [RestaurantDiningSubcategory]
+DROP CONSTRAINT FK_Business_RestaurantDiningSubcategory
+GO
+
+ALTER TABLE [RestaurantDiningSubcategory]
+DROP CONSTRAINT FK_DiningSubcategory_RestaurantDiningSubcategory
+GO
+
 DROP TABLE [Page]
 GO
 
@@ -104,4 +112,10 @@ DROP TABLE [Business]
 GO
 
 DROP TABLE [PhotoCollection]
+GO
+
+DROP TABLE [RestaurantDiningSubcategory]
+GO
+
+DROP TABLE [DiningSubcategory]
 GO

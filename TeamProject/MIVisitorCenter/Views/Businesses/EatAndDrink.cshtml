@@ -11,40 +11,93 @@
         {
             @foreach (var c in m)
             {
-            <ul class="uk-accordion_custom" uk-accordion >
-                <li>
-                    <a href="#" class="uk-accordion-title uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
-                    data-src="/assets/Accordion-Images/@(c.Name).jpeg" data-sizes="(min-width: 650px) 650px, 100vw" style="color: #fff; border-radius: 10px" uk-img>
-                        <div class="accordion-title-card">@c.Name + </div>
-                    </a>
+                <ul class="uk-accordion_custom" uk-accordion>
+                    <li class="@(c.Name == "Restaurants" ? "uk-open" : "")">
+                        <a href="#" class="uk-accordion-title uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+                           data-src="/assets/Accordion-Images/@(c.Name).jpeg" data-sizes="(min-width: 650px) 650px, 100vw" style="color: #fff; border-radius: 10px" uk-img>
+                            <div class="accordion-title-card">@c.Name + </div>
+                        </a>
 
-                    <div class="uk-accordion-content uk-flex uk-flex-center">
-                    <div class="uk-overflow-auto accordion-width">
-                    <table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
-                        <thead>
-                            <tr>
-                                <th class="uk-width-small">Name</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>More</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (BusinessCategory b in c.BusinessCategories)
-                            {
-                                <tr>
-                                    <td>@b.Business.Name</td>
-                                    <td>@b.Business.Address.StreetAddress, @b.Business.Address.City, @b.Business.Address.State</td>
-                                    <td>@b.Business.Phone</td>
-                                    <td><a button class="uk-button uk-button-default" type="button" asp-controller="Businesses" asp-action="Business" asp-route-id="@b.Business.Id">Details</a></td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    </div>
-                    </div>
-                </li>
-            </ul> 
+                        <div class="uk-accordion-content uk-flex uk-flex-center">
+                            <div class="uk-overflow-auto accordion-width">
+                                @if (c.Name == "Restaurants")
+                                {
+                                    <div class="row">
+                                        <p class="uk-align-center">
+                                            <button class="uk-button uk-button-primary" type="button" data-toggle="collapse" data-target="#amenitiesFilter" aria-expanded="false" aria-controls="collapseExample" style="margin-top:15px; margin-left:15px;">
+                                                Filter by Restraunt Type
+                                            </button>
+                                        </p>
+                                        <div class="collapse col-10 uk-align-center" id="amenitiesFilter" style="margin-top:-20px;">
+                                            <div class="card card-body">
+                                                @using (Html.BeginForm(new { action = "EatAndDrink" }))
+                                                {
+                                                    @foreach (var a in ViewData["DiningSubcategories"] as IList<DiningSubcategory>)
+                                                    {
+                                                        <div class="form-check-inline col-lg-3 col-md-4">
+                                                            <label for="check-@a.Id">
+                                                                <input class="uk-checkbox" type="checkbox" name="tags" id="check-@a.Id" value="@a.Name"> @a.Name
+                                                            </label>
+                                                        </div>
+                                                    }
+                                                    <br />
+                                                    <input class="uk-button uk-button-primary" type="submit" value="Filter" style="margin-top: 10px;" />
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="uk-overflow-auto uk-height-large">
+                                    <table class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
+                                        <thead>
+                                            <tr>
+                                                <th class="uk-width-small">Name</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>More</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (BusinessCategory b in c.BusinessCategories)
+                                            {
+                                                var filteredSubcategories = ViewData["FilteredSubcategories"] as IList<string>;
+
+                                                bool showBusiness = false;
+                                                if (filteredSubcategories is not null)
+                                                {
+                                                    foreach (var subcategory in filteredSubcategories)
+                                                    {
+                                                        var temp = b.Business.RestaurantDiningSubcategories.Where(a => a.DiningSubcategory.Name == subcategory);
+
+                                                        if (temp.Count() != 0)
+                                                        {
+                                                            showBusiness = true;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    showBusiness = true;
+                                                }
+
+
+                                                if (b.Category.Name != "Restaurants" || showBusiness)
+                                                {
+                                                    <tr>
+                                                        <td>@b.Business.Name</td>
+                                                        <td>@b.Business.Address.StreetAddress, @b.Business.Address.City, @b.Business.Address.State</td>
+                                                        <td>@b.Business.Phone</td>
+                                                        <td><a button class="uk-button uk-button-default" type="button" asp-controller="Businesses" asp-action="Business" asp-route-id="@b.Business.Id">Details</a></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             }
         }
     }

@@ -21,6 +21,24 @@ INSERT INTO [Category](Name) VALUES ('WaterTrailRestaurants');
 INSERT INTO [Category](Name) VALUES ('WaterTrailLodging');
 INSERT INTO [Category](Name) VALUES ('Lodging');
 
+-- Dining Subcategory Seed
+INSERT INTO [DiningSubcategory](Name) VALUES ('Bar & Grill'); -- ID 1
+INSERT INTO [DiningSubcategory](Name) VALUES ('BBQ');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Burgers');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Fast Food');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Mexican'); -- ID 5
+INSERT INTO [DiningSubcategory](Name) VALUES ('Desserts');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Pizza');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Chinese');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Chicken');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Italian'); -- ID 10
+INSERT INTO [DiningSubcategory](Name) VALUES ('Sushi');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Bakery');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Diner');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Sandwiches');
+INSERT INTO [DiningSubcategory](Name) VALUES ('Teriyaki'); -- ID 15
+INSERT INTO [DiningSubcategory](Name) VALUES ('Food Truck');
+
 SET IDENTITY_INSERT Address ON;
 
 -- Actual Eat & Drink Address Seed
@@ -94,7 +112,8 @@ INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES 
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (2, 'BG''s Bar-B-Que', 'Kansas City-style BBQ offering dine-in or catering', '503-420-4143', 'http://bgdeli54.wixsite.com', 2);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (3, 'Burgerville', 'Fast-food chain using local, sustainable ingredients in its burgers, salads, & shakes', '503-838-6096', 'http://www.burgerville.com', 3); 
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (4, 'Mi Casita Market', 'Carniceria and grocery store', '503-838-0114', '-', 4);
-INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (5, 'Casa Burrito', 'Bienvenidos a Casa Burrito, Taqueria donde encontrar?s deliciosos burritos, tortas, quesadillas y tacos. Y Restaurante con aut?ntica comida Mexicana.', '503-837-0615', 'http://www.facebook.com/casaburritorestaurant', 5);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (5, 'Casa Burrito', 'Bienvenidos a Casa Burrito, Taqueria donde encontrar?s deliciosos burritos, tortas, quesadillas y tacos. Y Restaurante con aut?entica comida Mexicana.', '503-837-0615', 'http://www.facebook.com/casaburritorestaurant', 5);
+INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (5, 'Casa Burrito', 'Bienvenidos a Casa Burrito, Taqueria donde encontrares deliciosos burritos, tortas, quesadillas y tacos. Y Restaurante con autentica comida Mexicana.', '503-837-0615', 'www.facebook.com/casaburritorestaurant', 5);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (6, 'Chase Bar & Grill', 'Relaxed bar and grill featuring a heated patio', '503-838-5664', '-', 6);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (7, 'Crush Wine Bar & Tasting Room', 'An intimate setting to explore local wines and local foods with friendly and knowledgeable service.', '503-838-0399', 'http://www.crushonmain.com', 7);
 INSERT INTO [Business](ID, Name, Description, Phone, Website, AddressID) VALUES (8, 'Dairy Queen', 'Soft-serve ice cream & signature shakes top the menu at this classic burger & fries fast-food chain', '503-838-4500', 'http://www.dairyqueen.com', 8);
@@ -209,6 +228,62 @@ INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (56,13);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (57,13);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (58,13);
 INSERT INTO [BusinessCategory](BusinessID, CategoryID) VALUES (59,13);
+
+-- Restaurant Subcategory Seed
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (1,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (2,2);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (3,3);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (3,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (4,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (5,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (6,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (7,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (8,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (8,6);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (9,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (10,6);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (11,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (12,8);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (13,8);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (14,3);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (14,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (14,9);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (15,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (16,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (17,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (18,6);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (19,10);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (20,3);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (20,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (21,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (22,11);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (23,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (23,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (24,11);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (25,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (26,12);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (27,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (28,13);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (29,13);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (30,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (31,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (32,8);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (33,13);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (34,14);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (35,14);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (36,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (37,5);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (38,15);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (39,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (40,6);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (40,16);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (41,7);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (42,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (43,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (44,3);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (44,4);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (45,1);
+INSERT INTO [RestaurantDiningSubcategory](BusinessID, DiningSubcategoryID) VALUES (46,16);
 
 SET IDENTITY_INSERT Business ON;
 

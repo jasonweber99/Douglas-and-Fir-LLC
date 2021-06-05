@@ -29,6 +29,7 @@ namespace MIVisitorCenter.Models
         public virtual DbSet<Lodging> Lodgings { get; set; }
         public virtual DbSet<LodgingAmenity> LodgingAmenities { get; set; }
         public virtual DbSet<OperatingHour> OperatingHours { get; set; }
+        public virtual DbSet<PhotoCollection> PhotoCollections { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -117,6 +118,14 @@ namespace MIVisitorCenter.Models
                     .WithMany(p => p.OperatingHours)
                     .HasForeignKey(d => d.BusinessId)
                     .HasConstraintName("FK_BusinessOperatingHours");
+            });
+
+            modelBuilder.Entity<PhotoCollection>(entity =>
+            {
+                entity.HasOne(d => d.Business)
+                    .WithMany(p => p.PhotoCollections)
+                    .HasForeignKey(d => d.BusinessId)
+                    .HasConstraintName("FK_BusinessPhotoCollection");
             });
 
             OnModelCreatingPartial(modelBuilder);

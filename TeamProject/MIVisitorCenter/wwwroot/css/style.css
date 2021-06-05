@@ -114,6 +114,9 @@ body {
     border-radius: 10px; 
     opacity: 0.9;
 }
+.accordion-title-card-large {
+    padding: 3em 10em 2em 10em;
+}
 .accordion-width {
     width: 90%;
 }
@@ -124,17 +127,13 @@ body {
 
 /* Custom Button */
 .logout-btn {
-    color: #999; 
+    color: rgb(116, 112, 112);
     font-size: 0.875rem; 
     line-height: 1.5; 
     border:none; 
     font-weight: 400; 
     background-color: transparent;
     padding: 2em 0 2em 0; 
-}
-.logout-btn:hover {
-    color: #666;
-    text-decoration: none;
 }
 
 /* Custom Image Cover */
@@ -175,7 +174,6 @@ body {
     z-index: 1;
     background-color: #f8f8f8;
     border-radius: 10px;
-    /* Works but if results are low, fixed height makes it look weird */
     height: auto;
     max-height: 50vh;
     overflow-y: auto;
@@ -213,6 +211,23 @@ body {
 .nav-pills, .tab-content {
     margin-top: 2em
 }
-/* .tab-content {
 
-} */
+.hours-input {
+    width: 35%;
+}
+
+.intinerary-card__modal-table--timeslots {
+    height: 3rem;
+    vertical-align: middle;
+}
+.itinerary-card__content {
+    background-color: #f8f8f8;
+    padding: 2em;
+    border-radius: 10px;
+    max-height: 64vh;
+    overflow: auto;
+}
+
+.nav-link {
+    color: rgb(116, 112, 112) !important;
+}

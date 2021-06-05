@@ -46,6 +46,38 @@ ALTER TABLE [PhotoCollection]
 DROP CONSTRAINT FK_BusinessPhotoCollection
 GO
 
+ALTER TABLE [Component]
+DROP CONSTRAINT FK_PageComponent
+GO
+
+ALTER TABLE [ComponentImages]
+DROP CONSTRAINT FK_ComponentComponentImages
+GO
+
+ALTER TABLE [ComponentText]
+DROP CONSTRAINT FK_ComponentComponentText
+GO
+
+ALTER TABLE [RestaurantDiningSubcategory]
+DROP CONSTRAINT FK_Business_RestaurantDiningSubcategory
+GO
+
+ALTER TABLE [RestaurantDiningSubcategory]
+DROP CONSTRAINT FK_DiningSubcategory_RestaurantDiningSubcategory
+GO
+
+DROP TABLE [Page]
+GO
+
+DROP TABLE [Component]
+GO
+
+DROP TABLE [ComponentImages]
+GO
+
+DROP TABLE [ComponentText]
+GO
+
 DROP TABLE [Amenities]
 GO
 
@@ -80,4 +112,10 @@ DROP TABLE [Business]
 GO
 
 DROP TABLE [PhotoCollection]
+GO
+
+DROP TABLE [RestaurantDiningSubcategory]
+GO
+
+DROP TABLE [DiningSubcategory]
 GO

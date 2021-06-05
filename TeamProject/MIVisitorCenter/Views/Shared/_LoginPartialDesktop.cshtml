@@ -1,0 +1,62 @@
+@using Microsoft.AspNetCore.Identity
+@using MIVisitorCenter.Data
+@using MIVisitorCenter.Data.Migrations
+@using Org.BouncyCastle.Math.EC.Rfc7748
+@using System.Net.Mime
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject ApplicationDbContext AppDbContext
+@inject MIVisitorCenterDbContext MiDbContext
+
+@{
+    
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    ApplicationUser currentUser = AppDbContext.Users.FirstOrDefault(u => u.Id == UserManager.GetUserId(User));
+    var userBusiness = MiDbContext.Businesses.FirstOrDefault(b => b.Name.Equals(currentUser.BusinessName));
+    if (User.IsInRole("admin"))
+    {
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Feature Links</a></li>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a class="nav-link" asp-controller="StakeholderOptions" asp-action="WebstoreOptions">Webstore Options</a></li>
+                <li><a class="nav-link" asp-controller="StakeholderOptions" asp-action="MapOptions">Map Options</a></li>
+            </ul>
+        </div>
+
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Manage</a></li>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a class="nav-link" asp-controller="Administrator" asp-action="Manage">Manage Website Content</a></li>
+                <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account Information</a></li>
+                <li><a class="nav-link" asp-controller="Businesses" asp-action="Index">Edit Businesses</a></li>
+                <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register Users</a></li>
+            </ul>
+        </div>
+    }
+    if (!User.IsInRole("admin"))
+    {
+        <li class="uk-parent uk-visible@m"><a class="nav-link" href="">Hello, @userBusiness.Name </a></li>
+        <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account Information</a></li>
+                <li><a class="nav-link" asp-controller="Businesses" asp-action="Edit" asp-route-id="@userBusiness.Id">Edit Business Page</a></li>
+            </ul>
+        </div>
+    }
+    <li>
+        <a class="uk-text-large">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button class="logout-btn" type="submit">LOGOUT</button>
+            </form>
+        </a>
+    </li>
+    
+
+}
+else
+{
+    <li><a class="uk-text-large" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
+}

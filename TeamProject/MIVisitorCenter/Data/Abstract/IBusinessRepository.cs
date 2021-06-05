@@ -10,7 +10,10 @@ namespace MIVisitorCenter.Data.Abstract
     public interface IBusinessRepository : IRepository<Business>
     {
         Business GetBusinessByID(int id);
+        Business GetBusinessByName(string name);
         Task UpdateBusiness(Business business, IFormFile profilePicture, IFormCollection images);
+        byte[] ImageToByteArray(IFormFile img);
+        bool formFileIsImage(IFormFile profilePicture);
 
     }
 }

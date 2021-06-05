@@ -1,227 +1,100 @@
-﻿@model IQueryable<Category>
+﻿@model IEnumerable<ItineraryBuilderViewModel>
 @{
     ViewData["Title"] = "PlanATrip";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var restaurants = Model.Where(c => c.Name == "Restaurants").SelectMany(b => b.BusinessCategories).ToList();
-    var activities = Model.Where(c => c.Name == "Hiking" || c.Name == "Cycling" || c.Name == "Birding" || c.Name == "Fishing" || c.Name == "Wineries").SelectMany(b => b.BusinessCategories).ToList();
-    var culture = Model.Where(c => c.Name == "Art Galleries" || c.Name == "Historic Sites & Museums" || c.Name == "Cinemas & Performing Arts").SelectMany(b => b.BusinessCategories).ToList();
-    var random = new Random();
+    int cardId = 0;
 }
 
 <div class="image-container">
     <div class="image-cover" data-src="/assets/PlanATrip.jpg" data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
-        <div class="accordion-title-card">Plan A Trip</div>
+        <div class="accordion-title-card-large accordion-title-card">
+            <h5 class="uk-card-title uk-text-center" style="font-size: 1.2em; color: #fff;"><strong>Plan A Trip</strong></h5>
+        </div>
     </div>
+</div>
+<div class="uk-margin text-center">
+    <button class="uk-button uk-button-primary uk-button-large" onclick="location.href='@Url.Action("ItineraryBuilder", "Itinerary")'">Build a custom itinerary</button>
 </div>
 <div>
     <p style="text-align:center">Check out our example iteneraries below!</p>
 </div>
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h4 style="text-align:center;font-weight:700">Got a free afternoon?</h4>
-            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
-                <thead>
-                    <tr>
-                        <th colspan="4" style="text-align:center">Day Trip</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td width="10%"></td>
-                        <td width="20%"></td>
-                        <td width="30%"></td>
-                        <td width="40%"></td>
-                    </tr>
-                    <tr>
-                        @{
-                            int index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Lunch</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(activities.Count);
-                        }
-                        <th scope="row">Afternoon</th>
-                        <td><a @* TODO href="/Business/Details/@activities[index].BusinessId"*@>@activities[index].Business.Name</a></td>
-                        <td>@activities[index].Business.Address.StreetAddress</td>
-                        <td>@activities[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(culture.Count);
-                        }
-                        <th scope="row">Evening</th>
-                        <td><a @* TODO href="/Business/Details/@culture[index].BusinessId"*@>@culture[index].Business.Name</a></td>
-                        <td>@culture[index].Business.Address.StreetAddress</td>
-                        <td>@culture[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Dinner</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                </tbody>
-            </table>
+
+@foreach (var itinerary in Model)
+{
+    cardId += 1;
+
+    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+        <div class="uk-card-media-left uk-cover-container">
+            <img src="@itinerary.ImageUrl" alt="" uk-cover>
+            <canvas width="600" height="400"></canvas>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h4 style="text-align:center;font-weight:700">Staying the weekend?</h4>
-            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider"">
-                <thead>
-                    <tr>
-                        <th colspan="4" style="text-align:center">Day One</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td width="10%"></td>
-                        <td width="20%"></td>
-                        <td width="30%"></td>
-                        <td width="40%"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lodging</th>
-                        <td>Hotel</td>
-                        <td>Hotel.Address</td>
-                        <td>Hotel.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Breakfast</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(activities.Count);
-                        }
-                        <th scope="row">Morning</th>
-                        <td><a @* TODO href="/Business/Details/@activities[index].BusinessId"*@>@activities[index].Business.Name</a></td>
-                        <td>@activities[index].Business.Address.StreetAddress</td>
-                        <td>@activities[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Lunch</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(activities.Count);
-                        }
-                        <th scope="row">Afternoon</th>
-                        <td><a @* TODO href="/Business/Details/@activities[index].BusinessId"*@>@activities[index].Business.Name</a></td>
-                        <td>@activities[index].Business.Address.StreetAddress</td>
-                        <td>@activities[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(culture.Count);
-                        }
-                        <th scope="row">Evening</th>
-                        <td><a @* TODO href="/Business/Details/@culture[index].BusinessId"*@>@culture[index].Business.Name</a></td>
-                        <td>@culture[index].Business.Address.StreetAddress</td>
-                        <td>@culture[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Dinner</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table id="itinerary" class="uk-table uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
-                <thead>
-                    <tr>
-                        <th colspan="4" style="text-align:center">Day Two</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td width="10%"></td>
-                        <td width="20%"></td>
-                        <td width="30%"></td>
-                        <td width="40%"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lodging</th>
-                        <td>Hotel</td>
-                        <td>Hotel.Address</td>
-                        <td>Hotel.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Breakfast</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(activities.Count);
-                        }
-                        <th scope="row">Morning</th>
-                        <td><a @* TODO href="/Business/Details/@activities[index].BusinessId"*@>@activities[index].Business.Name</a></td>
-                        <td>@activities[index].Business.Address.StreetAddress</td>
-                        <td>@activities[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Lunch</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(activities.Count);
-                        }
-                        <th scope="row">Afternoon</th>
-                        <td><a @* TODO href="/Business/Details/@activities[index].BusinessId"*@>@activities[index].Business.Name</a></td>
-                        <td>@activities[index].Business.Address.StreetAddress</td>
-                        <td>@activities[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(culture.Count);
-                        }
-                        <th scope="row">Evening</th>
-                        <td><a @* TODO href="/Business/Details/@culture[index].BusinessId"*@>@culture[index].Business.Name</a></td>
-                        <td>@culture[index].Business.Address.StreetAddress</td>
-                        <td>@culture[index].Business.Description</td>
-                    </tr>
-                    <tr>
-                        @{
-                            index = random.Next(restaurants.Count);
-                        }
-                        <th scope="row">Dinner</th>
-                        <td><a @* TODO href="/Business/Details/@restaurants[index].BusinessId"*@>@restaurants[index].Business.Name</a></td>
-                        <td>@restaurants[index].Business.Address.StreetAddress</td>
-                        <td>@restaurants[index].Business.Description</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">@itinerary.Name</h3>
+                <p>@itinerary.Description</p>
+                <a class="uk-button uk-button-default" href="#modal-full@(cardId)" uk-toggle>View details</a>
+            </div>
         </div>
     </div>
+
+
+    <div id="modal-full@(cardId)" class="uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+            <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                <div class="uk-background-cover" style="background-image: url(@itinerary.ImageUrl);" uk-height-viewport></div>
+                <div class="uk-padding-large">
+                    <h1>@itinerary.Itinerary.Days.Count Day Itinerary</h1>
+                    <p>@itinerary.Description</p>
+                    
+                    <div class="itinerary-card__content">
+
+                        @foreach (var itineraryDay in  itinerary.Itinerary.Days)
+                        {
+                            <table class="uk-table uk-table-small uk-table-justify uk-table-responsive uk-table-middle uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th class="uk-width-small"></th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var timeslot in itineraryDay.ItineraryTimeSlots)
+                                    {
+                                        <tr>
+                                            <td>@timeslot.Time</td>
+                                            <td>
+                                                <ul uk-accordion>
+                                                    <li>
+                                                        <a class="uk-accordion-title intinerary-card__modal-table--timeslots" href="#">@timeslot.Business.Name </a>
+                                                        <div class="uk-accordion-content">
+                                                            <table class="uk-table uk-table-middle uk-table-divider">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="uk-table-expand">Address</th>
+                                                                        <th>Description</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>@timeslot.Business.Address.StreetAddress</td>
+                                                                        <td>@timeslot.Business.Description</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-align-center">Call To Action</button>
+                </div>
+            </div> 
+        </div> 
+    </div>
+}

@@ -9,22 +9,22 @@
 <div class="row">
     <div class="col"></div>
     <div class="col-md-5">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="uk-align-center">
             <h4>Create a new account.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
+            <div class="uk-margin">
                 <label asp-for="Input.BusinessName"></label>
-                <select asp-for="Input.BusinessName" asp-items="Model.Businesses" class="form-control">Select a Business</select>
+                <select asp-for="Input.BusinessName" asp-items="Model.Businesses" class="uk-select">Select a Business</select>
                 <span asp-validation-for="Input.BusinessName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="uk-margin">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <hr />
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="uk-button uk-button-secondary">Register</button>
         </form>
     </div>
     <div class="col"></div>

@@ -40,6 +40,12 @@ namespace MIVisitorCenter
 
             services.AddScoped<IBusinessRepository, BusinessRepository>();
             services.AddScoped<IPhotoCollectionRepository, PhotoCollectionRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IHoursRepository, HoursRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IPageRepository, PageRepository>();
+            services.AddScoped<IComponentRepository, ComponentRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
@@ -51,16 +57,17 @@ namespace MIVisitorCenter
                 options.AddPolicy("BusinessOwner",
                     policy => policy.AddRequirements(new BusinessOwnerRequirement()));
             });
+            
+            GeocodeAPIHandler.apiKey = Configuration["GeocodeAPI"];
 
             services.AddTransient<IAuthorizationHandler, BusinessOwnerHandler>();
-
             services.AddTransient<IEmailSender, MailKitEmailSender>();
             services.Configure<MailKitEmailSenderOptions>(options =>
             {
                 options.HostAddress = Configuration["ServiceProviders:MailKit:SMTP:Address"];
                 options.HostPort = Convert.ToInt32(Configuration["ServiceProviders:MailKit:SMTP:Port"]);
                 options.HostUsername = Configuration["ServiceProviders:MailKit:SMTP:Account"];
-                options.HostPassword = Configuration["ServiceProviders:MailKit:SMTP:Password"];
+                options.HostPassword = Configuration["MailjetPassword"];
                 options.SenderEMail = Configuration["ServiceProviders:MailKit:SMTP:SenderEmail"];
                 options.SenderName = Configuration["ServiceProviders:MailKit:SMTP:SenderName"];
             });

@@ -13,10 +13,11 @@ namespace MIVisitorCenter
         [Key]
         [Column("ID")]
         public int Id { get; set; }
-        [StringLength(16)]
-        public string Day { get; set; }
-        public TimeSpan? Open { get; set; }
-        public TimeSpan? Close { get; set; }
+        public int? Day { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? Open { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? Close { get; set; }
         [Column("BusinessID")]
         public int? BusinessId { get; set; }
 

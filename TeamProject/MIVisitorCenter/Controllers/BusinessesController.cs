@@ -29,6 +29,7 @@ namespace MIVisitorCenter.Controllers
         private readonly IHoursRepository _hoursRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IComponentRepository _componentRepo;
+        private readonly IDiningSubcategoryRepository _diningSubcategoryRepository;
 
         public BusinessesController(MIVisitorCenterDbContext context, 
                                     IAuthorizationService authorizationService, 
@@ -37,7 +38,8 @@ namespace MIVisitorCenter.Controllers
                                     IAddressRepository addressRepo,
                                     IHoursRepository hoursRepository,
                                     ICategoryRepository categoryRepository,
-                                    IComponentRepository componentRepository)
+                                    IComponentRepository componentRepository,
+                                    IDiningSubcategoryRepository diningSubcategoryRepository)
         {
             _context = context;
             _authorizationService = authorizationService;
@@ -47,6 +49,7 @@ namespace MIVisitorCenter.Controllers
             _hoursRepository = hoursRepository;
             _categoryRepository = categoryRepository;
             _componentRepo = componentRepository;
+            _diningSubcategoryRepository = diningSubcategoryRepository;
         }
 
         // GET: Businesses
@@ -128,7 +131,7 @@ namespace MIVisitorCenter.Controllers
         [HttpPost]
         public ActionResult EatAndDrink(string[] tags)
         {
-            ViewData["DiningSubcategories"] = _context.DiningSubcategories.OrderBy(a => a.Name).ToArray();
+            ViewData["DiningSubcategories"] = _diningSubcategoryRepository.GetAllSubcategories();
             var businesses = _context.Categories
                                     .Where(n => n.Name == "Restaurants" || n.Name == "Coffee" || n.Name == "Wineries" || n.Name == "Bars")
                                     .Include(c => c.BusinessCategories)
